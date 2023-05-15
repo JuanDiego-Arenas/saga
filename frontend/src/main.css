@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Tilt Neon', cursive;
+    background: rgb(242, 242, 242);
+}
