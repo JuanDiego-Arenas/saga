@@ -23,13 +23,12 @@ export const getUser = async (req, res) => {
 				message: 'Aprendiz not found',
 			});
 		}
+		res.json(rows[0]);
 	} catch (error) {
 		return res.status(500).json({
 			message: 'Something goes wrong',
 		});
 	}
-
-	res.json(rows[0]);
 };
 
 // Todas las peticiones a la base de datos son asíncronas (async/await)
@@ -44,9 +43,9 @@ export const createAprendiz = async (req, res) => {
 			[user, password, cedula, nombre, apellido, correo, celular]
 		);
 
-			// if (cedula ) {
-				
-			// }
+		// if (cedula ) {
+
+		// }
 
 		res.send({
 			id: rows.insertId,
@@ -83,8 +82,7 @@ export const deleteAprendiz = async (req, res) => {
 };
 
 export const updateAprendiz = async (req, res) => {
-	const { cedula } = req.body;
-	const { user, password } = req.body;
+	const { cedula, user, password } = req.body;
 
 	try {
 		const [result] = await pool.query(

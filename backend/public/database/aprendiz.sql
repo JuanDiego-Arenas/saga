@@ -1,6 +1,8 @@
 CREATE DATABASE IF NOT EXISTS saga;
 
-CREATE TABLE aprendiz (
+USE saga;
+
+CREATE TABLE IF NOT EXISTS aprendiz (
   aprid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
   apellido VARCHAR(255) NOT NULL,
@@ -12,7 +14,6 @@ CREATE TABLE aprendiz (
 );
 
 INSERT INTO aprendiz (nombre, apellido, cedula, correo, celular, user, password)
-VALUES ('Juan Diego', 'Arenas', '12345678910', 'arenas@saga.com', '32091237', 'diego', '123');
-
-INSERT INTO aprendices( nombre, correo, edad, direccion, ciudad, estado)
-VALUES('Marcos', 'correoexample@gmail.com', 19, 'Calle 12-5', 'Garzón', 1);
+VALUES 
+  ('Juan Diego', 'Arenas', '3984934d', 'arenas@saga.com', '32091237', 'jda', '123'),
+  ('Marcos', 'Monte', '12312312', 'saga@gmail.com', '327848379', 'marquitos', '1234');
