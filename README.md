@@ -1,7 +1,7 @@
 
 # SAGA
 
-SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias y prestamso para la biblioteca
+SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias y prestamos para la biblioteca
 
 ## Tech Stack
 
