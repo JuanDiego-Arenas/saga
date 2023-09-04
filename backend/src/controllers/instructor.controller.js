@@ -6,7 +6,7 @@ export const getInstructor = async (req, res) => {
 		res.json(rows);
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -20,13 +20,13 @@ export const getUser = async (req, res) => {
 
 		if (rows.length <= 0) {
 			return res.status(404).json({
-				message: 'instructor not found',
+				message: 'instructor not found 🔎',
 			});
 		}
 		res.json(rows[0]);
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -34,13 +34,32 @@ export const getUser = async (req, res) => {
 // Todas las peticiones a la base de datos son asíncronas (async/await)
 export const createInstructor = async (req, res) => {
 	try {
-		const { user, password, cedula, nombre, apellido, correo, celular } =
-			req.body;
+		const {
+			user,
+			password,
+			cedula,
+			nombre,
+			apellido,
+			correo,
+			celular,
+			ficha_id,
+			pre_id,
+		} = req.body;
 
 		const [rows] = await pool.query(
 			// Los valores van "?", para después ser recibidos desde el body
-			'INSERT INTO instructor (user, password, cedula, nombre, apellido, correo, celular) VALUES (?, ?, ?, ?, ?, ?, ?)',
-			[user, password, cedula, nombre, apellido, correo, celular]
+			'INSERT INTO instructor (user, password, cedula, nombre, apellido, correo, celular) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+			[
+				user,
+				password,
+				cedula,
+				nombre,
+				apellido,
+				correo,
+				celular,
+				ficha_id,
+				pre_id,
+			]
 		);
 
 		res.send({
@@ -51,7 +70,7 @@ export const createInstructor = async (req, res) => {
 		});
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -65,14 +84,14 @@ export const deleteInstructor = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'User not found',
+				message: 'User not found 🔎',
 			});
 		}
 
 		res.sendStatus(204);
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -108,14 +127,14 @@ export const updateInstructor = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'User not found',
+				message: 'User not found 🔎',
 			});
 		}
 
 		res.json('Updated user');
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };

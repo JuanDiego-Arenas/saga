@@ -20,7 +20,7 @@ export const getUser = async (req, res) => {
 
 		if (rows.length <= 0) {
 			return res.status(404).json({
-				message: 'préstamo not found',
+				message: 'préstamo not found 🔎',
 			});
 		}
 		res.json(rows[0]);
@@ -42,10 +42,6 @@ export const createPrestamo = async (req, res) => {
 			[producto, codigo, descripcion, observaciones]
 		);
 
-		// if (cedula ) {
-
-		// }
-
 		res.send({
 			codigo,
 			producto,
@@ -66,7 +62,7 @@ export const deletePrestamo = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'producto not found',
+				message: 'producto not found 🔎',
 			});
 		}
 
@@ -89,7 +85,7 @@ export const updatePrestamo = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'Producto not found',
+				message: 'Producto not found 🔎',
 			});
 		}
 

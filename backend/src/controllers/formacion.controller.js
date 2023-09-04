@@ -64,7 +64,7 @@ export const deleteFormacion = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'Ficha not found',
+				message: 'Ficha not found 🔎',
 			});
 		}
 
@@ -87,14 +87,14 @@ export const updateFormacion = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'Ficha not found',
+				message: 'Ficha not found 🔎',
 			});
 		}
 
 		res.json('Updated Ficha');
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };

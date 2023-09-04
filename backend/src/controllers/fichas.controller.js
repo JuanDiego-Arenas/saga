@@ -6,7 +6,7 @@ export const getFichas = async (req, res) => {
 		res.json(rows);
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -20,7 +20,7 @@ export const getFicha = async (req, res) => {
 
 		if (rows.length <= 0) {
 			return res.status(404).json({
-				message: 'ficha not found',
+				message: 'ficha not found 🔎',
 			});
 		}
 		res.json(rows[0]);
@@ -48,7 +48,7 @@ export const createFichas = async (req, res) => {
 		});
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
@@ -62,7 +62,7 @@ export const deleteFichas = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'Ficha not found',
+				message: 'Ficha not found 🔎',
 			});
 		}
 
@@ -85,14 +85,14 @@ export const updateFichas = async (req, res) => {
 
 		if (result.affectedRows <= 0) {
 			return res.status(404).json({
-				message: 'Ficha not found',
+				message: 'Ficha not found 🔎',
 			});
 		}
 
 		res.json('Updated Ficha');
 	} catch (error) {
 		return res.status(500).json({
-			message: 'Something goes wrong',
+			message: 'Something goes wrong ❌',
 		});
 	}
 };
