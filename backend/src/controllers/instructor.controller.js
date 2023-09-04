@@ -1,8 +1,8 @@
 import { pool } from '../db.js';
 
-export const getAprendiz = async (req, res) => {
+export const getInstructor = async (req, res) => {
 	try {
-		const [rows] = await pool.query('SELECT * FROM aprendiz');
+		const [rows] = await pool.query('SELECT * FROM instructor');
 		res.json(rows);
 	} catch (error) {
 		return res.status(500).json({
@@ -14,13 +14,13 @@ export const getAprendiz = async (req, res) => {
 export const getUser = async (req, res) => {
 	try {
 		const [rows] = await pool.query(
-			'SELECT * FROM aprendiz WHERE user = ?',
+			'SELECT * FROM instructor WHERE user = ?',
 			[req.params.user]
 		);
 
 		if (rows.length <= 0) {
 			return res.status(404).json({
-				message: 'Aprendiz not found',
+				message: 'instructor not found',
 			});
 		}
 		res.json(rows[0]);
@@ -32,20 +32,16 @@ export const getUser = async (req, res) => {
 };
 
 // Todas las peticiones a la base de datos son asíncronas (async/await)
-export const createAprendiz = async (req, res) => {
+export const createInstructor = async (req, res) => {
 	try {
 		const { user, password, cedula, nombre, apellido, correo, celular } =
 			req.body;
 
 		const [rows] = await pool.query(
 			// Los valores van "?", para después ser recibidos desde el body
-			'INSERT INTO aprendiz (user, password, cedula, nombre, apellido, correo, celular) VALUES (?, ?, ?, ?, ?, ?, ?)',
+			'INSERT INTO instructor (user, password, cedula, nombre, apellido, correo, celular) VALUES (?, ?, ?, ?, ?, ?, ?)',
 			[user, password, cedula, nombre, apellido, correo, celular]
 		);
-
-		// if (cedula ) {
-
-		// }
 
 		res.send({
 			id: rows.insertId,
@@ -60,10 +56,10 @@ export const createAprendiz = async (req, res) => {
 	}
 };
 
-export const deleteAprendiz = async (req, res) => {
+export const deleteInstructor = async (req, res) => {
 	try {
 		const [result] = await pool.query(
-			'DELETE FROM aprendiz WHERE user = ?',
+			'DELETE FROM instructor WHERE user = ?',
 			[req.body.user]
 		);
 
@@ -81,13 +77,33 @@ export const deleteAprendiz = async (req, res) => {
 	}
 };
 
-export const updateAprendiz = async (req, res) => {
+export const updateInstructor = async (req, res) => {
 	try {
-		const { cedula, password, user } = req.body;
+		const {
+			cedula,
+			user,
+			password,
+			nombre,
+			apellido,
+			correo,
+			celular,
+			ficha_id,
+			pre_id,
+		} = req.body;
 
 		const [result] = await pool.query(
-			'UPDATE aprendiz SET user = IFNULL(?, user), password = IFNULL(?, password) WHERE cedula = ?',
-			[user, password, cedula]
+			'UPDATE instructor SET user = IFNULL(?, user), password = IFNULL(?, password), nombre=IFNULL(?, nombre), apellido=IFNULL(?, apellido), correo=IFNULL(?, correo), celular=IFNULL(?, celular), ficha_id=IFNULL(?, ficha_id), pre_id=IFNULL(?, pre_id) WHERE cedula = ?',
+			[
+				user,
+				password,
+				nombre,
+				apellido,
+				correo,
+				celular,
+				ficha_id,
+				pre_id,
+				cedula,
+			]
 		);
 
 		if (result.affectedRows <= 0) {
