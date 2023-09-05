@@ -1,0 +1,7 @@
+https://saga-backend.up.railway.app/api/instructor/
+https://saga-backend.up.railway.app/api/aprendiz
+https://saga-backend.up.railway.app/api/admin
+https://saga-backend.up.railway.app/api/formacion
+https://saga-backend.up.railway.app/api/fichas
+https://saga-backend.up.railway.app/api/prestamos/
+https://saga-backend.up.railway.app/api/noticia
