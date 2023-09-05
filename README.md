@@ -5,6 +5,11 @@
 </div>
 <br>
 <div align="center">
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="xh0pe" /> </p>
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
 
   ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
   ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
