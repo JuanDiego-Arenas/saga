@@ -1,4 +1,5 @@
 <!-- Banner SAGA -->
+<br>
 <div align="center">
 	<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=400&color=3BAA35&background=FFFFFF00&center=true&vCenter=true&width=435&lines=Welcome+to+SAGA;A+Node.js+and+React.js+project" alt="Typing SVG SAGA"/>
 </div>
