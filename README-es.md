@@ -124,12 +124,15 @@ SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en l
 
 
 <!-- Autores del proyecto -->
-## Autores
+## 👨‍💻Authors
 
 - [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
 - [@JuanferGG](https://github.com/JuanferGG)
 - [@XH0PE](https://github.com/XH0PE)
+
+## 👨‍🏫Leaders Instructors
 - [@hdtoledo](https://github.com/hdtoledo)
+- [@jlombanar](https://github.com/jlombanar)
 
 <!-- Documentación oficial -->
 ## Documentación Oficial
