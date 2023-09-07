@@ -41,7 +41,7 @@ SAGA is an educational project aimed at achieving better attendance management. 
 ## Deployment
 
 ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
-![Npm](https://img.shields.io/badge/npm-%232C8EBB.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
 <p>
   In this project, it is possible to use Yarn as an alternative to npm.
@@ -134,3 +134,5 @@ For production, use:
 ## Official Documentation
 
 [Documentación v1.9](https://docs.google.com/document/d/1kZ9EadnyI-J2SxvlJGsE3FNvKyZrG7BQ/edit?usp=sharing&ouid=103677181091693336183&rtpof=true&sd=true)
+
+Made with ❤️ and JavaScript.
