@@ -9,7 +9,7 @@
 </div>
 <br>
 <div align="center">
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="Counter" /> </p>
+<p align="center"> <img height="24px" src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=flat" alt="Counter" /> </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
