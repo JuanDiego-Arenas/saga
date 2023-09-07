@@ -1,7 +1,7 @@
 <!-- Banner SAGA -->
 <div align="center">
-	<img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
-  <img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
+	<img height="200px" src="public/img/logo_green_2023.png" alt="Logo SENA"/>
+  <img height="200px" src="public/img/SAGA.svg" alt="Logo SAGA"/>
 </div>
 <br>
 <div align="center">
@@ -9,7 +9,7 @@
 </div>
 <br>
 <div align="center">
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="counter" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="Counter" /> </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
