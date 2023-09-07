@@ -11,6 +11,13 @@
 <div align="center">
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="Counter" /> </p>
 
+
+<p>
+  ·
+  <a href="/docs/readme_es.md">Español</a>
+  ·
+</p>
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 </p>
