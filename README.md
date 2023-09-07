@@ -1,7 +1,7 @@
 <!-- Banner SAGA -->
 <div align="center">
-	<img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
-  <img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
+	<img height="200px" src="public/img/logo_green_2023.png" alt="Logo SENA"/>
+  <img height="200px" src="public/img/SAGA.svg" alt="Logo SAGA"/>
 </div>
 <br>
 <div align="center">
@@ -9,7 +9,7 @@
 </div>
 <br>
 <div align="center">
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="counter" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="Counter" /> </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -60,15 +60,6 @@ En este proyecto es posibles
 ## Documentación Oficial
 
 [Documentación v1.9](https://docs.google.com/document/d/1kZ9EadnyI-J2SxvlJGsE3FNvKyZrG7BQ/edit?usp=sharing&ouid=103677181091693336183&rtpof=true&sd=true)
-
-<br>
-<br>
-<br>
-
-<div align="center">
-
-![Logo](https://fontmeme.com/permalink/230904/e8896ba9e11d10952410ef2e06339081.png)
-</div>
 
 
 
