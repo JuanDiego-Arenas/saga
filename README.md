@@ -47,7 +47,7 @@ SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en l
   En este proyecto es posibles utilizan yarn como npm.
 </p>
 
-### Back-end
+### 🐱‍💻Back-end
 <p>
   Para ejecutar el servidor primero entramos al directorio raíz del <a href="./backend/">backend</a> 
 </p>
@@ -85,7 +85,7 @@ SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en l
   yarn star
 ```
 ---
-### Front-end
+### 💻Front-end
 <p>
   Para ejecutar la vista entraremos al directorio raíz del <a href="./frontend/">frontend</a> 
 </p>
