@@ -29,13 +29,21 @@ SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en l
 <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/mysql-logo.svg" alt="MySql" width="45" height="40"/></a>
 <a href="https://www.mongodb.com/es" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" width="40" height="40"/></a>
 
+## Deployment
 
-## Running
+![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
+![Npm](https://img.shields.io/badge/npm-%232C8EBB.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+En este proyecto es posibles
+
+```bash
+  npm run deploy
+```
 
 <!-- Autores del proyecto -->
 ## Autores
 
-- [@JuanDiego-Arenas](https://github.com/JuanDiego-Arenas)
+- [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
 - [@JuanferGG](https://github.com/JuanferGG)
 - [@XH0PE](https://github.com/XH0PE)
 
