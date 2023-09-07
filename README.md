@@ -124,12 +124,15 @@ For production, use:
 
 
 <!-- Autores del proyecto -->
-## Authors
+## 👨‍💻Authors
 
-- <a href="https://juandiego-arenas.github.io/portfolio/" target="_blank">@JuanDiego-Arenas</a>
-- <a href="https://github.com/JuanferGG" target="_blank">@JuanferGG</a>
-- <a href="https://github.com/XH0PE" target="_blank">@XH0PE</a>
-- <a href="https://github.com/hdtoledo" target="_blank">@hdtoledo</a>
+- [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
+- [@JuanferGG](https://github.com/JuanferGG)
+- [@XH0PE](https://github.com/XH0PE)
+
+## 👨‍🏫Leaders Instructors
+- [@hdtoledo](https://github.com/hdtoledo)
+- [@jlombanar](https://github.com/jlombanar)
 
 <!-- Documentación oficial -->
 ## Official Documentation
