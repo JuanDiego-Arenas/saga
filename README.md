@@ -43,11 +43,85 @@ SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en l
 ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
 ![Npm](https://img.shields.io/badge/npm-%232C8EBB.svg?style=for-the-badge&logo=npm&logoColor=white)
 
-En este proyecto es posibles
+<p>
+  En este proyecto es posibles utilizan yarn como npm.
+</p>
+
+### Back-end
+<p>
+  Para ejecutar el servidor primero entramos al directorio raíz del <a href="./backend/">backend</a> 
+</p>
+
+<p>
+  Estando acá instalamos las dependencias de yarn/npm
+</p>
+
+```bash
+  yarn install
+```
+<br>
+
+**Desarrollo**
+<p>
+  Si se utiliza en desarrollo utilizaremos:
+</p>
+
+```bash
+  yarn dev
+```
+
+<div align="center">
+	<img src="./public/img/backend_dev.png" alt="Backend running"/>
+</div>
+
+<br>
+
+**Producción**
+<p>
+  Y para producción utilizaremos:
+</p>
+
+```bash
+  yarn star
+```
+---
+### Front-end
+<p>
+  Para ejecutar la vista entraremos al directorio raíz del <a href="./frontend/">frontend</a> 
+</p>
+
+<p>
+  Estando acá instalamos las dependencias de yarn/npm acá utilizamos <a href="https://vitejs.dev/">vite</a>
+</p>
+
+```bash
+  npm install
+```
+<br>
+
+**Desarrollo**
+<p>
+  Si se utiliza en desarrollo utilizaremos:
+</p>
+
+```bash
+  npm run dev
+```
+<div align="center">
+	<img src="./public/img/frontend_dev.png" alt="Backend running"/>
+</div>
+
+<br>
+
+**Producción**
+<p>
+  Y para producción utilizaremos:
+</p>
 
 ```bash
   npm run deploy
 ```
+
 
 <!-- Autores del proyecto -->
 ## Autores
@@ -60,15 +134,3 @@ En este proyecto es posibles
 ## Documentación Oficial
 
 [Documentación v1.9](https://docs.google.com/document/d/1kZ9EadnyI-J2SxvlJGsE3FNvKyZrG7BQ/edit?usp=sharing&ouid=103677181091693336183&rtpof=true&sd=true)
-
-<br>
-<br>
-<br>
-
-<div align="center">
-
-![Logo](https://fontmeme.com/permalink/230904/e8896ba9e11d10952410ef2e06339081.png)
-</div>
-
-
-
