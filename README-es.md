@@ -22,7 +22,7 @@
 <!-- Información principal -->
 # SAGA
 
-SAGA is an educational project aimed at achieving better attendance management. It also includes a section for news and library loans.
+SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias y prestamos para la biblioteca
 
 <!-- Stack utilizado -->
 ## Tech Stack
@@ -44,16 +44,16 @@ SAGA is an educational project aimed at achieving better attendance management. 
 ![Npm](https://img.shields.io/badge/npm-%232C8EBB.svg?style=for-the-badge&logo=npm&logoColor=white)
 
 <p>
-  In this project, it is possible to use Yarn as an alternative to npm.
+  En este proyecto es posibles utilizan yarn como npm.
 </p>
 
 ### 🐱‍💻Back-end
 <p>
-  To run the server, start by navigating to the root directory of the <a href="./backend/">backend</a> 
+  Para ejecutar el servidor primero entramos al directorio raíz del <a href="./backend/">backend</a> 
 </p>
 
 <p>
-  Once here, install the Yarn/npm dependencies.
+  Estando acá instalamos las dependencias de yarn/npm
 </p>
 
 ```bash
@@ -63,8 +63,7 @@ SAGA is an educational project aimed at achieving better attendance management. 
 
 **Development**
 <p>
-  If you are using it in a development environment, use:
-
+  Si se utiliza en desarrollo utilizaremos:
 </p>
 
 ```bash
@@ -79,7 +78,8 @@ SAGA is an educational project aimed at achieving better attendance management. 
 
 **Production**
 <p>
-  For production, use:</p>
+  Y para producción utilizaremos:
+</p>
 
 ```bash
   yarn star
@@ -87,11 +87,11 @@ SAGA is an educational project aimed at achieving better attendance management. 
 ---
 ### 💻Front-end
 <p>
-  To run the front-end view, navigate to the root directory of the <a href="./frontend/">frontend</a> 
+  Para ejecutar la vista entraremos al directorio raíz del <a href="./frontend/">frontend</a> 
 </p>
 
 <p>
-  While here, install the Yarn/npm dependencies, and we utilize Vite<a href="https://vitejs.dev/"> here.</a>
+  Estando acá instalamos las dependencias de yarn/npm acá utilizamos <a href="https://vitejs.dev/">vite</a>
 </p>
 
 ```bash
@@ -101,7 +101,7 @@ SAGA is an educational project aimed at achieving better attendance management. 
 
 **Development**
 <p>
-  If you are using it in a development environment, use:
+  Si se utiliza en desarrollo utilizaremos:
 </p>
 
 ```bash
@@ -115,7 +115,7 @@ SAGA is an educational project aimed at achieving better attendance management. 
 
 **Production**
 <p>
-For production, use:
+  Y para producción utilizaremos:
 </p>
 
 ```bash
@@ -124,13 +124,13 @@ For production, use:
 
 
 <!-- Autores del proyecto -->
-## Authors
+## Autores
 
 - [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
 - [@JuanferGG](https://github.com/JuanferGG)
 - [@XH0PE](https://github.com/XH0PE)
 
 <!-- Documentación oficial -->
-## Official Documentation
+## Documentación Oficial
 
 [Documentación v1.9](https://docs.google.com/document/d/1kZ9EadnyI-J2SxvlJGsE3FNvKyZrG7BQ/edit?usp=sharing&ouid=103677181091693336183&rtpof=true&sd=true)
