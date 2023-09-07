@@ -126,10 +126,10 @@ For production, use:
 <!-- Autores del proyecto -->
 ## Authors
 
-- [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
-- [@JuanferGG](https://github.com/JuanferGG)
-- [@XH0PE](https://github.com/XH0PE)
-- [@hdtoledo](https://github.com/hdtoledo)
+- <a href="https://juandiego-arenas.github.io/portfolio/" target="_blank">@JuanDiego-Arenas</a>
+- <a href="https://github.com/JuanferGG" target="_blank">@JuanferGG</a>
+- <a href="https://github.com/XH0PE" target="_blank">@XH0PE</a>
+- <a href="https://github.com/hdtoledo" target="_blank">@hdtoledo</a>
 
 <!-- Documentación oficial -->
 ## Official Documentation
