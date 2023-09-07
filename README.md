@@ -1,11 +1,15 @@
 <!-- Banner SAGA -->
+<div align="center">
+	<img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
+  <img height="200px" src="frontend/src/components/img/logo-SENA.png" alt="Typing SVG SAGA"/>
+</div>
 <br>
 <div align="center">
 	<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=400&color=3BAA35&background=FFFFFF00&center=true&vCenter=true&width=435&lines=Welcome+to+SAGA;A+Node.js+and+React.js+project" alt="Typing SVG SAGA"/>
 </div>
 <br>
 <div align="center">
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="xh0pe" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="counter" /> </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
