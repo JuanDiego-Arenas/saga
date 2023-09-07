@@ -129,7 +129,7 @@ For production, use:
 - [@JuanDiego-Arenas](https://juandiego-arenas.github.io/portfolio/)
 - [@JuanferGG](https://github.com/JuanferGG)
 - [@XH0PE](https://github.com/XH0PE)
-- [@hdtoledo](https://hdtoledo.dev/)
+- [@hdtoledo](https://github.com/hdtoledo)
 
 <!-- Documentación oficial -->
 ## Official Documentation
