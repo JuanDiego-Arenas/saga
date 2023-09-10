@@ -5,11 +5,11 @@
 </div>
 <br>
 <div align="center">
-	<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=400&color=3BAA35&background=FFFFFF00&center=true&vCenter=true&width=435&lines=Welcome+to+SAGA;A+Node.js+and+React.js+project" alt="Typing SVG SAGA"/>
+	<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=4000&pause=1000&color=1AFF02&center=true&vCenter=true&width=435&lines=Bienvenidos+a+SAGA;Un+proyecto+de+Node.js+y+React.js" alt="Typing SVG" /></a>
 </div>
 <br>
 <div align="center">
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Users&color=1abc58&style=plastic" alt="Counter" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=xh0pe&label=Usuarios&color=1abc58&style=flat" alt="Counter" /> </p>
 
 
 <p>
