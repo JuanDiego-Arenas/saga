@@ -48,7 +48,7 @@ export const createInstructor = async (req, res) => {
 
 		const [rows] = await pool.query(
 			// Los valores van "?", para después ser recibidos desde el body
-			'INSERT INTO instructor (user, password, cedula, nombre, apellido, correo, celular) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+			'INSERT INTO instructor (user, password, cedula, nombre, apellido, correo, celular, ficha_id, pre_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
 			[
 				user,
 				password,
@@ -88,7 +88,7 @@ export const deleteInstructor = async (req, res) => {
 			});
 		}
 
-		res.sendStatus(204);
+		res.sendStatus(200);
 	} catch (error) {
 		return res.status(500).json({
 			message: 'Something goes wrong ❌',

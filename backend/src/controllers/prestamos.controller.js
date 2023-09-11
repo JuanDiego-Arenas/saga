@@ -66,7 +66,7 @@ export const deletePrestamo = async (req, res) => {
 			});
 		}
 
-		res.sendStatus(204);
+		res.sendStatus(200);
 	} catch (error) {
 		return res.status(500).json({
 			message: 'Something goes wrong ❌',

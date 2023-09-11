@@ -92,7 +92,7 @@ export const deleteAprendiz = async (req, res) => {
 			});
 		}
 
-		res.sendStatus(204);
+		res.sendStatus(200);
 	} catch (error) {
 		return res.status(500).json({
 			message: 'Something goes wrong ❌',
@@ -103,7 +103,6 @@ export const deleteAprendiz = async (req, res) => {
 export const updateAprendiz = async (req, res) => {
 	try {
 		const {
-			cedula,
 			user,
 			password,
 			nombre,
@@ -112,10 +111,11 @@ export const updateAprendiz = async (req, res) => {
 			celular,
 			ficha,
 			pre_id,
+			cedula,
 		} = req.body;
 
 		const [result] = await pool.query(
-			'UPDATE instructor SET user = IFNULL(?, user), password = IFNULL(?, password), nombre=IFNULL(?, nombre), apellido=IFNULL(?, apellido), correo=IFNULL(?, correo), celular=IFNULL(?, celular), ficha=IFNULL(?, ficha), pre_id=IFNULL(?, pre_id) WHERE cedula = ?',
+			'UPDATE aprendiz SET user = IFNULL(?, user), password = IFNULL(?, password), nombre=IFNULL(?, nombre), apellido=IFNULL(?, apellido), correo=IFNULL(?, correo), celular=IFNULL(?, celular), ficha=IFNULL(?, ficha), pre_id=IFNULL(?, pre_id) WHERE cedula = ?',
 			[
 				user,
 				password,

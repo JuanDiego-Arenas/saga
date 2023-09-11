@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/formacion', formacionCtrl.getFormacion);
 
-// router.get('/formacion/:user', formacionCtrl.getUser);
+router.get('/formacion/:ficha', formacionCtrl.getFicha);
 
 router.post('/formacion', formacionCtrl.createFormacion);
 

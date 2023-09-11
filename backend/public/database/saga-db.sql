@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS formacion (
   tipo ENUM('Técnico', 'Tecnólogo', 'Auxiliar', 'Curso corto') NOT NULL,
   jornada ENUM('Mañana', 'Tarde', 'Noche') NOT NULL,
   numero_amb VARCHAR(255) NOT NULL,
-  cede ENUM('Principal', 'Alterna', 'Virtual')
+  sede ENUM('Principal', 'Alterna', 'Virtual')
 );
 
 CREATE TABLE IF NOT EXISTS fichas (
