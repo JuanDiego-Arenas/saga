@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "651436de082f2a63d43cdd00"
+  },
+  "producto": "Portatil",
+  "codigo": "71375087",
+  "descripcion": "Lenovo 23g, Ram: 16GB, Procsador: Core i5, ",
+  "observaciones": "Opcinal"
+},
+{
+  "_id": {
+    "$oid": "651436de082f2a63d43cdd01"
+  },
+  "producto": "Libro Matematicas",
+  "codigo": "14143463",
+  "descripcion": "Funciones Trigonometricas",
+  "observaciones": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "651436de082f2a63d43cdd02"
+  },
+  "producto": "Pipeta",
+  "codigo": "89456578",
+  "descripcion": "Utencilio cientifico para muestras",
+  "observaciones": "Buen estado"
+},
+{
+  "_id": {
+    "$oid": "651436de082f2a63d43cdd03"
+  },
+  "producto": "Teclado",
+  "codigo": "5454643",
+  "descripcion": "hyperX",
+  "observaciones": "Le falta la tecla Enter"
+},
+{
+  "_id": {
+    "$oid": "651436de082f2a63d43cdd04"
+  },
+  "producto": "Impresora",
+  "codigo": "46757793",
+  "descripcion": "EPSON",
+  "observaciones": "Le falta tinta roja"
+}]

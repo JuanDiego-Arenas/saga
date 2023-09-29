@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcfa"
+  },
+  "titulo": "Evento De HalLowen",
+  "contenido": "El dia de mañana se realizar un evento de disfrazes para la celebracion de Hallowen",
+  "fecha": "28/10/2023"
+},
+{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcfb"
+  },
+  "titulo": "Viaje recreativo",
+  "contenido": "Para una despedida del la formacion ADSO se hara una salida recreativa en una zona rural",
+  "fecha": "15/12/2023"
+},
+{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcfc"
+  },
+  "titulo": "SENA Anuncia Nuevos Programas de Formación",
+  "contenido": "El SENA amplía su oferta formativa con programas actualizados y relevantes para el mercado laboral",
+  "fecha": "11/06/2023"
+},
+{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcfd"
+  },
+  "titulo": "SENA Participa en Feria de Empleo Local",
+  "contenido": "La institución se une a una feria de empleo local para conectar a sus egresados con oportunidades laborales",
+  "fecha": "18/08/2022"
+},
+{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcfe"
+  },
+  "titulo": "SENA Abre Inscripciones para Cursos en Línea Gratuitos",
+  "contenido": "Se abre el registro para cursos en línea gratuitos ofrecidos por el SENA, brindando acceso a la educación a distancia",
+  "fecha": "22/10/2022"
+},
+{
+  "_id": {
+    "$oid": "65142813082f2a63d43cdcff"
+  },
+  "titulo": "SENA Firma Acuerdo de Cooperación Internacional",
+  "contenido": "La institución establece un acuerdo de colaboración con una entidad extranjera para fortalecer sus programas de formación y capacitación",
+  "fecha": "30/04/2022"
+}]
