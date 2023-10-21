@@ -60,57 +60,130 @@ db.personas.insertMany([
 
 db.noticias.insertMany([
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcfa',
-		},
 		titulo: 'Evento De HalLowen',
 		contenido:
 			'El dia de mañana se realizar un evento de disfrazes para la celebracion de Hallowen',
 		fecha: ISODate('2023-10-28'),
 	},
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcfb',
-		},
 		titulo: 'Viaje recreativo',
 		contenido:
 			'Para una despedida del la formacion ADSO se hara una salida recreativa en una zona rural',
 		fecha: ISODate('2023-12-15'),
 	},
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcfc',
-		},
 		titulo: 'SENA Anuncia Nuevos Programas de Formación',
 		contenido:
 			'El SENA amplía su oferta formativa con programas actualizados y relevantes para el mercado laboral',
 		fecha: ISODate('2023-06-11'),
 	},
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcfd',
-		},
 		titulo: 'SENA Participa en Feria de Empleo Local',
 		contenido:
 			'La institución se une a una feria de empleo local para conectar a sus egresados con oportunidades laborales',
 		fecha: ISODate('2022-08-18'),
 	},
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcfe',
-		},
 		titulo: 'SENA Abre Inscripciones para Cursos en Línea Gratuitos',
 		contenido:
 			'Se abre el registro para cursos en línea gratuitos ofrecidos por el SENA, brindando acceso a la educación a distancia',
 		fecha: ISODate('2022-10-22'),
 	},
 	{
-		_id: {
-			$oid: '65142813082f2a63d43cdcff',
-		},
 		titulo: 'SENA Firma Acuerdo de Cooperación Internacional',
 		contenido:
 			'La institución establece un acuerdo de colaboración con una entidad extranjera para fortalecer sus programas de formación y capacitación',
 		fecha: ISODate('2022-04-30'),
 	},
 ]);
+
+db.prestamos.insertMany([
+	{
+		codigo: '71375087',
+		producto: 'Portatil',
+		descripcion: 'Lenovo 23g, Ram: 16GB, Procsador: Core i5, ',
+		fecha_prestamo: ISODate('2021-02-02'),
+		fecha_entrega: ISODate('2023-12-28T13:30')
+	},
+	{
+		codigo: '14143463',
+		producto: 'Libro Matematicas',
+		descripcion: 'Funciones Trigonometricas',
+		fecha_prestamo: ISODate('2022-04-12'),
+		fecha_entrega: ISODate('2023-12-15T14:15')
+	},
+	{
+		codigo: '89456578',
+		producto: 'Pipeta',
+		descripcion: 'Utencilio cientifico para muestras',
+		fecha_prestamo: ISODate('2022-11-28'),
+		fecha_entrega: ISODate('2023-12-15T15:20')
+	},
+	{
+		codigo: '5454643',
+		producto: 'Teclado',
+		descripcion: 'hyperX',
+		fecha_prestamo: ISODate('2023-02-09'),
+		fecha_entrega: ISODate('2023-12-15T14:00')
+	},
+	{
+		codigo: '46757793',
+		producto: 'Impresora',
+		descripcion: 'EPSON',
+		fecha_prestamo: ISODate('2023-07-24'),
+		fecha_entrega: ISODate('2023-12-15T14:00')
+	}
+]);
+
+db.formaciones.insertMany([
+	{
+		ficha: '2502639',
+		nombre: 'Análisis y desarrollo de software',
+		ambiente: '106',
+		tipo: 'Tecnólogo',
+		jornada: 'Mañana',
+		sede: 'Principal',
+	},
+	{
+		ficha: '5435432',
+		nombre: 'Gestión empresarial',
+		ambiente: '232',
+		tipo: 'Tecnólogo',
+		jornada: 'Tarde',
+		sede: 'Alterna',
+	},
+	{
+		ficha: '7890564',
+		nombre: 'Barismo',
+		ambiente: '128',
+		tipo: 'Técnico',
+		jornada: 'Tarde',
+		sede: 'Principal',
+	},
+	{
+		ficha: '0745984',
+		nombre: 'Gestión agroempresarial',
+		ambiente: '236',
+		tipo: 'Tecnólogo',
+		jornada: 'Noche',
+		sede: 'Virtual',
+	},
+	{
+		ficha: '5474567856',
+		nombre: 'Producción musical',
+		ambiente: 'Teams',
+		tipo: 'Curso corto',
+		jornada: 'Mañana',
+		sede: 'Virtual',
+	},
+	{
+		ficha: '666',
+		nombre: 'Defensa contra las artes oscuras',
+		ambiente: '101',
+		tipo: 'Tecnólogo',
+		jornada: 'Noche',
+		sede: 'Principal',
+	},
+]);
+
+db.asistencias.insertMany([]);
