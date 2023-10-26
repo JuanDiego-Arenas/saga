@@ -1,8 +1,10 @@
 import xml2js from 'xml2js';
 
-const parseXmlToJson = (xmlString) => {
+
+const parseXmlToJson = async (xmlString) => {
+
     return new Promise((resolve, reject) => {
-        xml2js.parseString(xmlString, { explicitArray: false }, (err, result) => {
+        xml2js.parseString(xmlString, { explicitArray: false }, async (err, result) => {
             if (err) {
                 reject('Error al parsear XML: ' + err.message);
             } else {
@@ -10,33 +12,38 @@ const parseXmlToJson = (xmlString) => {
                 const jsonData = [];
 
                 if (Array.isArray(rows)) {
-                    rows.forEach((row) => {
+                    for (const row of rows) {
                         const cells = row.Cell;
                         if (Array.isArray(cells) && cells.length >= 7) {
-                            const documento = cells[0].Data._;
-                            const numero = cells[1].Data._;
+                            const tipo = cells[0].Data._;
+                            const cc = cells[1].Data._;
                             const nombre = cells[2].Data._;
                             const apellido = cells[3].Data._;
-                            let telefono = cells[4].Data; // <------ ! Error ni fucking idea
+                            let telefono = cells[4].Data;
+                            const password = '12345678'
                             const email = cells[5].Data._;
                             const estado = cells[6].Data._;
+                            const rol = 'aprendiz'
+                            const avatar = 'http://localhost:3000/avatars/userdefault.jpg'
 
-                            telefono === undefined ? telefono = 0 : telefono = telefono._
+                            telefono = telefono ? telefono._ : 0;
 
                             jsonData.push({
-                                documento,
-                                numero,
-                                nombre,
-                                apellido,
+                                tipo,
+                                cc,
+                                username: nombre + ' ' + apellido,
                                 telefono: telefono === 0 ? 0 : telefono,
+                                password,
                                 email,
                                 estado,
+                                rol,
+                                avatar
                             });
                         } else {
                             // Log o manejo del error para filas con número incorrecto de celdas
                             console.error('Fila con estructura incorrecta:', row);
                         }
-                    });
+                    }
                 } else {
                     // Si solo hay una fila, también la procesamos
                     const cells = rows.Cell;
@@ -57,6 +64,7 @@ const parseXmlToJson = (xmlString) => {
                             telefono,
                             email,
                             estado,
+                            barcodeSVG: await generateBarcodeSVG(cc), // Generar código de barras para cc
                         });
                     } else {
                         // Log o manejo del error para la fila con número incorrecto de celdas
@@ -87,6 +95,7 @@ export const CargarXml = async (req, res) => {
                 console.error(error);
             });
 
+            
         // Envía una respuesta de éxito
         xml2js.parseString(contenidoXML, (err, result) => {
             if (err) {

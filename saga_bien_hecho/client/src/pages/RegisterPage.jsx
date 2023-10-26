@@ -9,12 +9,25 @@ function RegisterPage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (isAuthenticate) navigate('/home')
+        if (isAuthenticate) navigate('/')
     }, [isAuthenticate])
 
     const onSubmit = handleSubmit(async (values) => {
-        signup(values)
-    })
+        const formData = new FormData();
+        formData.append('cc', values.cc);
+        formData.append('username', values.username);
+        formData.append('email', values.email);
+        formData.append('password', values.password);
+        formData.append('rol', values.rol);
+    
+        // Verificar si hay un archivo seleccionado y agregarlo al objeto FormData
+        if (values.avatar && values.avatar.length > 0) {
+            formData.append('avatar', values.avatar[0]);
+        }
+    
+        // Llamar a la función de registro con el objeto FormData
+        signup(formData);
+    });
 
     return <section style={{ display: 'flex', width: '100vw', height: '100vh' ,justifyContent: 'center', alignItems: 'center'  }}>
         <div className="bg-zinc-800 max-w-md p-10 rounded-md" style={{ height: 'fit-content' }}>
@@ -59,6 +72,8 @@ function RegisterPage() {
                     <option value="instructor">Instructor</option>
                     <option value="bienestar">Bienestar Al aprendiz</option>
                 </select>
+
+                <input type="file" {...register('avatar')} accept="image/*" className="my-2" />
 
                 <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                     Register

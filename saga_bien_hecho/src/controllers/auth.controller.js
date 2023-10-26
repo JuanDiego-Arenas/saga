@@ -1,51 +1,100 @@
 import User from '../models/user.model.js';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 import { createAccessToken } from '../libs/jwt.js';
-// import {  } from '../libs/jwt.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 export const register = async (req, res) => {
-    let { cc, username, email, password, rol  } = req.body
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+
+    const { cc, username, email, password, rol } = req.body;
+    const avatar = req.files ? req.files.avatar : null; // Obtén el archivo de la solicitud
 
     try {
-        const ccFound = await User.findOne({ cc })
+        const ccFound = await User.findOne({ cc });
         const userFound = await User.findOne({ email });
-        if(ccFound) return res.status(202).json({ msg: 'Cedula en uso'})
-        if(userFound) return res.status(201).json({ msg: 'Email en uso' })
+        if (ccFound) return res.status(202).json({ msg: 'Cedula en uso' });
+        if (userFound) return res.status(201).json({ msg: 'Email en uso' });
 
-        const passwordHash = await bcrypt.hash(password, 10)
+        const passwordHash = await bcrypt.hash(password, 10);
 
-        rol === undefined ? rol = 'invitado' : rol = rol
+        // Construir la ruta al directorio de imágenes fuera de la carpeta controllers
+        const imagesDirectory = path.resolve(__dirname, '..', 'uploads', 'avatars');
 
+        // Verificar si el directorio existe, si no, crearlo
+        if (!fs.existsSync(imagesDirectory)) {
+            fs.mkdirSync(imagesDirectory, { recursive: true });
+        }
+
+        // Crear un nuevo usuario con los datos proporcionados
         const newUser = new User({
             cc,
             username,
             email,
             password: passwordHash,
-            rol
-        })
+            rol,
+            avatar: avatar ? `/avatars/${Date.now()}-${avatar.name}` : 'userdefault.jpg'
+        });
 
-        const userSaved = await newUser.save()
+        // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
+        if (avatar) {
+            // Mueve el archivo al directorio de imágenes
+            avatar.mv(path.join(imagesDirectory, `${Date.now()}-${avatar.name}`), (err) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ msg: 'Error al subir la imagen' });
+                }
 
-        const token = await createAccessToken({
-            id: userSaved._id,
-        })
+                // Guarda el usuario en la base de datos y responde al cliente...
+                newUser.save().then((userSaved) => {
+                    // Crea un token de acceso para el usuario
+                    const token = createAccessToken({ id: userSaved._id });
 
-        res.cookie('token', token)
+                    // Devuelve la respuesta con el usuario creado y el token
+                    res.status(200).json({
+                        user: {
+                            id: userSaved._id,
+                            cc: userSaved.cc,
+                            username: userSaved.username,
+                            email: userSaved.email,
+                            rol: userSaved.rol,
+                            avatar: userSaved.avatar
+                        },
+                        token: token
+                    });
+                }).catch((error) => {
+                    res.status(500).json({ msg: error.message });
+                });
+            });
+        } else {
+            // Si no se proporciona una imagen, establece la ruta de la imagen predeterminada y guarda el usuario
+            newUser.save().then((userSaved) => {
+                // Crea un token de acceso para el usuario
+                const token = createAccessToken({ id: userSaved._id });
 
-        res.json({
-            id: userSaved._id,
-            cc: userSaved.cc,
-            username: userSaved.username,
-            email: userSaved.email,
-            password: userSaved.password,
-            rol: userSaved.rol,
-        })
-
+                // Devuelve la respuesta con el usuario creado y el token
+                res.status(200).json({
+                    user: {
+                        id: userSaved._id,
+                        cc: userSaved.cc,
+                        username: userSaved.username,
+                        email: userSaved.email,
+                        rol: userSaved.rol,
+                        avatar: userSaved.avatar
+                    },
+                    token: token
+                });
+            }).catch((error) => {
+                res.status(500).json({ msg: error.message });
+            });
+        }
     } catch (error) {
-        res.status(500).json({ msg: error.message })
+        res.status(500).json({ msg: error.message });
     }
+};
 
-}
 
 export const login = async (req, res) => {
     const { email, password } = req.body

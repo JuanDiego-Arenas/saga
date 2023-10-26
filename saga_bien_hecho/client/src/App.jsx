@@ -5,16 +5,19 @@ import { AuthProvider } from './context/AuthContext'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import CardPage from './pages/CardPage'
 
 function App() {
 
   return (
     <AuthProvider>
+        
         <BrowserRouter>
           <Routes>
-            <Route path='/home' element={<HomePage />} />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/' element={ <HomePage/> } />
+            <Route path='/login' element={ <LoginPage />} />
+            <Route path='/register' element={ <RegisterPage />} />
+            <Route path='/cardsPage' element={ <CardPage />} />
           </Routes>
       </BrowserRouter>
     </AuthProvider>
