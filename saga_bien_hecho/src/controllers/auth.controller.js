@@ -9,7 +9,7 @@ export const register = async (req, res) => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
 
-    const { cc, username, email, password, rol } = req.body;
+    const { cc, username, email, password, rol, tipo } = req.body;
     const avatar = req.files ? req.files.avatar : null; // Obtén el archivo de la solicitud
 
     try {
@@ -30,6 +30,7 @@ export const register = async (req, res) => {
 
         // Crear un nuevo usuario con los datos proporcionados
         const newUser = new User({
+            tipo,
             cc,
             username,
             email,
@@ -56,6 +57,7 @@ export const register = async (req, res) => {
                     res.status(200).json({
                         user: {
                             id: userSaved._id,
+                            tipo: userSaved.tipo,
                             cc: userSaved.cc,
                             username: userSaved.username,
                             email: userSaved.email,
@@ -78,6 +80,7 @@ export const register = async (req, res) => {
                 res.status(200).json({
                     user: {
                         id: userSaved._id,
+                        tipo: userSaved.tipo,
                         cc: userSaved.cc,
                         username: userSaved.username,
                         email: userSaved.email,

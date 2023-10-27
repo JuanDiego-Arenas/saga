@@ -13,8 +13,10 @@ function RegisterPage() {
     }, [isAuthenticate])
 
     const onSubmit = handleSubmit(async (values) => {
+        console.log(values)
         const formData = new FormData();
         formData.append('cc', values.cc);
+        formData.append('tipo', values.tipo);
         formData.append('username', values.username);
         formData.append('email', values.email);
         formData.append('password', values.password);
@@ -40,6 +42,11 @@ function RegisterPage() {
                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
                     placeholder="Documento"
                 />
+                <select {...register('tipo', { required: true })} className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2">
+                        <option value="">Seleccione un tipo</option>
+                        <option value="CC">CC</option>
+                        <option value="TI">TI</option>
+                    </select>
                 <input
                     type="text"
                     {...register('username', { required: true })}

@@ -1,5 +1,6 @@
 import xml2js from 'xml2js';
-
+import path from 'path';
+import User from '../models/user.model.js'; 
 
 const parseXmlToJson = async (xmlString) => {
 
@@ -25,20 +26,26 @@ const parseXmlToJson = async (xmlString) => {
                             const estado = cells[6].Data._;
                             const rol = 'aprendiz'
                             const avatar = 'http://localhost:3000/avatars/userdefault.jpg'
+                            
 
                             telefono = telefono ? telefono._ : 0;
 
-                            jsonData.push({
-                                tipo,
-                                cc,
-                                username: nombre + ' ' + apellido,
-                                telefono: telefono === 0 ? 0 : telefono,
-                                password,
-                                email,
-                                estado,
-                                rol,
-                                avatar
-                            });
+                            if(estado == 'EN FORMACION' || estado == 'INDUCCION'){
+                                jsonData.push({
+                                    tipo,
+                                    cc,
+                                    username: nombre + ' ' + apellido,
+                                    telefono: telefono === 0 ? 0 : telefono,
+                                    password,
+                                    email,
+                                    estado,
+                                    rol,
+                                    avatar
+                                });
+                            } else {
+
+                            }
+
                         } else {
                             // Log o manejo del error para filas con número incorrecto de celdas
                             console.error('Fila con estructura incorrecta:', row);
@@ -85,30 +92,46 @@ export const CargarXml = async (req, res) => {
             return res.status(400).json({ error: 'No se proporcionó ningún archivo XML' });
         }
 
-        const contenidoXML = xmlFile.data.toString()
+        const contenidoXML = xmlFile.data.toString();
 
-        const arryParseXml = await parseXmlToJson(contenidoXML)
-            .then(jsonData => {
-                return jsonData
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        const fileName = path.basename(xmlFile.name, path.extname(xmlFile.name));
+        const [_, fichaNumero, fichaNombre] = fileName.match(/Ficha (\d+) \((.*?)\)/);
 
-            
-        // Envía una respuesta de éxito
-        xml2js.parseString(contenidoXML, (err, result) => {
-            if (err) {
-                console.error('Error al parsear XML:', err);
-                return res.status(500).json({ error: 'Error al parsear el archivo XML' });
-            }   
-            res.status(200).json({
-                msg: 'Archivo XML recibido y parseado correctamente',
-                data: arryParseXml
+        const arryParseXml = await parseXmlToJson(contenidoXML).then(jsonData => jsonData).catch(error => {
+            console.error(error);
+        });
+
+        // Consultar si los datos ya existen en la base de datos
+        const existingData = await User.find({ fichaNumero, fichaNombre });
+
+        if (existingData.length > 0) {
+            // Si los datos ya existen, devolver la data existente
+            return res.status(200).json({
+                msg: 'Datos ya existentes en la base de datos',
+                data: existingData,
+                fichaNumero,
+                fichaNombre
             });
+        }
+
+        // Agregar fichaNumero y fichaNombre a cada objeto en el array jsonData
+        const jsonDataWithFicha = arryParseXml.map(item => ({
+            ...item,
+            fichaNumero,
+            fichaNombre
+        }));
+
+        // Guardar jsonDataWithFicha en la base de datos
+        await User.insertMany(jsonDataWithFicha);
+
+        res.status(200).json({
+            msg: 'Archivo XML recibido y parseado correctamente',
+            data: jsonDataWithFicha,
+            fichaNumero,
+            fichaNombre
         });
     } catch (error) {
-        console.error('Error al cargar el archivo XML:', error);
+        console.error('Este archivo contiene datos ya subidos', error);
         res.status(500).json({ error: 'Error al cargar el archivo XML' });
     }
 };
