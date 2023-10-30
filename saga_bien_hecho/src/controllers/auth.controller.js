@@ -1,6 +1,8 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import { createAccessToken } from '../libs/jwt.js';
+import { TOKEN_SECRET } from '../config.js'
+import jwt from 'jsonwebtoken'
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
@@ -15,8 +17,8 @@ export const register = async (req, res) => {
     try {
         const ccFound = await User.findOne({ cc });
         const userFound = await User.findOne({ email });
-        if (ccFound) return res.status(202).json({ msg: 'Cedula en uso' });
-        if (userFound) return res.status(201).json({ msg: 'Email en uso' });
+        if (ccFound) return res.status(400).json({ msg: ['El numero de documento ya esta en uso'] });
+        if (userFound) return res.status(401).json({ msg: ['El correo ya esta en uso'] });
 
         const passwordHash = await bcrypt.hash(password, 10);
 
@@ -98,16 +100,15 @@ export const register = async (req, res) => {
     }
 };
 
-
 export const login = async (req, res) => {
     const { email, password } = req.body
 
     try {
         const userFound = await User.findOne({ email })
-        if(!userFound) return res.status(404).json({ msg: 'Email no encontrado' })
+        if(!userFound) return res.status(404).json(['usuario no encontrado'])
 
         const isMatch = await bcrypt.compare(password, userFound.password)
-        if(!isMatch) return res.status(400).json({ msg: 'Contraseña Incorrecta' })
+        if(!isMatch) return res.status(400).json(['Contraseña Incorrecta'])
 
         const token = await createAccessToken({ id: userFound._id })
 
@@ -115,8 +116,10 @@ export const login = async (req, res) => {
 
         res.json({
             id: userFound._id,
+            cc: userFound.cc,
             username: userFound.username,
-            email: userFound.email
+            email: userFound.email,
+            rol: userFound.rol
         })
 
     } catch (error) {
@@ -146,3 +149,25 @@ export const profile = async (req, res) => {
 
 }
 
+export const verifyToken = async (req, res) => {
+    const { token } = req.cookies
+
+    if(!token) return res.status(401).json({ msg: 'No Autorizado' })
+
+    jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+        if(err) return res.status(401).json({ msg: 'Usuario no autorizado' })
+
+        const userFound = await User.findById(user.id)
+        if(!userFound) return res.status(404).json({ msg: 'Usuario no autorizado' })
+
+        return res.status(200).json({
+            id: userFound._id,
+            cc: userFound.cc,
+            username: userFound.username,
+            email: userFound.email,
+            rol: userFound.rol
+        })
+
+    })
+
+}

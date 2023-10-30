@@ -3,7 +3,6 @@ import path from 'path';
 import User from '../models/user.model.js'; 
 
 const parseXmlToJson = async (xmlString) => {
-
     return new Promise((resolve, reject) => {
         xml2js.parseString(xmlString, { explicitArray: false }, async (err, result) => {
             if (err) {

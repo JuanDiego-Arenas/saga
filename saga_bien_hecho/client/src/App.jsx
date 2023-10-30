@@ -7,6 +7,8 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import CardPage from './pages/CardPage'
 
+import ProtectedRoute from './ProtectedRoute'
+
 function App() {
 
   return (
@@ -14,10 +16,14 @@ function App() {
         
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={ <HomePage/> } />
-            <Route path='/login' element={ <LoginPage />} />
+            <Route path='/' element={ <LoginPage />} />
             <Route path='/register' element={ <RegisterPage />} />
-            <Route path='/cardsPage' element={ <CardPage />} />
+            
+            {/* // TODO Rutas Protegidas */}
+            <Route element={<ProtectedRoute/>}>
+              <Route path='/home' element={ <HomePage/> } />
+              <Route path='/cardsPage' element={ <CardPage />} />
+            </Route>
           </Routes>
       </BrowserRouter>
     </AuthProvider>
