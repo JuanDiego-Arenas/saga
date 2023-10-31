@@ -30,6 +30,8 @@ export const register = async (req, res) => {
             fs.mkdirSync(imagesDirectory, { recursive: true });
         }
 
+        const randomId = Math.floor(Math.random() * 1000).toString()
+
         // Crear un nuevo usuario con los datos proporcionados
         const newUser = new User({
             tipo,
@@ -38,13 +40,13 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${avatar.name}` : 'userdefault.jpg'
+            avatar: avatar ? `/avatars/${randomId}_${avatar.name}` : 'userdefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
         if (avatar) {
             // Mueve el archivo al directorio de imágenes
-            avatar.mv(path.join(imagesDirectory, `${avatar.name}`), (err) => {
+            avatar.mv(path.join(imagesDirectory, `${randomId}_${avatar.name}`), (err) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ msg: 'Error al subir la imagen' });
