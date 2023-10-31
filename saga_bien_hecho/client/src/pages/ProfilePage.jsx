@@ -10,7 +10,7 @@ const ProfilePage = () => {
     return (
         <>
             <NavBar/>
-            <section style={{ marginTop: '4em', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center' }}>
+            <section style={{ marginTop: '5em', width: '100vw', height: '95vh', display: 'flex', justifyContent: 'center' }}>
                 <CardProfile user={user} />
             </section>
         </>

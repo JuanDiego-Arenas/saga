@@ -1,4 +1,4 @@
-import { Navigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { logout } from '../../api/auth'
 import SAGA from '../../assets/SAGA.svg'
@@ -31,7 +31,7 @@ function NavBar() {
             </ul>
             <div className='flex h-full gap-3' style={{ alignItems: 'center' }}>
                 <Link to='/profile' ><img className='imgAvatar' src={ user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000/${user.avatar}` }></img></Link>
-                <form>
+                <form className='navForm'>
                     <button type='submit' onClick={logout} style={{fontSize: '2em', color: '#39A900'}}><CiLogout/></button>
                 </form>
             </div>

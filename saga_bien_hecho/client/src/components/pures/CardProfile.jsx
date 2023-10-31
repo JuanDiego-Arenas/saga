@@ -6,11 +6,11 @@ const CardProfile = ({ user }) => {
     return (
         <div className='cardProfile'>
             <div>
-                <img src={`http://localhost:3000/${user.avatar}`} width={'150px'} />
+                <img src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000/${user.avatar}`} width={'150px'} />
             </div>
-            <h2>Nombre: {user.username.toUpperCase()}</h2>
+            <h2>Nombre: <b>{user.username.toUpperCase()}</b></h2>
             <h2>{user.tipo} {user.cc}</h2>
-            <h2>{user.email}</h2>
+            <h2>Correo: {user.email}</h2>
             <Barcode value={user.cc} options={{
                 format: 'code128',
                 displayValue: false, 
