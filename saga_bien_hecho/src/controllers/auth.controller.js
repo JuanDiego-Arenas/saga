@@ -38,13 +38,13 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${Date.now()}-${avatar.name}` : 'userdefault.jpg'
+            avatar: avatar ? `/avatars/${avatar.name}` : 'userdefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
         if (avatar) {
             // Mueve el archivo al directorio de imágenes
-            avatar.mv(path.join(imagesDirectory, `${Date.now()}-${avatar.name}`), (err) => {
+            avatar.mv(path.join(imagesDirectory, `${avatar.name}`), (err) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ msg: 'Error al subir la imagen' });

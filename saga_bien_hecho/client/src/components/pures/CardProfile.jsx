@@ -6,7 +6,7 @@ const CardProfile = ({ user }) => {
     return (
         <div className='cardProfile'>
             <div>
-                <img src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000/${user.avatar}`} width={'150px'} />
+                <img src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000${user.avatar}`} width={'150px'} />
             </div>
             <h2>Nombre: <b>{user.username.toUpperCase()}</b></h2>
             <h2>{user.tipo} {user.cc}</h2>
