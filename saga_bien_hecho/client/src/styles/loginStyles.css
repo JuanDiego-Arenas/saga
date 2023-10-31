@@ -24,15 +24,6 @@
     width: 80%;
 }
 
-.slider{
-    width: 68%;
-    height: 100%;
-}
-.slider img{
-    height: 100%;
-    border-radius: 20px 0 0 20px;
-}
-
 .inputForm{
     background: none;
     outline: none;
@@ -169,4 +160,35 @@ h3{
         border-radius: 50%;
     }
 
+}
+
+/* Slider de imagenes */
+
+.slider{
+    height: 100%;
+    padding: 0;
+    width: 400%;
+    overflow: scroll;
+
+    animation: slide 1s infinite;
+}
+
+.slider img{
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    width: 100%;
+}
+
+@keyframes slide {
+    0% {margin-left: 0%;}
+    20% {margin-left: 0%;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    95% {margin-left: -300%;}
 }
