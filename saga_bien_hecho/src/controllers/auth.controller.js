@@ -119,7 +119,9 @@ export const login = async (req, res) => {
             cc: userFound.cc,
             username: userFound.username,
             email: userFound.email,
-            rol: userFound.rol
+            rol: userFound.rol,
+            avatar: userFound.avatar,
+            tipo: userFound.tipo
         })
 
     } catch (error) {
@@ -165,7 +167,8 @@ export const verifyToken = async (req, res) => {
             cc: userFound.cc,
             username: userFound.username,
             email: userFound.email,
-            rol: userFound.rol
+            rol: userFound.rol,
+            avatar: userFound.avatar
         })
 
     })

@@ -16,7 +16,6 @@ function RegisterPage() {
     }, [isAuthenticate])
 
     const onSubmit = handleSubmit(async (values) => {
-        console.log(values)
         const formData = new FormData();
         formData.append('cc', values.cc);
         formData.append('tipo', values.tipo);

@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import CardPage from './pages/CardPage'
+import ProfilePage from './pages/ProfilePage'
 
 import ProtectedRoute from './ProtectedRoute'
 
@@ -23,6 +24,7 @@ function App() {
             <Route element={<ProtectedRoute/>}>
               <Route path='/home' element={ <HomePage/> } />
               <Route path='/cardsPage' element={ <CardPage />} />
+              <Route path='/Profile' element={ <ProfilePage />} />
             </Route>
           </Routes>
       </BrowserRouter>
