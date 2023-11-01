@@ -24,15 +24,6 @@
     width: 80%;
 }
 
-.slider{
-    width: 68%;
-    height: 100%;
-}
-.slider img{
-    height: 100%;
-    border-radius: 20px 0 0 20px;
-}
-
 .inputForm{
     background: none;
     outline: none;
@@ -169,4 +160,20 @@ h3{
         border-radius: 50%;
     }
 
+}
+
+/* Slider de imagenes */
+
+.slider{
+    height: 100%;
+    padding: 0;
+    width: 400%;
+    overflow: visible;
+
+}
+
+.slider img {
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    width: 100%;
 }

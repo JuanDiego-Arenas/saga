@@ -9,10 +9,17 @@ const CardProfile = ({ user }) => {
         <div className='cardProfile'>
             <div>
                 <img src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000${user.avatar}`} width={'150px'} />
+            
             </div>
-            <h2>Nombre: <b>{user.username.toUpperCase()}</b></h2>
+            <div className='info'>
+            <h2><b>{user.username.toUpperCase()}</b></h2>
+
             <h2>{user.tipo} {user.cc}</h2>
-            <h2>Correo: {user.email}</h2>
+            <h2>{user.email}</h2>
+            <h2>Aprendiz</h2>
+            <h2>Ficha de Formacion N°</h2>
+            </div>
+            <div className='barcode'>
             <Barcode value={user.cc} options={{
                 format: 'code128',
                 displayValue: false, 
@@ -20,6 +27,10 @@ const CardProfile = ({ user }) => {
                 width: 2,
                 height: 50
             }} renderer="svg" />
+            </div>
+            <div className='inst'>
+                
+            </div>
         </div>
 
     );

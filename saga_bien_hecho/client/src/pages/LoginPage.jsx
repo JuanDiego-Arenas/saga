@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import LogoSena from '../assets/LogoSena.svg'
-import imagenSilider from '../assets/imgs/img_01.jpg'
+import imagenSlider from '../assets/imgs/img_01.jpg'
 import '../styles/loginStyles.css'
 
 function LoginPage() {
@@ -39,7 +39,8 @@ function LoginPage() {
 
             <div className='formLogin z-50'>
                 <div className='slider'>
-                    <img src={imagenSilider}></img>
+                    <img src={imagenSlider}></img>
+                    
                 </div>
                 {/* // TODO Form Login */}
                 <div>
