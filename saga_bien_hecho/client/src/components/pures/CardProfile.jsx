@@ -3,6 +3,8 @@ import './CardProfile.css'
 
 const CardProfile = ({ user }) => {
 
+    console.log(user)
+
     const randomId = Math.floor(Math.random() * 1000).toString()
 
     return (
@@ -16,8 +18,9 @@ const CardProfile = ({ user }) => {
 
             <h2>{user.tipo} {user.cc}</h2>
             <h2>{user.email}</h2>
-            <h2>Aprendiz</h2>
-            <h2>Ficha de Formacion N°</h2>
+            <h2 style={{ textTransform: 'capitalize' }}>{ user.rol == 'bienestar' ? 'Bienestar Al Aprendiz' : user.rol }</h2>
+            <h4>{ user.fichaNumero === undefined ? '' : `Ficha N° ${user.fichaNumero}` }</h4>
+            <h4>{ user.fichaNombre === undefined ? '' : `Nombre De Formacion: ${user.fichaNombre}` }</h4>
             </div>
             <div className='barcode'>
             <Barcode value={user.cc} options={{

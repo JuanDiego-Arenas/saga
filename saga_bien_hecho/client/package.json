@@ -20,11 +20,7 @@
     "react-icons": "^4.11.0",
     "react-jsbarcode": "^0.4.2",
     "react-router-dom": "^6.17.0",
-<<<<<<< HEAD
     "react-tweet": "^3.1.1"
-=======
-    "yarn": "^1.22.19"
->>>>>>> 2d2e72d2d5fcca0accce169b5d61f71a1ad8385e
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
