@@ -26,7 +26,7 @@ function NavBar() {
                     <Link to='/cardsPage'>Cards</Link>
                 </li>
                 <li>
-                    <Link to='#'>Noticias</Link>
+                    <Link to='/noticias'>Noticias</Link>
                 </li>
             </ul>
             <div className='flex h-full gap-3' style={{ alignItems: 'center' }}>

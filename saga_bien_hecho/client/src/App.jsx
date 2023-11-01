@@ -9,6 +9,7 @@ import CardPage from './pages/CardPage'
 import ProfilePage from './pages/ProfilePage'
 
 import ProtectedRoute from './ProtectedRoute'
+import NoticiasPage from './pages/NoticiasPage'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
               <Route path='/home' element={ <HomePage/> } />
               <Route path='/cardsPage' element={ <CardPage />} />
               <Route path='/Profile' element={ <ProfilePage />} />
+              <Route path='/noticias' element={ <NoticiasPage />} />
             </Route>
           </Routes>
       </BrowserRouter>
