@@ -20,7 +20,7 @@ function NavBar() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='#'>Asistencias</Link>
+                    <Link to='/attendsPage'>Asistencias</Link>
                 </li>
                 <li>
                     <Link to='/cardsPage'>Cards</Link>
