@@ -28,10 +28,14 @@ app.use(cookieParser())
 
 import authRoutes from './routes/auth.routes.js'
 import fileExcelRoutes from './routes/fileExcel.routes.js'
+import noticiasRoutes from './routes/noticia.routes.js'
+import attRouter from './routes/attendance.routes.js';
 
 // TODO >>>>>>>> Routes Use's
 
 app.use('/api', authRoutes)
 app.use('/api', fileExcelRoutes)
+app.use('/api', noticiasRoutes)
+app.use('/api', attRouter);
 
 export default app

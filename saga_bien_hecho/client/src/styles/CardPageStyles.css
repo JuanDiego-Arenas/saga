@@ -31,3 +31,12 @@ li h3{
     height: 3px;
     background-color: #39A900;
 }
+
+.CardsComponent {
+    margin-left: 6vh;
+}
+
+.CardsComponent input {
+    border-radius: .5rem;
+    color: black;
+}

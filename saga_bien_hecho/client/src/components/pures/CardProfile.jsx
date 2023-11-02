@@ -19,7 +19,7 @@ const CardProfile = ({ user }) => {
             <h2>{user.tipo} {user.cc}</h2>
             <h2>{user.email}</h2>
             <h2 style={{ textTransform: 'capitalize' }}>{ user.rol == 'bienestar' ? 'Bienestar Al Aprendiz' : user.rol }</h2>
-            <h4>{ user.fichaNumero === undefined ? '' : `Ficha N° ${user.fichaNumero}` }</h4>
+            <h2>{ user.fichaNumero === undefined ? '' : `Ficha N° ${user.fichaNumero}` }</h2>
             
             </div>
             <div className='barcode'>

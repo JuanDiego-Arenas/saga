@@ -16,6 +16,8 @@
 
 .cardProfile img {
     border-radius: 1.5rem;
+    margin-left: 2vw;
+    height: 22vh;
 }
 
 .info {
@@ -24,11 +26,12 @@
 
 .info h2{
     padding: .5rem;
+    margin-left: 1vw;
 }
 
 .barcode {
     margin-top: 6rem;
-    height: 10px;
+    height: 5vh;
     transform: rotate(-90deg);
 }
 

@@ -10,6 +10,7 @@ import ProfilePage from './pages/ProfilePage'
 
 import ProtectedRoute from './ProtectedRoute'
 import NoticiasPage from './pages/NoticiasPage'
+import AttendsPage from './pages/AttendsPage'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path='/cardsPage' element={ <CardPage />} />
               <Route path='/Profile' element={ <ProfilePage />} />
               <Route path='/noticias' element={ <NoticiasPage />} />
+              <Route path='/attendsPage' element={ <AttendsPage />} />
             </Route>
           </Routes>
       </BrowserRouter>
