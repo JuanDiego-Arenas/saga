@@ -3,7 +3,7 @@ import './CardProfile.css'
 
 const CardProfile = ({ user }) => {
 
-    console.log(user)
+    // console.log(user)
 
     const randomId = Math.floor(Math.random() * 1000).toString()
 

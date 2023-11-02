@@ -28,12 +28,10 @@ app.use(cookieParser())
 
 import authRoutes from './routes/auth.routes.js'
 import fileExcelRoutes from './routes/fileExcel.routes.js'
-import productRoute from './routes/product.routes.js'
 
 // TODO >>>>>>>> Routes Use's
 
 app.use('/api', authRoutes)
 app.use('/api', fileExcelRoutes)
-app.use('/api', productRoute)
 
 export default app

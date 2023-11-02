@@ -1,9 +1,9 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
-import { createAccessToken } from '../libs/jwt.js';
-import { TOKEN_SECRET } from '../config.js'
 import jwt from 'jsonwebtoken'
 import path from 'path';
+import { TOKEN_SECRET } from '../config.js'
+import { createAccessToken } from '../libs/jwt.js';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 
@@ -172,7 +172,9 @@ export const verifyToken = async (req, res) => {
             username: userFound.username,
             email: userFound.email,
             rol: userFound.rol,
-            avatar: userFound.avatar
+            avatar: userFound.avatar,
+            fichaNumero: userFound.fichaNumero,
+            fichaNombre: userFound.fichaNombre
         })
 
     })
