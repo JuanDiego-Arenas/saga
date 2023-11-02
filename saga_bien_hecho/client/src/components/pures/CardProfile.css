@@ -18,6 +18,10 @@
     border-radius: 1.5rem;
 }
 
+.info {
+    width: 250px;
+}
+
 .info h2{
     padding: .5rem;
 }
