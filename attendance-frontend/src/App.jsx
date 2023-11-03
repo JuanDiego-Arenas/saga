@@ -27,7 +27,7 @@ function App() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ id_user: inputValue }), // Envía los datos en el cuerpo de la solicitud en formato JSON
+				body: JSON.stringify({ cedula: inputValue }), // Envía los datos en el cuerpo de la solicitud en formato JSON
 			});
 
 			if (response.ok) {
