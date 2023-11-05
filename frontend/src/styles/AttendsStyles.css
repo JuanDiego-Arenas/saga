@@ -47,36 +47,56 @@
 
 /* Estilos para el texto de búsqueda dentro del filtro */
 .p-datatable .p-column-filter input[type="text"] {
-    /* Agrega tus estilos personalizados aquí */
-    border: none; /* Sin borde */
-    outline: none; /* Sin contorno al hacer clic */
-    width: 100%; /* Ancho completo */
+    border: none;
+    outline: none; 
+    width: 100%; 
 }
 
 /* Estilos para la tabla */
 .table-container {
     width: 90vw;
     margin: 0 auto;
-    border: 1px solid #ddd; /* Borde para la tabla */
+    border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.table-container .search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4em;
+    width: fit-content;
+    padding: 0 1em;
 }
 
 /* Estilos para las filas */
 .p-datatable .p-datatable-tbody > tr {
-    background-color: #f9f9f9; /* Color de fondo para las filas */
-    transition: background-color 0.3s ease; /* Efecto de transición suave */
+    background-color: #f9f9f9; 
+    transition: background-color 0.3s ease; 
 }
 
 .p-datatable .p-datatable-tbody > tr:hover {
-    background-color: #e5e5e5; /* Cambia el color de fondo al pasar el mouse */
+    background-color: #e5e5e5; 
 }
 
 /* Estilos para las celdas de encabezado */
 .p-datatable .p-column-header {
-    background-color: #4CAF50; /* Color de fondo para el encabezado de la columna */
-    color: #ffffff; /* Color del texto del encabezado de la columna */
+    background-color: #4CAF50;
+    color: #ffffff;
     font-weight: bold;
+}
+
+
+/* Estilos para las celdas de la tabla */
+.p-datatable .p-datatable-tbody td,
+.p-datatable .p-datatable-thead th {
+    border: 1px solid #ccc; /* Agrega bordes a las celdas y los encabezados de columna */
+    padding: 0.5rem; /* Ajusta el espaciado interno según tus preferencias */
+    text-align: left; /* Alinea el texto a la izquierda, si es necesario */
 }

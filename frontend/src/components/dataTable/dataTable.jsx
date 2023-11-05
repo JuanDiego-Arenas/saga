@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { Paginator } from 'primereact/paginator';
+import { BiSearchAlt } from 'react-icons/bi'
 
 const DataTableComponent = ( {data} ) => {
     const [globalFilterValue, setGlobalFilterValue] = useState('');
@@ -10,16 +11,16 @@ const DataTableComponent = ( {data} ) => {
         user_name: '',
         ficha: '',
         entrada: '',
-        salida: '',
+        salida: '', 
     });
     const [first, setFirst] = useState(0);
     const [rows, setRows] = useState(10);
 
-    const arrayExample = [
+    const asistencias = [
         ...data
     ];
 
-    arrayExample.reverse()
+    asistencias.reverse()
 
     const onColumnFilterChange = (field, value) => {
         setColumnFilters((prevFilters) => ({
@@ -60,7 +61,7 @@ const DataTableComponent = ( {data} ) => {
         setRows(event.rows);
     };
 
-    const filteredGlobal = filterGlobal(arrayExample, globalFilterValue);
+    const filteredGlobal = filterGlobal(asistencias, globalFilterValue);
     const filteredArray = filterLocal(
         filterLocal(
             filterLocal(
@@ -78,44 +79,46 @@ const DataTableComponent = ( {data} ) => {
     const visibleData = filteredArray.slice(first, first + rows);
 
     return (
-        <div className='table-container' style={{ marginTop: '3em' }}>
-            <div className="flex justify-content-end">
+        <div className='table-container mt-9'>
+            <div className="flex justify-content-end search mt-9">
+                    <BiSearchAlt style={{ color: 'green', fontSize: '1.6em' }}/>
                 <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
+                    <InputText style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }} value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Busqueda Global" />
                 </span>
             </div>
 
-            <DataTable value={visibleData} tableStyle={{ width: '100%', height: '70vh' }}>
+            <DataTable value={visibleData} tableStyle={{ width: '98%', height: '70vh', margin: 'auto' }}>
                 <Column
                     field="user_name"
                     header={
-                        <div className="p-d-flex p-ai-center">
+                        <div className="p-d-flex p-ai-center flex gap-4">
                             Nombre
                             <InputText
                                 value={columnFilters.user_name}
                                 onChange={(e) => onColumnFilterChange('user_name', e.target.value)}
                                 placeholder="Buscar"
                                 className="p-ml-2"
-                                style={{ width: 'fit-content' }}
+                                style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }}
                             />
                         </div>
                     }
+                    style={{width: '40%'}}
                 />
                 <Column
                     field="ficha"
                     header={
-                        <div className="p-d-flex p-ai-center">
+                        <div className="p-d-flex p-ai-center flex gap-4">
                             Ficha
                             <InputText
                                 value={columnFilters.ficha}
                                 onChange={(e) => onColumnFilterChange('ficha', e.target.value)}
                                 placeholder="Buscar"
-                                className="p-ml-2"
-                                style={{ width: '13ch', maxWidth: '13ch', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                                className="p-ml-2 outline-none"
+                                style={{ outline: 'none', borderBottom: '2px solid #4CAF50', width: '13ch' }}
                             />
                         </div>
                     }
+                    style={{width:'20ch'}}
                 />
                 <Column
                     field="entrada"
@@ -128,6 +131,7 @@ const DataTableComponent = ( {data} ) => {
                                 placeholder="Buscar"
                                 className="p-ml-2"
                                 type='date'
+                                style={{color: 'transparent', outline: 'none', width: '23px'}}
                             />
                         </div>
                     }
@@ -143,6 +147,7 @@ const DataTableComponent = ( {data} ) => {
                                 placeholder="Buscar"
                                 className="p-ml-2"
                                 type='date'
+                                style={{color: 'transparent', outline: 'none', width: '23px'}}
                             />
                         </div>
                     }

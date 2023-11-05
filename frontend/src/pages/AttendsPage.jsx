@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { attends } from '../api/auth';
+import DataTableComponent from '../components/dataTable/DataTable';
 import NavBar from '../components/navbar/NavBar';
 import '../styles/AttendsStyles.css';
-import DataTableComponent from '../components/dataTable/DataTable';
-import { attends } from '../api/auth';
 
 function AttendsPage() {
     const [inputValue, setInputValue] = useState('');
@@ -22,7 +22,6 @@ function AttendsPage() {
         try {
             const response = await attends();
             setAsistencias(response);
-            console.log(asistencias)
         } catch (error) {
             console.error('Error al obtener las asistencias:', error);
         }
