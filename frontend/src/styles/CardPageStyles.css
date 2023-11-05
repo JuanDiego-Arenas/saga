@@ -34,9 +34,13 @@ li h3{
 
 .CardsComponent {
     margin-left: 6vh;
+    padding: 20px;
+}
+
+.CardsComponent button {
+    margin-left: 1vh;
 }
 
 .CardsComponent input {
-    border-radius: .5rem;
-    color: black;
+    font-weight: 600;
 }
