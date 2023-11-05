@@ -3,12 +3,17 @@ import mongoose from 'mongoose';
 const attendanceSchema = new mongoose.Schema({
 	cedula: {
 		type: String,
-		requires: true,
+		require: true,
 		trim: true,
 	},
 	user_name: {
 		type: String,
-		requires: true,
+		require: true,
+		trim: true,
+	},
+	ficha: {
+		type: String,
+		require: true,
 		trim: true,
 	},
 	entrada: Date,

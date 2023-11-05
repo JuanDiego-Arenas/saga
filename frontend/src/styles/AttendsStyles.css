@@ -1,0 +1,82 @@
+
+
+.attends{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3em;
+}
+.attends h1{
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #39A900;
+    text-transform: uppercase;
+}
+
+.formAttends{
+    display: flex;
+    gap: 2em;
+}
+
+.formAttends input{
+    border-bottom: 2px solid #39A900;
+    outline: none;
+    border-radius: 3px;
+    font-size: 1.4em;
+}
+.formAttends .btn_submit{
+    font-size: 1.2em;
+    width: fit-content;
+    background: #39A900;
+    color: white;
+    padding: 0 1em;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.p-datatable .p-column-filter {
+    /* Agrega tus estilos personalizados aquí */
+    border: 1px solid #ccc; /* Borde del filtro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo */
+    margin-top: 5px; /* Margen superior */
+    padding: 5px; /* Espaciado interno */
+}
+
+/* Estilos para el texto de búsqueda dentro del filtro */
+.p-datatable .p-column-filter input[type="text"] {
+    /* Agrega tus estilos personalizados aquí */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno al hacer clic */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilos para la tabla */
+.table-container {
+    width: 90vw;
+    margin: 0 auto;
+    border: 1px solid #ddd; /* Borde para la tabla */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-size: 1.2em;
+}
+
+/* Estilos para las filas */
+.p-datatable .p-datatable-tbody > tr {
+    background-color: #f9f9f9; /* Color de fondo para las filas */
+    transition: background-color 0.3s ease; /* Efecto de transición suave */
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+    background-color: #e5e5e5; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para las celdas de encabezado */
+.p-datatable .p-column-header {
+    background-color: #4CAF50; /* Color de fondo para el encabezado de la columna */
+    color: #ffffff; /* Color del texto del encabezado de la columna */
+    font-weight: bold;
+}

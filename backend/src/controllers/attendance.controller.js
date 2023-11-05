@@ -13,8 +13,10 @@ export const createAtt = async (req, res) => {
 
 		const user_name = await User.findOne(
 			{ cc: cedula },
-			{ _id: 0, username: 1 }
+			{ _id: 0, username: 1, fichaNumero: 1 }
 		);
+
+
 
 		if (!asistencia) {
 			// Si no existe un registro de asistencia, crea uno nuevo
@@ -22,6 +24,7 @@ export const createAtt = async (req, res) => {
 				asistencia = new Attendance({
 					cedula,
 					user_name: user_name.username,
+					ficha: user_name.fichaNumero,
 				});
 			} else {
 				res.status(404).send({
@@ -47,6 +50,7 @@ export const createAtt = async (req, res) => {
 			asistencia = new Attendance({
 				cedula,
 				user_name: user_name.username,
+				ficha: user_name.fichaNumero,
 				entrada: now,
 			});
 		}

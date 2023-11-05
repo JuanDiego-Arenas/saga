@@ -6,16 +6,6 @@ function App() {
 	const [success, setSuccess] = useState(false);
 	const inputRef = useRef(null);
 
-	// const handleSubmit = async e => {
-	// 	e.preventDefault();
-
-	// 	// Simula una operación de consulta (aquí podrías realizar la consulta a tu base de datos)
-	// 	setLoading(true);
-	// 	await new Promise(resolve => setTimeout(resolve, 2000)); // Simula una consulta de 2 segundos
-	// 	setLoading(false);
-	// 	setSuccess(true);
-	// };
-
 	const handleSubmit = async e => {
 		e.preventDefault();
 		// Simula una operación de consulta (aquí podrías realizar la consulta a tu base de datos)
