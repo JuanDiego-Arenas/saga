@@ -1,31 +1,27 @@
 import Attendance from '../models/attendance.model.js';
 import User from '../models/user.model.js';
+import { DateTime } from 'luxon';
 
-// Controlador para registrar entrada o salida
 export const createAtt = async (req, res) => {
 	const { cedula } = req.body;
 
 	try {
-		// Busca el registro de asistencia del usuario
-		let asistencia = await Attendance.findOne({ cedula })
-			.sort({ entrada: -1 })
-			.exec();
-
+		let asistencia = await Attendance.findOne({ cedula }).sort({ entrada: -1 }).exec();
 		const user_name = await User.findOne(
 			{ cc: cedula },
 			{ _id: 0, username: 1, fichaNumero: 1, tipo: 1 }
 		);
 
-
+		const now = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000);
 
 		if (!asistencia) {
-			// Si no existe un registro de asistencia, crea uno nuevo
 			if (user_name) {
 				asistencia = new Attendance({
 					tipo: user_name.tipo,
 					cedula,
 					user_name: user_name.username,
 					ficha: user_name.fichaNumero,
+					ultimaAccion: now,
 				});
 			} else {
 				res.status(404).send({
@@ -33,33 +29,12 @@ export const createAtt = async (req, res) => {
 				});
 				return;
 			}
-		}
-
-		const now = new Date(
-			new Date().getTime() - new Date().getTimezoneOffset() * 60000
-		);
-
-		// Verifica si ya hay una entrada para el día
-		if (!asistencia.entrada) {
-			// Si no hay entrada, agrega una
-			asistencia.entrada = now;
-		} else if (!asistencia.salida) {
-			// Si hay una entrada pero no una salida, agrega una salida
-			asistencia.salida = now;
 		} else {
-			// Si ya hay una entrada y salida, crea un nuevo registro de asistencia
-			asistencia = new Attendance({
-				tipo: user_name.tipo,
-				cedula,
-				user_name: user_name.username,
-				ficha: user_name.fichaNumero,
-				entrada: now,
-			});
+			asistencia.salida = now;
+			asistencia.ultimaAccion = now;
 		}
+
 		await asistencia.save();
-
-		console.log(asistencia);
-
 		res.status(200).send({ message: 'Registro exitoso.' });
 	} catch (error) {
 		console.error(error);
@@ -67,11 +42,20 @@ export const createAtt = async (req, res) => {
 	}
 };
 
-
 export const getAttendances = async (req, res) => {
 	try {
-		const attendances = await Attendance.find();
-		res.status(200).send(attendances);
+		const attendances = await Attendance.find({}, 'tipo cedula user_name ficha entrada salida ultimaAccion')
+			.sort({ ultimaAccion: -1 });
+
+		const formattedAttendances = attendances.map(attendance => {
+			return {
+				...attendance._doc,
+				entrada: attendance.entrada ? DateTime.fromJSDate(attendance.entrada).toLocaleString(DateTime.DATETIME_SHORT) : null,
+				salida: attendance.salida ? DateTime.fromJSDate(attendance.salida).toLocaleString(DateTime.DATETIME_SHORT) : null,
+			};
+		});
+
+		res.status(200).send(formattedAttendances);
 	} catch (error) {
 		console.error(error);
 		res.status(500).send({ message: 'Error al obtener las asistencias.' });

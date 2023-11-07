@@ -1,24 +1,37 @@
 import mongoose from 'mongoose';
+const { Schema, model } = mongoose;
 
-const attendanceSchema = new mongoose.Schema({
+const attendanceSchema = new Schema({
+	tipo: {
+		type: String,
+		required: true,
+	},
 	cedula: {
 		type: String,
-		require: true,
-		trim: true,
+		required: true,
 	},
 	user_name: {
 		type: String,
-		require: true,
-		trim: true,
+		required: true,
 	},
 	ficha: {
 		type: String,
-		require: true,
-		trim: true,
+		required: true,
 	},
-	tipo: String,
-	entrada: Date,
-	salida: Date,
+	entrada: {
+		type: Date,
+		default: null,
+	},
+	salida: {
+		type: Date,
+		default: null,
+	},
+	ultimaAccion: {
+		type: Date,
+		default: null,
+	},
 });
 
-export default mongoose.model('Attendance', attendanceSchema);
+const Attendance = model('Attendance', attendanceSchema);
+
+export default Attendance;

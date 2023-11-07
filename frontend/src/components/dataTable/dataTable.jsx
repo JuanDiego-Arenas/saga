@@ -5,13 +5,13 @@ import { InputText } from 'primereact/inputtext';
 import { Paginator } from 'primereact/paginator';
 import { BiSearchAlt } from 'react-icons/bi'
 
-const DataTableComponent = ( {data} ) => {
+const DataTableComponent = ({ data }) => {
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [columnFilters, setColumnFilters] = useState({
         user_name: '',
         ficha: '',
         entrada: '',
-        salida: '', 
+        salida: '',
     });
     const [first, setFirst] = useState(0);
     const [rows, setRows] = useState(10);
@@ -20,7 +20,6 @@ const DataTableComponent = ( {data} ) => {
         ...data
     ];
 
-    asistencias.reverse()
 
     const onColumnFilterChange = (field, value) => {
         setColumnFilters((prevFilters) => ({
@@ -81,13 +80,25 @@ const DataTableComponent = ( {data} ) => {
     return (
         <div className='table-container mt-9'>
             <div className="flex justify-content-end search mt-9">
-                    <BiSearchAlt style={{ color: 'green', fontSize: '1.6em' }}/>
+                <BiSearchAlt style={{ color: 'green', fontSize: '1.6em' }} />
                 <span className="p-input-icon-left">
                     <InputText style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }} value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Busqueda Global" />
                 </span>
             </div>
 
             <DataTable value={visibleData} tableStyle={{ width: '98%', height: '70vh', margin: 'auto' }}>
+                <Column
+                    field="tipo"
+                    header="Tipo"
+                    filter
+                    filterMatchMode="contains"
+                />
+                <Column
+                    field="cedula"
+                    header="Cedula"
+                    filter
+                    filterMatchMode="contains"
+                />
                 <Column
                     field="user_name"
                     header={
@@ -102,7 +113,7 @@ const DataTableComponent = ( {data} ) => {
                             />
                         </div>
                     }
-                    style={{width: '40%'}}
+                    style={{ width: '40%' }}
                 />
                 <Column
                     field="ficha"
@@ -118,7 +129,7 @@ const DataTableComponent = ( {data} ) => {
                             />
                         </div>
                     }
-                    style={{width:'20ch'}}
+                    style={{ width: '20ch' }}
                 />
                 <Column
                     field="entrada"
@@ -131,7 +142,7 @@ const DataTableComponent = ( {data} ) => {
                                 placeholder="Buscar"
                                 className="p-ml-2"
                                 type='date'
-                                style={{color: 'transparent', outline: 'none', width: '23px'}}
+                                style={{ color: 'transparent', outline: 'none', width: '23px' }}
                             />
                         </div>
                     }
@@ -147,7 +158,7 @@ const DataTableComponent = ( {data} ) => {
                                 placeholder="Buscar"
                                 className="p-ml-2"
                                 type='date'
-                                style={{color: 'transparent', outline: 'none', width: '23px'}}
+                                style={{ color: 'transparent', outline: 'none', width: '23px' }}
                             />
                         </div>
                     }

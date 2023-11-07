@@ -28,6 +28,9 @@ function NavBar() {
                 <li>
                     <Link to='/noticias'>Noticias</Link>
                 </li>
+                <li>
+                    <Link to='#'>Comunidad SENA</Link>
+                </li>
             </ul>
             <div className='flex h-full gap-3' style={{ alignItems: 'center' }}>
                 <Link to='/profile' ><img className='imgAvatar' src={ user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000${user.avatar}` }></img></Link>
