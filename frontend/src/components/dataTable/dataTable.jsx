@@ -90,14 +90,10 @@ const DataTableComponent = ({ data }) => {
                 <Column
                     field="tipo"
                     header="Tipo"
-                    filter
-                    filterMatchMode="contains"
                 />
                 <Column
                     field="cedula"
-                    header="Cedula"
-                    filter
-                    filterMatchMode="contains"
+                    header="Cedula" 
                 />
                 <Column
                     field="user_name"
