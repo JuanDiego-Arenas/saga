@@ -13,7 +13,7 @@ export const createAtt = async (req, res) => {
 
 		const user_name = await User.findOne(
 			{ cc: cedula },
-			{ _id: 0, username: 1, fichaNumero: 1 }
+			{ _id: 0, username: 1, fichaNumero: 1, tipo: 1 }
 		);
 
 
@@ -22,6 +22,7 @@ export const createAtt = async (req, res) => {
 			// Si no existe un registro de asistencia, crea uno nuevo
 			if (user_name) {
 				asistencia = new Attendance({
+					tipo: user_name.tipo,
 					cedula,
 					user_name: user_name.username,
 					ficha: user_name.fichaNumero,
@@ -48,6 +49,7 @@ export const createAtt = async (req, res) => {
 		} else {
 			// Si ya hay una entrada y salida, crea un nuevo registro de asistencia
 			asistencia = new Attendance({
+				tipo: user_name.tipo,
 				cedula,
 				user_name: user_name.username,
 				ficha: user_name.fichaNumero,

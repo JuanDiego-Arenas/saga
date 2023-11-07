@@ -16,6 +16,7 @@ const attendanceSchema = new mongoose.Schema({
 		require: true,
 		trim: true,
 	},
+	tipo: String,
 	entrada: Date,
 	salida: Date,
 });
