@@ -3,6 +3,7 @@ import axios from 'axios';
 import JsBarcode from 'jsbarcode';
 import '../styles/CardPageStyles.css';
 import NavBar from '../components/navbar/NavBar';
+import { AiFillFileAdd } from 'react-icons/ai';
 
 //* Logo SENA
 import logoSENA from '../../public/logoSena.svg'
@@ -71,19 +72,27 @@ const CardPage = () => {
     return (
         <div>
             <NavBar />
-            <div className="CardsComponent mt-16">
-                <h1>Consulta de Datos XML</h1>
-                <form onSubmit={handleSubmit}>
-                    <input type="file" onChange={handleFileChange} />
-                    <button type="submit" style={{ backgroundColor: '#39A900' }} className='text-white font-bold py-2 px-4 rounded-full'>Enviar</button>
-                </form>
-
-                <h2>Datos de la ficha: {data.length}</h2>
-                <p>Número de Ficha: {fichaNumero}</p>
-                <p>Descripción de la Ficha: {fichaDescripcion}</p>
-
-                <h2>Datos recibidos del servidor:</h2>
+            <div className="CardsComponent mt-10">
+                <section className='flex mt-5'>
+                    <form onSubmit={handleSubmit}>
+                        <h1 className='font-bold text-2xl' style={{ color: '#39A900' }} >Consulta de Datos XML</h1>
+                        <div className='flex gap-5'>
+                            <label htmlFor="fileInput" className="custom-file-upload">
+                                <span className="icon"><AiFillFileAdd /></span>
+                                <p className='mr-4'>Subir Archivo</p>
+                                <input id="fileInput" type="file" onChange={handleFileChange} />
+                            </label>
+                            <button type="submit" style={{ backgroundColor: '#39A900' }} className='text-white font-bold ml-3 py-2 px-4 rounded-full'>Enviar</button>
+                        </div>
+                    </form>
+                    <div className='info'>
+                        <p>Datos de la ficha: <b>{data.length}</b></p>
+                        <p>Número de Ficha: <b>{fichaNumero}</b></p>
+                    </div>
+                    <p>Descripción de la Ficha: <b>{fichaDescripcion}</b></p>
+                </section>
                 <br></br>
+                <h1 className='mb-5 font-bold text-3xl' style={{ color: '#39A900' }}>Datos recibidos del servidor:</h1>
                 <ul>
                     {data.map((item, index) => (
                         <li key={index} className='Card'>
