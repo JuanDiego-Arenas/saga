@@ -13,7 +13,8 @@ function NavBar() {
         <>
             {
                 rol === 'admin' ? <Admin user={user} /> : null ||
-                rol === 'porteria' ? <Porteria user={user}/> : null
+                rol === 'porteria' ? <Porteria user={user}/> : null ||
+                rol === 'aprendiz' ? <Admin user={user} /> : null
             }
         </>
     )
