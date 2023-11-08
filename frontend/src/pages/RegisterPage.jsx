@@ -100,6 +100,7 @@ function RegisterPage() {
                     <option value="invitado">Invitado</option>
                     <option value="aprendiz">Aprendiz</option>
                     <option value="instructor">Instructor</option>
+                    <option value="porteria">Porteria</option>
                     <option value="bienestar">Bienestar Al aprendiz</option>
                 </select>
 
