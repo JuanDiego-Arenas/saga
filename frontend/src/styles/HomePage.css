@@ -44,6 +44,13 @@ body {
     height: 100vh;
 }
 
+.more h1 {
+    display: flex;
+    font-weight: 700;
+    font-size: 60px;
+    margin-left: 10px;
+}
+
 /* .redes {
     display: flex;
     margin-top: 30px;
