@@ -1,22 +1,59 @@
 body {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bienv {
+    background: #84df57;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    
 }
 
 .bienv h1 {
+    display: flex;
     font-weight: 700;
     font-size: 60px;
+    margin-left: 10px;
 }
 
-.redes {
+.bienv h3 {
+    font-size: 70px;
+    margin-left: 10px;
+}
+
+.bienv img {
+    height: 70vh;
+}
+
+.s-info {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    width: 150px;
+    justify-content: end;
+    position: relative;
+    top: 0px; left: 90%;
+    box-shadow: inset 0 0 100px 2px;
+}
+
+.more {
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+}
+
+/* .redes {
     display: flex;
     margin-top: 30px;
     height: 80px;
     background-color: #39A900;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.redes a {
+/* .redes a {
     display: flex;
     align-items: center;
     margin: 0 7vw;
@@ -25,4 +62,4 @@ body {
 
 .redes img:hover {
     box-shadow: 0px 0px 2px 2px white;
-}
+} */

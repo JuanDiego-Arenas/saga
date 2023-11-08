@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useAuth } from '../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import LogoSena from '../assets/LogoSena.svg'
+import LogoSena from '../assets/svg/LogoSena.svg'
 import imagenSlider from '../assets/imgs/img_01.jpg'
 import '../styles/loginStyles.css'
 
