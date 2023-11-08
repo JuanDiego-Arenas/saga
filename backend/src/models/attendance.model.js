@@ -15,8 +15,7 @@ const attendanceSchema = new Schema({
 		required: true,
 	},
 	ficha: {
-		type: String,
-		required: true,
+		type: String
 	},
 	entrada: {
 		type: Date,
