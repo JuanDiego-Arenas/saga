@@ -28,7 +28,7 @@ const HomePage = () => {
                     <span className="text-transparent bg-clip-text bg-gradient-to-br " style={{ color: '39a900' }}>SAGA</span> El Futuro del SENA.
                     </h1>
                     <p className="mt-8 max-w-screen-sm p-3 text-xl">
-                        SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias y prestamos para la biblioteca</p>
+                        SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias</p>
                     <div className="mt-10  w-full flex max-w-md mx-auto lg:mx-0">
                         <div className="flex sm:flex-row flex-col gap-5 w-full">
 
