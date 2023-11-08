@@ -3,6 +3,8 @@ import './stylesNav.css'
 
 import Admin from './NavBars/admin'
 import Porteria from './NavBars/porteria'
+import Aprendiz from './NavBars/Aprendiz'
+// import Aprendiz from './NavBars/Aprendiz'
 
 
 function NavBar() {
@@ -12,9 +14,8 @@ function NavBar() {
     return (
         <>
             {
-                rol === 'admin' ? <Admin user={user} /> : null ||
                 rol === 'porteria' ? <Porteria user={user}/> : null ||
-                rol === 'aprendiz' ? <Admin user={user} /> : null
+                rol === 'admin' ? <Admin user={user} /> : <Aprendiz user={user}/>
             }
         </>
     )
