@@ -108,7 +108,7 @@
             <>
                 <NavBar />
                 {/* Botón para abrir el modal */}
-                <button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>
+                { user.rol === 'admin' || 'bienestar' ? (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>) : '' }
                 {/* Modal para el formulario de crear noticias */}
                 <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                     <h2 className='titleModal w-full text-4xl'>Nueva Noticia</h2>
