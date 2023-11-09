@@ -1,13 +1,33 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import NavBar from '../components/navbar/NavBar';
 import axios from 'axios';
-import { Tweet } from 'react-tweet'
+import Modal from 'react-modal'; // Importa react-modal
+import '../styles/NoticesPageStyles.css';
+import { Tweet } from 'react-tweet';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        width: '40vw',
+        boxShadow: '0 0 5px #84df57'
+    },
+};
+
+Modal.setAppElement('#root');
 
 const NoticiasPage = () => {
+    const { user } = useAuth()
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [nuevaNoticia, setNuevaNoticia] = useState({
         title: '',
         description: '',
-        createby: '',
+        createby: user.username,
         image: null, // Este valor se llenará cuando el usuario seleccione una imagen
     });
 
@@ -48,6 +68,7 @@ const NoticiasPage = () => {
                 createby: '',
                 image: null,
             });
+            setModalIsOpen(false)
         } catch (error) {
             // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
             console.error('Error al crear la noticia:', error);
@@ -57,16 +78,21 @@ const NoticiasPage = () => {
     return (
         <>
             <NavBar />
-            {/* Aquí iría tu modal para crear noticias */}
-            <form onSubmit={handleCrearNoticia} className='mt-20'>
-                <input type="text" name="title" placeholder="Título" value={nuevaNoticia.title} onChange={handleInputChange} />
-                <input type="text" name="description" placeholder="Descripción" value={nuevaNoticia.description} onChange={handleInputChange} />
-                <input type="text" name="createby" placeholder="Creado por" value={nuevaNoticia.createby} onChange={handleInputChange} />
-                <input type="file" name="image" onChange={handleImageChange} />
-                <button type="submit">Crear Noticia</button>
-            </form>
+            {/* Botón para abrir el modal */}
+            <button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>
+
+            {/* Modal para el formulario de crear noticias */}
+            <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
+                <h2 className='titleModal w-full'>Nueva Noticia</h2>
+                <button className='closeBtn font-bold text-xl' onClick={() => setModalIsOpen(false)}>X</button>
+                <form onSubmit={handleCrearNoticia} className='flex flex-col'>
+                    <input type="text" name="title" placeholder="Título" required value={nuevaNoticia.title} onChange={handleInputChange} />
+                    <textarea name="description" placeholder="Descripción" required value={nuevaNoticia.description} onChange={handleInputChange} />
+                    <input type="file" name="image" onChange={handleImageChange} required />
+                    <button className='btnSubmit' type="submit">Crear Noticia</button>
+                </form>
+            </Modal>
         </>
     );
 };
-
 export default NoticiasPage;
