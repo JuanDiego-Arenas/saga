@@ -44,6 +44,10 @@ export const createNoticia = async (req, res) => {
 }
 
 export const getNotices = async (req, res) => {
-    const data = await Noticia.find()
-    res.status(200).json(data)
+    try{
+        const data = await Noticia.find()
+        res.status(200).json(data)
+    } catch(error){
+        console.log(error)
+    }
 }
