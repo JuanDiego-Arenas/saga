@@ -2,6 +2,7 @@ import xml2js from 'xml2js';
 import path from 'path';
 import User from '../models/user.model.js'; 
 
+
 const parseXmlToJson = async (xmlString) => {
     return new Promise((resolve, reject) => {
         xml2js.parseString(xmlString, { explicitArray: false }, async (err, result) => {
@@ -20,7 +21,7 @@ const parseXmlToJson = async (xmlString) => {
                             const nombre = cells[2].Data._;
                             const apellido = cells[3].Data._;
                             let telefono = cells[4].Data;
-                            const password = '12345678'
+                            const password = 'XXvRR6RFEv4qzGx4eaVtAObejgkn6WCQHpXXscu3DdooQqgbm0JPC'
                             const email = cells[5].Data._;
                             const estado = cells[6].Data._;
                             const rol = 'aprendiz'
@@ -42,7 +43,7 @@ const parseXmlToJson = async (xmlString) => {
                                     avatar
                                 });
                             } else {
-
+                                
                             }
 
                         } else {
@@ -54,23 +55,27 @@ const parseXmlToJson = async (xmlString) => {
                     // Si solo hay una fila, también la procesamos
                     const cells = rows.Cell;
                     if (Array.isArray(cells) && cells.length >= 7) {
-                        const cc = cells[0].Data._;
-                        const numero = cells[1].Data._;
-                        const nombre = cells[2].Data._;
-                        const apellido = cells[3].Data._;
-                        const telefono = cells[4].Data._;
-                        const email = cells[5].Data._;
-                        const estado = cells[6].Data._;
+                        const tipo = cells[0].Data._;
+                            const cc = cells[1].Data._;
+                            const nombre = cells[2].Data._;
+                            const apellido = cells[3].Data._;
+                            let telefono = cells[4].Data._;
+                            const password = '$2a$10$XXvRR6RFEv4qzGx4eaVtAObejgkn6WCQHpXXscu3DdooQqgbm0JPC'
+                            const email = cells[5].Data._;
+                            const estado = cells[6].Data._;
+                            const rol = 'aprendiz'
+                            const avatar = 'http://localhost:3000/avatars/userdefault.jpg'
 
                         jsonData.push({
+                            tipo,
                             cc,
-                            numero,
-                            nombre,
-                            apellido,
-                            telefono,
+                            username: nombre + ' ' + apellido,
+                            telefono: telefono === 0 ? 0 : telefono,
+                            password,
                             email,
                             estado,
-                            barcodeSVG: await generateBarcodeSVG(cc), // Generar código de barras para cc
+                            rol,
+                            avatar // Generar código de barras para cc
                         });
                     } else {
                         // Log o manejo del error para la fila con número incorrecto de celdas
