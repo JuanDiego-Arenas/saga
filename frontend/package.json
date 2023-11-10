@@ -23,8 +23,7 @@
     "react-jsbarcode": "^0.4.2",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.17.0",
-    "react-tweet": "^3.1.1",
-    "yarn": "^1.22.19"
+    "react-tweet": "^3.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
