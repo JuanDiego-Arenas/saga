@@ -51,3 +51,11 @@ export const getNotices = async (req, res) => {
         console.log(error)
     }
 }
+
+export const updateNotices = async (req, res) => {
+    res.status(200).json({ msg: 'Todo O.K Update Notice' })
+}
+
+export const deleteNotices = async (req, res) => {
+    res.status(200).json({ msg: 'Todo O.K Delete Notice' })
+}

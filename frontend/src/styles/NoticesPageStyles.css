@@ -136,3 +136,34 @@ form .btnSubmit:hover {
     opacity: 0;
     transform: translateY(-50%);
 }
+
+/* TODO Estiles NoticesList */
+
+.containerNoticeList {
+    display: flex;
+    flex-direction: column; /* Establece la dirección del flujo principal a columna */
+    gap: 10px; /* Espaciado entre elementos */
+    max-width: 80vw; /* Limita el ancho del contenedor para evitar que se extienda demasiado */
+}
+
+.containerNoticeLzist{
+    background: rgb(187, 208, 225);
+}
+
+.infroNotice {
+    display: flex;
+    width: 30% !important;
+    gap: 10px; /* Espaciado entre la imagen y el contenido de la noticia */
+}
+
+.description {
+    max-height: 600px; /* Altura máxima para el contenido de la noticia */
+    overflow-y: auto; /* Permitir desbordamiento vertical y mostrar barras de desplazamiento si es necesario */
+    width: 70%;
+    margin-top: 3em;
+}
+
+.descriptionPre{
+    white-space: pre-wrap;
+    overflow-y: auto;
+}
