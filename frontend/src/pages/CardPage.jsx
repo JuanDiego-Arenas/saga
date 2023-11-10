@@ -84,6 +84,7 @@ const CardPage = () => {
                             </label>
                             <button type="submit" style={{ backgroundColor: '#39A900' }} className='text-white font-bold ml-3 py-2 px-4 rounded-full'>Enviar</button>
                         </div>
+                            <p style={{ width: '28ch' }}>{ xmlFile === null ? 'Archivo:' : `Archivo: ${xmlFile.name}` }</p>
                     </form>
                     <div className='info'>
                         <p>Datos de la ficha: <b>{data.length}</b></p>

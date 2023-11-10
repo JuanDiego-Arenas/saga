@@ -8,7 +8,7 @@ export const createAtt = async (req, res) => {
     try {
         // Busca el registro de asistencia del usuario
         let asistencia = await Attendance.findOne({ cedula }).sort({ entrada: -1 }).exec();
-        const usuario = await User.findOne({ cc: cedula }, { _id: 0, username: 1, fichaNumero: 1, tipo: 1 });
+        const usuario = await User.findOne({ cc: cedula }, { _id: 0, username: 1, fichaNumero: 1, tipo: 1, rol: 1 });
 
         const now = new Date();
 
@@ -23,7 +23,7 @@ export const createAtt = async (req, res) => {
                 tipo: usuario.tipo,
                 cedula,
                 user_name: usuario.username,
-                ficha: usuario.fichaNumero,
+                ficha: usuario.fichaNumero === undefined ? usuario.rol : usuario.fichaNumero,
                 entrada: now,
                 ultimaAccion: now,
             });

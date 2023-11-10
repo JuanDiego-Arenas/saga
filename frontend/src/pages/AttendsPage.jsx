@@ -73,7 +73,7 @@ function AttendsPage() {
             <NavBar />
             <section style={{ marginTop: '5em' }} className='attends'>
                 <h1>Registro de Ingresos</h1>
-                <form onSubmit={handleSubmit} className='formAttends'>
+                <form onSubmit={handleSubmit} className='formAttends flex flex-col items-center'>
                     <input
                         type='text'
                         value={inputValue}

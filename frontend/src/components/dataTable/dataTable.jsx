@@ -136,9 +136,9 @@ const DataTableComponent = ({ data }) => {
                                 value={columnFilters.entrada}
                                 onChange={(e) => onColumnFilterChange('entrada', e.target.value)}
                                 placeholder="Buscar"
-                                className="p-ml-2"
-                                type='date'
-                                style={{ color: 'transparent', outline: 'none', width: '23px' }}
+                                className="p-ml-2 ml-2"
+                                type='text'
+                                style={{ outline: 'none', borderBottom: '2px solid #4CAF50', width: '8ch' }}
                             />
                         </div>
                     }
@@ -152,9 +152,9 @@ const DataTableComponent = ({ data }) => {
                                 value={columnFilters.salida}
                                 onChange={(e) => onColumnFilterChange('salida', e.target.value)}
                                 placeholder="Buscar"
-                                className="p-ml-2"
-                                type='date'
-                                style={{ color: 'transparent', outline: 'none', width: '23px' }}
+                                className="p-ml-2 ml-2"
+                                type='text'
+                                style={{ outline: 'none', borderBottom: '2px solid #4CAF50', width: '8ch' }}
                             />
                         </div>
                     }

@@ -44,6 +44,18 @@ export const createNoticia = async (req, res) => {
 }
 
 export const getNotices = async (req, res) => {
-    const data = await Noticia.find()
-    res.status(200).json(data)
+    try{
+        const data = await Noticia.find()
+        res.status(200).json(data)
+    } catch(error){
+        console.log(error)
+    }
+}
+
+export const updateNotices = async (req, res) => {
+    res.status(200).json({ msg: 'Todo O.K Update Notice' })
+}
+
+export const deleteNotices = async (req, res) => {
+    res.status(200).json({ msg: 'Todo O.K Delete Notice' })
 }
