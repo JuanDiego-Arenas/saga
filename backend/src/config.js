@@ -1,1 +1,1 @@
-export const TOKEN_SECRET = 'tokenSecret';
+export const TOKEN_SECRET = 'cab6a6dbda4f39d26f71fc43a7c63b6b67842e2bb2655b0cc1c03459bacba81bfff9873ce1c7530539c7c54a65454fb01140917c719e02ae2db4083527a0f508';
