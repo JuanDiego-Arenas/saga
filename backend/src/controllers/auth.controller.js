@@ -30,7 +30,6 @@ export const register = async (req, res) => {
             fs.mkdirSync(imagesDirectory, { recursive: true });
         }
 
-        const randomId = Math.floor(Math.random() * 1000).toString()
 
         // Crear un nuevo usuario con los datos proporcionados
         const newUser = new User({
@@ -40,13 +39,13 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${randomId}_${avatar.name}` : '/avatars/userdefault.jpg'
+            avatar: avatar ? `/avatars/${avatar.cc}` : '/avatars/userDefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
         if (avatar) {
             // Mueve el archivo al directorio de imágenes
-            avatar.mv(path.join(imagesDirectory, `${randomId}_${avatar.name}`), (err) => {
+            avatar.mv(path.join(imagesDirectory, `${avatar.cc}`), (err) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ msg: 'Error al subir la imagen' });
@@ -107,10 +106,10 @@ export const login = async (req, res) => {
 
     try {
         const userFound = await User.findOne({ email })
-        if(!userFound) return res.status(404).json(['usuario no encontrado'])
+        if(!userFound) return res.status(404).json(['usuario o contraseña incorrectos'])
 
         const isMatch = await bcrypt.compare(password, userFound.password)
-        if(!isMatch) return res.status(400).json(['Contraseña Incorrecta'])
+        if(!isMatch) return res.status(400).json(['usuario o contraseña incorrectos']);
 
         const token = await createAccessToken({ id: userFound._id })
 

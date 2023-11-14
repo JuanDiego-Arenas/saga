@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import { URI_MONGO } from './config.js';
 
 export const connectDB = async () => {
-    try {
-        await mongoose.connect('mongodb+srv://adminadmin:asd1003993886@saga.vbcpa6v.mongodb.net') // mongodb+srv://adminadmin:asd1003993886@saga.vbcpa6v.mongodb.net
-        console.log('>>> DB is connected <<<')
-    } catch (error) {
-        console.log(error)
-    }
-}
+	try {
+		await mongoose.connect(URI_MONGO); // mongodb+srv://adminadmin:asd1003993886@saga.vbcpa6v.mongodb.net
+		console.log('>>> DB is connected <<<');
+	} catch (error) {
+		console.log(error);
+	}
+};
