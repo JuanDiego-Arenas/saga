@@ -7,7 +7,7 @@ export const createNoticia = async (req, res) => {
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = path.dirname(__filename)
 
-    const { title, description, createby } = req.body
+    const { title, description, createby, rol } = req.body
     const file = req.files.image
 
     const titlePath = title.split('').map((e) => e === ' ' ? '-' : e ).join('')
@@ -31,7 +31,8 @@ export const createNoticia = async (req, res) => {
             title: title, 
             description: description, 
             image: rutaSinUpload,
-            createby: createby
+            createby: createby,
+            rol: rol
         })
 
         const noticeSave = await newNotice.save();
