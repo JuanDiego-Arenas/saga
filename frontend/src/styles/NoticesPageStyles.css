@@ -142,28 +142,92 @@ form .btnSubmit:hover {
 .containerNoticeList {
     display: flex;
     flex-direction: column; /* Establece la dirección del flujo principal a columna */
-    gap: 10px; /* Espaciado entre elementos */
     max-width: 80vw; /* Limita el ancho del contenedor para evitar que se extienda demasiado */
 }
 
-.containerNoticeLzist{
-    background: rgb(187, 208, 225);
+.containerNoticeList{
+    background: rgba(232, 227, 227, 0.778);
+    border-radius: 20px;
+    box-shadow: 0 0 7px rgb(81, 81, 81);
 }
 
 .infroNotice {
     display: flex;
     width: 30% !important;
     gap: 10px; /* Espaciado entre la imagen y el contenido de la noticia */
+    background-color: rgb(209, 255, 209);
+    border-radius: 20px 0 0 0;
+    padding: 2em 0;
+    justify-content: center;
+    text-align: center;
 }
-
+.infroNotice h2{
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: capitalize;
+}
+.infroNotice img{
+    box-shadow: 0 0 8px rgb(68, 68, 68);
+    border-radius: 10px;
+}
+.cImgDes{
+    background-color: white !important;
+    border-radius: 20px 20px 0 0;
+}
 .description {
-    max-height: 600px; /* Altura máxima para el contenido de la noticia */
+    max-height: 430px; /* Altura máxima para el contenido de la noticia */
     overflow-y: auto; /* Permitir desbordamiento vertical y mostrar barras de desplazamiento si es necesario */
     width: 70%;
     margin-top: 3em;
+    margin: 2.5em 3em;
+    padding: 1em 2em;
+    background-color: #F3FDE8;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgb(133, 136, 133);
+}
+.description pre{
+    font-family: '';
+    font-size: 1.1em;
 }
 
 .descriptionPre{
     white-space: pre-wrap;
     overflow-y: auto;
+}
+
+.footerNotice{
+    display: flex;
+    gap: 1em;
+    background: rgba(228, 227, 227, 0.778);
+    border-radius: 0 0 20px 20px;
+    padding: 1em 0;
+    padding-left: 1em;
+}
+
+@media (max-width: 800px) {
+    .containerNoticeList{
+        justify-content: center;
+    }
+    .cImgDes{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .infroNotice{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border-radius: 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .footerNotice{
+        flex-direction: column;
+    }
+    .description{
+        margin: 1.5em 0;
+        width: 90%;
+    }
 }
