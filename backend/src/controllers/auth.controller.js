@@ -179,9 +179,3 @@ export const verifyToken = async (req, res) => {
     })
 
 }
-
-export const getUsers = async (req, res) => {
-    const data = await User.find()
-
-    res.status(200).json({ data })
-}
