@@ -16,6 +16,10 @@ const noticiaModel = mongoose.Schema({
         type: String,
         trim: true,
     },
+    rol:{
+        type: String,
+        trim: true,
+    },
     image: String
 }, {
     timestamps: true

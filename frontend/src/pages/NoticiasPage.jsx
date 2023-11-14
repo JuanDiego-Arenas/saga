@@ -5,8 +5,8 @@
     import Modal from 'react-modal';
     import { BsFillFileImageFill } from 'react-icons/bs'; // Importa FontAwesomeIcon desde react-icons/fa
     import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
-    import '../styles/NoticesPageStyles.css';
     import NoticesList from '../components/notices/NoticesList';
+    import '../styles/NoticesPageStyles.css';
 
     const customStyles = {
         content: {
@@ -31,6 +31,7 @@
             title: '',
             description: '',
             createby: user.username,
+            rol: user.rol,
             image: null, // Este valor se llenará cuando el usuario seleccione una imagen
         });
 
@@ -66,6 +67,7 @@
                 formData.append('description', nuevaNoticia.description);
                 formData.append('createby', nuevaNoticia.createby);
                 formData.append('image', nuevaNoticia.image);
+                formData.append('rol', user.rol);
 
                 // Realizar la solicitud POST al servidor para crear la noticia
                 const response = await axios.post('http://localhost:3000/api/createNoticia', formData, {
@@ -108,7 +110,9 @@
             <>
                 <NavBar />
                 {/* Botón para abrir el modal */}
-                { user.rol === 'admin' || 'bienestar' ? (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>) : '' }
+                { user.rol === 'admin' && (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>) ||
+                    user.rol === 'bienestar' && (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>)
+                }
                 {/* Modal para el formulario de crear noticias */}
                 <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                     <h2 className='titleModal w-full text-4xl'>Nueva Noticia</h2>

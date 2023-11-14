@@ -30,7 +30,7 @@ const HomePage = () => {
               Bienvenidos a <span style={{ color: '#39a900', width: 'fit-content' }}>SAGA</span>
               <br />
               <span className='text-transparent bg-clip-text bg-gradient-to-br ' style={{ color: '#39a900' }}></span>{' '}
-              El Futuro del SENA.
+              El Futuro del SENA
             </h1>
             <p className='mt-8 max-w-screen-sm p-3 text-xl'>
               SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias.
@@ -159,6 +159,7 @@ const HomePage = () => {
                 </li>
             </ul>
         </div>
+<<<<<<< HEAD
 
         <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
             <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
@@ -182,3 +183,28 @@ const HomePage = () => {
 };
 
 export default HomePage;
+=======
+
+        <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
+            <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
+                <div className="w-full h-80 sm:h-96 midmd:h-full relative">
+                    <div className="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-26 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                    <div className="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                    
+                    <span className="absolute w-full aspect-[16/5] -skew-x-80 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-40"></span>
+                    <img src={Saga} alt="banner image" 
+                    // style={{width:"1240px", height:"1485px"}}
+                    className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em"}} />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      </div>
+    </>
+  );
+};
+
+export default HomePage;
+>>>>>>> 6198d07aaab529fa5203e62351d052049c44fcdd
