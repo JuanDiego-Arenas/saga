@@ -72,7 +72,7 @@ const HomePage = () => {
                 </li>
                 <li class="benefits">
                     
-                    <span class="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />
+                    <span className="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />
                     Mejora en la Toma de Decisiones:
                     </span>  
                     <br />
@@ -81,7 +81,7 @@ const HomePage = () => {
                 </li>
                 <li class="benefits">
                     
-                    <span class="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />Reducción de Errores Administrativos:</span>  
+                    <span className="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />Reducción de Errores Administrativos:</span>  
                     <br/>
                     <br/>
                     SAGA elimina la posibilidad de errores humanos en la toma de asistencias, lo que garantiza un registro preciso y confiable de las actividades de los aprendices.
@@ -89,7 +89,7 @@ const HomePage = () => {
                 </li>
                 <li class="benefits">
                     
-                    <span class="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />Facilita la Comunicación:</span>  
+                    <span className="font-bold bg-box-bg rounded-full w-30 h-8 mr-3 text-primary inline-flex justify-center items-center"><img src={Check} />Facilita la Comunicación:</span>  
                     <br/>
                     <br/>
                     Nuestra plataforma mejora la comunicación entre instructores, coordinadores académicos y estudiantes, permitiendo una interacción más fluida y efectiva.
@@ -164,7 +164,7 @@ const HomePage = () => {
             <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
                 <div className="w-full h-80 sm:h-96 midmd:h-full relative">
                     <div className="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-26 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                    <div className="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                    <div className="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
                     
                     <span className="absolute w-full aspect-[16/5] -skew-x-80 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-40"></span>
                     <img src={Saga} alt="banner image" 
