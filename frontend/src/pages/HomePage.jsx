@@ -52,7 +52,7 @@ const HomePage = () => {
             <div className='max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
               <div className='w-full h-80 sm:h-96 midmd:h-full relative'>
 
-                <img src={LogoSena} alt='Logo SENA' style={{ width: '900px', marginTop: '60px' }} className='logo w-auto left-1/2 -translate-x-1/2 absolute top-0 max-h-full' />
+                <img src={LogoSena} alt='Logo SENA' style={{ width: '900px', marginTop: '200px' }} className='logo w-auto left-1/2 -translate-x-1/2 absolute top-0 max-h-full' />
               </div>
             </div>
             <div className='mt-14 flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col '>
@@ -165,7 +165,7 @@ const HomePage = () => {
             
                     <img src={Saga} alt="banner image" 
                     // style={{width:"1240px", height:"1485px"}}
-                    className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em"}} />
+                    className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em", marginTop: '300px'}} />
                 </div>
             </div>
         </div>
