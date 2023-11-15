@@ -13,10 +13,8 @@ const HomePage = () => {
         <NavBar />
         <section className='flex flex-col lg:flex-row gap-10 lg:gap-12 mt-20'>
           <div className='absolute w-full lg:w-1/2 inset-y-0 lg:right-0 '>
-            <span className='absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden'></span>
-            <span className='absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80'></span>
           </div>
-          <span className='w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90'></span>
+          
           <div
             className=' flex flex-col justify-center  text-center lg:text-left lg:py-7 xl:py-8 
                                     lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2'
@@ -52,10 +50,7 @@ const HomePage = () => {
           <div className='flex midmd:flex-row gap-10 lg:gap-12 mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5'>
             <div className='max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
               <div className='w-full h-80 sm:h-96 midmd:h-full relative'>
-                <div className='absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50'></div>
-                <div className='absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60'></div>
 
-                <span className='absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0'></span>
                 <img src={LogoSena} alt='Logo SENA' style={{ width: '900px' }} className='logo w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full' />
               </div>
             </div>
@@ -159,15 +154,11 @@ const HomePage = () => {
                 </li>
             </ul>
         </div>
-<<<<<<< HEAD
 
         <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
             <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
                 <div className="w-full h-80 sm:h-96 midmd:h-full relative">
-                    <div className="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-26 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                    <div className="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                    
-                    <span className="absolute w-full aspect-[16/5] -skew-x-80 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-40"></span>
+                   
                     <img src={Saga} alt="banner image" 
                     // style={{width:"1240px", height:"1485px"}}
                     className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em"}} />
@@ -183,28 +174,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-=======
-
-        <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-                <div className="w-full h-80 sm:h-96 midmd:h-full relative">
-                    <div className="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-26 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                    <div className="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                    
-                    <span className="absolute w-full aspect-[16/5] -skew-x-80 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-40"></span>
-                    <img src={Saga} alt="banner image" 
-                    // style={{width:"1240px", height:"1485px"}}
-                    className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em"}} />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-      </div>
-    </>
-  );
-};
-
-export default HomePage;
->>>>>>> 6198d07aaab529fa5203e62351d052049c44fcdd
