@@ -47,15 +47,16 @@ const HomePage = () => {
           </div>
         </section>
         <hr style={{marginTop: '50px', height: '2px', backgroundColor: '#84df57'}}></hr>
+        <section className="features">
         <section className='flex lg:flex-row gap-10 lg:gap-12'>
           <div className='flex midmd:flex-row gap-10 lg:gap-12 mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5'>
             <div className='max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
               <div className='w-full h-80 sm:h-96 midmd:h-full relative'>
 
-                <img src={LogoSena} alt='Logo SENA' style={{ width: '900px', marginTop: '200px' }} className='logo w-auto left-1/2 -translate-x-1/2 absolute top-0 max-h-full' />
+                <img src={LogoSena} alt='Logo SENA' style={{ width: '900px', marginTop: '200px' }} id='logos' className='logo w-auto left-1/2 -translate-x-1/2 absolute top-0 max-h-full' />
               </div>
             </div>
-            <div className='mt-14 flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col '>
+            <div id='list' className='mt-14 flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col '>
               <h1 style={{color: '#39a900'}} className='text-heading-1 font-semibold text-2xl sm:text-3xl md:text-4xl'>Beneficios Clave de SAGA:</h1>
               <ul className='mt-8 space-y-4 text-heading-3 font-medium'>
                 <li className='benefits'>
@@ -98,11 +99,12 @@ const HomePage = () => {
           </div>
           
         </section>
+        </section>
         <hr style={{marginTop: '50px', height: '2px', backgroundColor: '#84df57',}}></hr>
-        <section id="features">
+        <section className="features">
     <div className="mt-14 mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5 flex midmd:flex-row gap-10 lg:gap-12" style={{marginBottom: '50px'}}>
         
-        <div className="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+        <div id='list' className="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <h1 style={{color: '#39a900'}} className='text-heading-1 font-semibold text-2xl sm:text-3xl md:text-4xl'>
                 Características Destacadas de SAGA:            
             </h1>
@@ -163,7 +165,7 @@ const HomePage = () => {
             <div className="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
                 <div className="w-full h-80 sm:h-96 midmd:h-full relative">
             
-                    <img src={Saga} alt="banner image" 
+                    <img src={Saga} id='logos' alt="banner image" 
                     // style={{width:"1240px", height:"1485px"}}
                     className=" w-auto left-1/2 -translate-x-1/2 absolute bottom-25 max-h-full" style={{width: "100em", marginTop: '300px'}} />
                 </div>
