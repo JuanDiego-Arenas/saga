@@ -2,6 +2,7 @@ import Noticia from '../models/noticias.models.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
+import { DateTime } from 'luxon'
 
 export const createNoticia = async (req, res) => {
     const __filename = fileURLToPath(import.meta.url)

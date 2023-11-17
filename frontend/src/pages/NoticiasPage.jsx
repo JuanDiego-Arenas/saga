@@ -77,7 +77,7 @@
                 });
 
                 // Manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito
-                console.log('Noticia creada exitosamente:', response.data);
+                // console.log('Noticia creada exitosamente:', response.data);
 
                 // Limpiar el estado después de la creación exitosa
                 setNuevaNoticia({

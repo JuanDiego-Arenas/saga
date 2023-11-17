@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { register, login, logout, getUsers, profile, verifyToken } from '../controllers/auth.controller.js'
+import { register, login, logout, getUsers, profile, verifyToken, getUserCc } from '../controllers/auth.controller.js'
 
 
 // TODO Middlewares
@@ -17,6 +17,7 @@ router.post('/register', validateSchema(registerSchema) ,register)
 router.post('/login', validateSchema(loginSchema), login)
 router.post('/logout', logout)
 router.get('/getUsers', getUsers)
+router.get('/getUser', getUserCc)
 
 router.get('/verify', verifyToken)
 
