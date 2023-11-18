@@ -18,3 +18,19 @@ body {
 .benefits{
     font-weight: bolder;
 }
+
+#logos {
+    flex: 1;
+}
+ 
+@media (max-width: 918px) {
+    .features {
+        flex-direction: column; 
+    }
+
+    #list,
+    #logos {
+        flex: none; 
+        width: 100%; 
+    }
+}

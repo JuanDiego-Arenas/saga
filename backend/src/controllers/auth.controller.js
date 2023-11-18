@@ -30,6 +30,7 @@ export const register = async (req, res) => {
             fs.mkdirSync(imagesDirectory, { recursive: true });
         }
 
+        const idCC = cc
 
         // Crear un nuevo usuario con los datos proporcionados
         const newUser = new User({
@@ -39,13 +40,13 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${avatar.cc}` : '/avatars/userDefault.jpg'
+            avatar: avatar ? `/avatars/${idCC}_${avatar.name}` : '/avatars/userdefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
         if (avatar) {
             // Mueve el archivo al directorio de imágenes
-            avatar.mv(path.join(imagesDirectory, `${avatar.cc}`), (err) => {
+            avatar.mv(path.join(imagesDirectory, `${idCC}_${avatar.name}`), (err) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ msg: 'Error al subir la imagen' });
@@ -142,7 +143,7 @@ export const logout = (req, res) => {
 
 export const profile = async (req, res) => {
     const userFound = await User.findById(req.user.id)
-    if(!userFound) return res.status(404).json({ msg: 'User Not Found' })
+    if (!userFound) return res.status(404).json({ msg: 'User Not Found' })
 
     return res.status(200).json({
         id: userFound._id,
@@ -157,13 +158,13 @@ export const profile = async (req, res) => {
 export const verifyToken = async (req, res) => {
     const { token } = req.cookies
 
-    if(!token) return res.status(401).json({ msg: 'No Autorizado' })
+    if (!token) return res.status(401).json({ msg: 'No Autorizado' })
 
     jwt.verify(token, TOKEN_SECRET, async (err, user) => {
-        if(err) return res.status(401).json({ msg: 'Usuario no autorizado' })
+        if (err) return res.status(401).json({ msg: 'Usuario no autorizado' })
 
         const userFound = await User.findById(user.id)
-        if(!userFound) return res.status(404).json({ msg: 'Usuario no autorizado' })
+        if (!userFound) return res.status(404).json({ msg: 'Usuario no autorizado' })
 
         return res.status(200).json({
             id: userFound._id,
@@ -177,5 +178,28 @@ export const verifyToken = async (req, res) => {
         })
 
     })
+
+}
+
+export const getUsers = async (req, res) => {
+    const data = await User.find()
+
+    res.status(200).json({ data })
+}
+
+
+export const getUserCc = async (req, res) => {
+
+    const { cc } = req.body
+
+    try {
+        const userFind = await User.findOne({ cc })
+        if(!userFind) res.status(201).json({ msg: 'Cedula no encontrada' })
+
+        res.status(200).json(userFind)
+
+    } catch (error) {
+        console.log('Error Cedula no encontrada' , error)
+    }
 
 }

@@ -1,11 +1,11 @@
-import { format } from "date-fns";
+import { DateTime } from 'luxon'
 
 const NoticesList = ({ noticias }) => {
 
     return (
 
         <div>
-            <h1 className="text-6xl font-bold mb-5">Noticias</h1>
+            <h1 className="text-6xl font-bold mb-5" style={{ color: '#84df57' }}>Noticias</h1>
             <ul className='containerNotices flex flex-col gap-8'>
                 {
                     noticias.map((noticia) =>
@@ -22,7 +22,7 @@ const NoticesList = ({ noticias }) => {
                             <div className="footerNotice">
                                 <p>Creado por: <b>{noticia.createby}</b></p>
                                 <p>Rol: <b>{noticia.rol}</b></p>
-                                <p>Fecha de Creacion: <b>{noticia.updatedAt}</b></p>
+                                <p>Fecha de Creacion: <b>{DateTime.fromISO(noticia.updatedAt).toLocaleString(DateTime.DATE_FULL)}</b></p>
                             </div>
                         </li>
                     )
