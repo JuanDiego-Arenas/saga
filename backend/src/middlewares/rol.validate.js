@@ -3,19 +3,19 @@ import User from '../models/user.model.js';
 export const accessRol = async (req, res, next) => {
 	const { id } = req.user;
 
-	const rol = await User.findOne({ _id: id }, { _id: 0, rol: 1 });
+	try {
+		const { rol: userRole } = await User.findOne(
+			{ _id: id },
+			{ _id: 0, rol: 1 }
+		);
+		const roles = ['admin', 'instructor', 'aprendiz', 'porteria', 'Bienestar Al aprendiz', 'invitado'];
 
-	if (!rol.rol == 'aprendiz') {
-		res.status(200).send({ msg: 'Es aprendiz' });
-	} else {
-		return res.status(200).send({ msg: 'No es aprendiz' });
+		if (roles.includes(userRole)) {
+			return next();
+		} else {
+			return res.status(401).send({ msg: 'Acceso denegado' });
+		}
+	} catch (error) {
+		return res.status(500).send({ msg: 'Error al validar el rol' });
 	}
-
-	jwt.verify(token, TOKEN_SECRET, (err, user) => {
-		if (err) return res.status(403).json({ msg: 'Invalid Token' });
-
-		req.user = user;
-
-		next();
-	});
 };

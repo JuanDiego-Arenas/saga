@@ -1,6 +1,5 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
-// import image from '../utils/image.js';
 
 export const getMe = async (req, res) => {
 	const { id } = req.user;
@@ -20,26 +19,49 @@ export const getUsers = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-	const { cc } = req.params;
+	const { cedula } = req.params;
 	const userData = req.body;
-	const __filename = fileURLToPath(import.meta.url);
-	const __dirname = path.dirname(__filename);
-	const avatar = req.files ? req.files.avatar : null; // Obtén el archivo de la solicitud
 
-	// Password
-	if (userData.password) {
-		const salt = bcrypt.genSaltSync(10);
-		const hashPassword = bcrypt.hashSync(userData.password, salt);
-		userData.password = hashPassword;
-	} else {
-		delete userData.password;
+	try {
+		// Password
+		if (userData.password) {
+			const salt = bcrypt.genSaltSync(10);
+			const hashPassword = bcrypt.hashSync(userData.password, salt);
+			userData.password = hashPassword;
+		} else {
+			delete userData.password;
+		}
+
+		// Avatar
+
+		const updatedUser = await User.findOneAndUpdate({ cc: cedula }, userData, {
+			new: true,
+		});
+
+		if (!updatedUser) {
+			return res
+				.status(400)
+				.send({ msg: 'Error al actualizar (╯°□°）╯︵ ┻━┻' });
+		}
+
+		return res.status(200).send({ msg: 'Datos actualizados (～￣▽￣)～' });
+	} catch (error) {
+		return res.status(500).json({ msg: error.message });
 	}
+};
 
-	// Construir la ruta al directorio de imágenes fuera de la carpeta controllers
-	const imagesDirectory = path.resolve(__dirname, '..', 'uploads', 'avatars');
+export const deleteUser = async (req, res) => {
+	const { cedula } = req.params;
 
-	// Avatar
-	if (userData.avatar == 'userDefault.jpg') {
-	} else {
+	try {
+		const deletedUser = await User.findOneAndDelete({ cc: cedula });
+
+		if (!deletedUser) {
+			res.status(404).send({ msg: 'User not fount (╯°□°）╯︵ ┻━┻' });
+		} else {
+			res.status(200).send({ msg: 'Usuario Eliminado (●^◡^●)' });
+		}
+	} catch (error) {
+		return res.status(500).json({ msg: error.message });
 	}
 };
