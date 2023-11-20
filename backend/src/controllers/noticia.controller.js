@@ -26,33 +26,18 @@ export const createNoticia = async (req, res) => {
 	try {
 		const file = req.files.image;
 		const noticeFound = await Noticia.findOne({ title });
-		if (noticeFound)
-			return res.status(401).json({ msg: 'Titulo de Noticia En uso' });
+		if (noticeFound) return res.status(401).json({ msg: 'Titulo de Noticia En uso' });
 
-		const noticesDirectory = path.resolve(
-			__dirname,
-			'..',
-			'uploads',
-			'notices',
-			titlePath
-		);
+		const noticesDirectory = path.resolve(__dirname, '..', 'uploads', 'notices', titlePath);
 
 		if (!fs.existsSync(noticesDirectory)) {
 			fs.mkdirSync(noticesDirectory, { recursive: true });
 		}
 
-		const rutaArchivoRelativa = path.join(
-			'uploads',
-			'notices',
-			titlePath,
-			file.name
-		);
+		const rutaArchivoRelativa = path.join('uploads', 'notices', titlePath, file.name);
 		const rutaSinUpload = path.join('notices', titlePath, file.name);
 
-		fs.writeFileSync(
-			path.resolve(__dirname, '..', rutaArchivoRelativa),
-			file.data
-		);
+		fs.writeFileSync(path.resolve(__dirname, '..', rutaArchivoRelativa), file.data);
 
 		const newNotice = new Noticia({
 			title: title,
@@ -70,76 +55,63 @@ export const createNoticia = async (req, res) => {
 	}
 };
 
-export const updateNotices = async (req, res) => {
+export const updateNews = async (req, res) => {
 	const { id } = req.params;
-	const noticeData = req.body;
+	const newsData = req.body;
 
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = path.dirname(__filename);
 
 	try {
 		// title
-		if (noticeData.title) {
-			return res.status(423).json({ msg: 'El titulo no se puede actualizar' });
+		if (newsData.title) {
+			return res.status(423).json({ msg: 'The title cannot be updated. (╯°□°）╯︵ ┻━┻' });
 		}
 
 		// Image
 		if (req.files) {
-			const noticeFound = await Noticia.findOne({ _id: id });
+			const newsFound = await Noticia.findOne({ _id: id });
 			const file = req.files.image;
 
 			// Eliminar la imagen anterior si existe
-			if (noticeFound.image) {
-				const oldImageFullPath = path.resolve(
-					__dirname,
-					'..',
-					'uploads',
-					noticeFound.image
-				);
+			if (newsFound.image) {
+				const oldImageFullPath = path.resolve(__dirname, '..', 'uploads', newsFound.image);
 				fs.unlinkSync(oldImageFullPath);
 			}
 
-			const titlePath = noticeFound.title
+			const titlePath = newsFound.title
 				.split('')
 				.map(e => (e === ' ' ? '-' : e))
 				.join('');
 
-			const rutaArchivoRelativa = path.join(
-				'uploads',
-				'notices',
-				titlePath,
-				file.name
-			);
+			const rutaArchivoRelativa = path.join('uploads', 'notices', titlePath, file.name);
 			const rutaSinUpload = path.join('notices', titlePath, file.name);
 
-			fs.writeFileSync(
-				path.resolve(__dirname, '..', rutaArchivoRelativa),
-				file.data
-			);
-			noticeData.image = rutaSinUpload;
+			fs.writeFileSync(path.resolve(__dirname, '..', rutaArchivoRelativa), file.data);
+			newsData.image = rutaSinUpload;
 		}
 
-		const updatedNotice = await Noticia.findByIdAndUpdate(id, noticeData, {
+		const updatedNotice = await Noticia.findByIdAndUpdate(id, newsData, {
 			new: true,
 		});
 
-		return res.status(200).send({ msg: 'Datos actualizados (～￣▽￣)～' });
+		return res.status(200).send({ msg: 'Updated data. (～￣▽￣)～' });
 	} catch (error) {
 		console.error(error);
 		return res.status(500).json({ msg: error.message });
 	}
 };
 
-export const deleteNotices = async (req, res) => {
+export const deleteNews = async (req, res) => {
 	const { id } = req.params;
 
 	try {
-		const deletedNotice = await Noticia.findOneAndDelete({ _id: id });
+		const deletedNews = await Noticia.findOneAndDelete({ _id: id });
 
-		if (!deletedNotice) {
-			res.status(404).send({ msg: 'Notice not fount (╯°□°）╯︵ ┻━┻' });
+		if (!deletedNews) {
+			res.status(404).send({ msg: 'News not fount. (╯°□°）╯︵ ┻━┻' });
 		} else {
-			res.status(200).send({ msg: 'Delete notice (●^◡^●)' });
+			res.status(200).send({ msg: 'Deleted news. (●^◡^●)' });
 		}
 	} catch (error) {
 		return res.status(500).json({ msg: error.message });

@@ -2,8 +2,8 @@ import { Router } from 'express';
 import {
 	createNoticia,
 	getNotices,
-	updateNotices,
-	deleteNotices,
+	updateNews,
+	deleteNews,
 } from '../controllers/noticia.controller.js';
 
 // TODO Middlewares
@@ -14,7 +14,7 @@ const router = Router();
 
 router.post('/createNoticia', createNoticia);
 router.get('/getNotices', getNotices);
-router.patch('/news/:id', [authRequired, accessRol], updateNotices);
-router.delete('/news/:id', [authRequired, accessRol], deleteNotices);
+router.patch('/news/:id', [authRequired, accessRol], updateNews);
+router.delete('/news/:id', [authRequired, accessRol], deleteNews);
 
 export default router;

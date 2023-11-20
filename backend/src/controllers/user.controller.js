@@ -33,15 +33,34 @@ export const updateUser = async (req, res) => {
 		}
 
 		// Avatar
+		if (req.files) {
+			const newsFound = await Noticia.findOne({ _id: id });
+			const file = req.files.image;
+
+			// Eliminar la imagen anterior si existe
+			if (newsFound.image) {
+				const oldImageFullPath = path.resolve(__dirname, '..', 'uploads', newsFound.image);
+				fs.unlinkSync(oldImageFullPath);
+			}
+
+			const titlePath = newsFound.title
+				.split('')
+				.map(e => (e === ' ' ? '-' : e))
+				.join('');
+
+			const rutaArchivoRelativa = path.join('uploads', 'notices', titlePath, file.name);
+			const rutaSinUpload = path.join('notices', titlePath, file.name);
+
+			fs.writeFileSync(path.resolve(__dirname, '..', rutaArchivoRelativa), file.data);
+			newsData.image = rutaSinUpload;
+		}
 
 		const updatedUser = await User.findOneAndUpdate({ cc: cedula }, userData, {
 			new: true,
 		});
 
 		if (!updatedUser) {
-			return res
-				.status(400)
-				.send({ msg: 'Error al actualizar (╯°□°）╯︵ ┻━┻' });
+			return res.status(400).send({ msg: 'Error al actualizar (╯°□°）╯︵ ┻━┻' });
 		}
 
 		return res.status(200).send({ msg: 'Datos actualizados (～￣▽￣)～' });
@@ -59,7 +78,7 @@ export const deleteUser = async (req, res) => {
 		if (!deletedUser) {
 			res.status(404).send({ msg: 'User not fount (╯°□°）╯︵ ┻━┻' });
 		} else {
-			res.status(200).send({ msg: 'Usuario Eliminado (●^◡^●)' });
+			res.status(200).send({ msg: 'Deleted user (●^◡^●)' });
 		}
 	} catch (error) {
 		return res.status(500).json({ msg: error.message });
