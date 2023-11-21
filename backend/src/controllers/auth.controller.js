@@ -40,7 +40,7 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${idCC}_${avatar.name}` : '/avatars/userdefault.jpg'
+            avatar: avatar ? `avatars/${idCC}_${avatar.name}` : 'avatars/userdefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
