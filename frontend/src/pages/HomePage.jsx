@@ -6,6 +6,21 @@ import LogoSena from '../assets/svg/LogoSena.svg';
 import Check from '../assets/svg/check.svg';
 import Saga from '../assets/svg/SAGA.svg'
 
+const footerCompany = [
+  {
+      itemText:"JuanferGG",
+      itemLink:"https://github.com/JuanferGG"
+  },
+  {
+      itemText:"JuanDiego",
+      itemLink:"https://github.com/JuanDiego-Arenas"
+  },
+  {
+      itemText:"XHOPE",
+      itemLink:"https://github.com/XH0PE"
+  }
+]
+
 const HomePage = () => {
   return (
     <>
@@ -174,12 +189,9 @@ const HomePage = () => {
 </section>
 
       </div>
-    </>
-  );
-};
 
 <section className="mt-16">
-<footer className="relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 pt-28 rounded-t-3xl">
+<footer className="relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-400 pt-28 rounded-t-3xl">
     <div className="absolute right-0 top-0 h-full w-full flex justify-end">
         <div className="w-28 h-28 overflow-hidden flex rounded-xl relative blur-2xl">
             <span
@@ -207,15 +219,15 @@ const HomePage = () => {
             ></span>
           </div>
       </div>
-    <div className="pb-8 relative overflow-hidden mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5">
+    <div className="pb-5 relative overflow-hidden mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5">
         
         <span className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary"></span>
         <div className="grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative">
             <div className="col-span-2 lg:col-span-1 h-auto flex flex-col">
                 <div className="h-full">
-                    <a href="#" className="relative flex items-center gap-1">
+                    <a href="https://oferta.senasofiaplus.edu.co/sofia-oferta/" className="relative flex items-center gap-1" target='_blank'>
                         <div className="relative w-10 h-10 overflow-hidden flex rounded-xl">
-                            <img src={LogoSena} />
+                            <img src={Saga} />
                         </div>
                         <div className="inline-flex text-lg font-semibold text-heading-1">
                             SAGA
@@ -254,8 +266,27 @@ const HomePage = () => {
                         </svg>
                         <span className="sr-only">social link</span>
                     </a>
+                    {/* <div class="grid md:grid-cols-2 gap-8 h-max">
+            <nav class="space-y-6">
+    <h2 class="capitalze font-semibold text-heading-1 text-xl">
+        Equipo
+    </h2>
+    <ul class="space-y-3 font-medium md:text-lg text-heading-3">
+        
+            <li>
+                <a href='https://github.com/XH0PE' class="transition hover:text-primary" target="_blank">
+                    X H 0 P E
+                </a>
+            </li>
+        
+
+    </ul>
+</nav>
+</div> */}
                 </div>
+
             </div>
+            
 
         </div>
     </div>
@@ -273,6 +304,10 @@ const HomePage = () => {
     </div>
     </footer>
     </section>
+
+    </>
+  );
+};
 
 
 export default HomePage;
