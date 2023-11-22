@@ -6,21 +6,6 @@ import LogoSena from '../assets/svg/LogoSena.svg';
 import Check from '../assets/svg/check.svg';
 import Saga from '../assets/svg/SAGA.svg'
 
-const footerCompany = [
-  {
-      itemText:"JuanferGG",
-      itemLink:"https://github.com/JuanferGG"
-  },
-  {
-      itemText:"JuanDiego",
-      itemLink:"https://github.com/JuanDiego-Arenas"
-  },
-  {
-      itemText:"XHOPE",
-      itemLink:"https://github.com/XH0PE"
-  }
-]
-
 const HomePage = () => {
   return (
     <>
@@ -190,8 +175,8 @@ const HomePage = () => {
 
       </div>
 
-<section className="mt-16">
-<footer className="relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-400 pt-28 rounded-t-3xl">
+<section className="mt-16" style={{width: '100vw'}}>
+<footer className="relative bg-gradient-to-tr from-gray-200 to-gray-200 dark:from-gray-400 pt-28 rounded-t-3xl">
     <div className="absolute right-0 top-0 h-full w-full flex justify-end">
         <div className="w-28 h-28 overflow-hidden flex rounded-xl relative blur-2xl">
             <span
@@ -266,29 +251,28 @@ const HomePage = () => {
                         </svg>
                         <span className="sr-only">social link</span>
                     </a>
-                    {/* <div class="grid md:grid-cols-2 gap-8 h-max">
-            <nav class="space-y-6">
-    <h2 class="capitalze font-semibold text-heading-1 text-xl">
+                </div>
+            </div>
+        </div>
+
+        {/* <div className="grid md:grid-cols-2 gap-8 h-max">
+        <slot/>
+        <nav className="space-y-6">
+    <h2 className="capitalize font-semibold text-heading-1 text-xl">
         Equipo
     </h2>
     <ul class="space-y-3 font-medium md:text-lg text-heading-3">
         
             <li>
-                <a href='https://github.com/XH0PE' class="transition hover:text-primary" target="_blank">
-                    X H 0 P E
+                <a className="transition hover:text-primary" target="_blank">
+                    JuanferGG
                 </a>
             </li>
         
-
     </ul>
-</nav>
-</div> */}
-                </div>
+    </nav>
+        </div> */}
 
-            </div>
-            
-
-        </div>
     </div>
     <div className=" bg-gradient-to-tl from-box-bg py-2 relative">
         <div className='mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5'>
@@ -308,6 +292,5 @@ const HomePage = () => {
     </>
   );
 };
-
 
 export default HomePage;
