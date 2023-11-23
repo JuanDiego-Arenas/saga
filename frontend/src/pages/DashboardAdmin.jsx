@@ -18,7 +18,6 @@ const DashboardAdmin = () => {
                 return setDailyAttendances(asistencias2);
             } else {
                 const response = await axios.get(`http://localhost:3000/api/getDailyAttendaces/${formattedDate}`);
-                console.log(response.data.msg[0].attendances);
                 setDailyAttendances(response.data.msg[0].attendances.reverse());
             }
         } catch (error) {

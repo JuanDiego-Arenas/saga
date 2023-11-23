@@ -40,7 +40,7 @@ export const register = async (req, res) => {
             email,
             password: passwordHash,
             rol,
-            avatar: avatar ? `/avatars/${idCC}_${avatar.name}` : '/avatars/userdefault.jpg'
+            avatar: avatar ? `avatars/${idCC}_${avatar.name}` : 'avatars/userdefault.jpg'
         });
 
         // Si se proporciona una imagen, guárdala en el servidor y establece la ruta en el modelo de usuario
@@ -107,10 +107,10 @@ export const login = async (req, res) => {
 
     try {
         const userFound = await User.findOne({ email })
-        if (!userFound) return res.status(404).json(['usuario no encontrado'])
+        if(!userFound) return res.status(404).json(['usuario o contraseña incorrectos'])
 
         const isMatch = await bcrypt.compare(password, userFound.password)
-        if (!isMatch) return res.status(400).json(['Contraseña Incorrecta'])
+        if(!isMatch) return res.status(400).json(['usuario o contraseña incorrectos']);
 
         const token = await createAccessToken({ id: userFound._id })
 
@@ -180,13 +180,6 @@ export const verifyToken = async (req, res) => {
     })
 
 }
-
-export const getUsers = async (req, res) => {
-    const data = await User.find()
-
-    res.status(200).json({ data })
-}
-
 
 export const getUserCc = async (req, res) => {
 
