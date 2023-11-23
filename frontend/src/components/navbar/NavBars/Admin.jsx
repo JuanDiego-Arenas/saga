@@ -17,6 +17,9 @@ function Admin( { user } ) {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
+                    <Link to='/dashboarAdmin'>DashBoard</Link>
+                </li>
+                <li>
                     <Link to='/attendsPage'>Asistencias</Link>
                 </li>
                 <li>
