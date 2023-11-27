@@ -42,7 +42,7 @@ export const moveAttendancesToDailyCollection = async (req, res) => {
 
 // import { DateTime } from 'luxon';
 
-export const getDailyAttendances = async (req, res) => {
+export const getDailyAttendance = async (req, res) => {
     try {
         // Obtener la fecha del parámetro o usar la fecha actual si no se proporciona
         const requestedDate = req.params.date ? DateTime.fromISO(req.params.date) : DateTime.local();
@@ -81,11 +81,11 @@ export const getDailyAttendances = async (req, res) => {
 };
 
 
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
 export const getDailyAttendances = async (req, res) => {
     const data = await DailyAttendance.find().populate('attendances') // Utiliza populate para obtener la información completa de las asistencias
     .exec();
     res.status(200).json({ msg: data })
 }
->>>>>>> 9d32fae3d490dccb1d8f6ee49dc79936e2bcf895
+// >>>>>>> 9d32fae3d490dccb1d8f6ee49dc79936e2bcf895

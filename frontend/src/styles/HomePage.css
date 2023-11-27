@@ -33,4 +33,8 @@ body {
         flex: none; 
         width: 100%; 
     }
+
+    #logoSena {
+        display: none;
+    }
 }
