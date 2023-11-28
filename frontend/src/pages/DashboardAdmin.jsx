@@ -6,16 +6,12 @@ import DataTableComponent from '../components/dataTable/dataTable';
 import Chart from 'chart.js/auto';
 
 
-const ChartComponent = () => {
+const ChartComponent = (  ) => {
     useEffect(() => {
         const data = [
-            { year: 2023, count: 10 },
-            { year: 2011, count: 20 },
-            { year: 2012, count: 55 },
-            { year: 2013, count: 25 },
-            { year: 2014, count: 70 },
-            { year: 2015, count: 30 },
-            { year: 2016, count: 28 },
+            { day: 'Hoy', count: 120 },
+            { day: '2011/20/01', count: 20 },
+            { day: '2011/20/01', count: 20 },
         ];
 
         const ctx = document.getElementById('acquisitions');
@@ -31,7 +27,7 @@ const ChartComponent = () => {
             {
                 type: 'bar',
                 data: {
-                    labels: data.map(row => row.year),
+                    labels: data.map(row => row.day),
                     datasets: [
                         {
                             label: 'Acquisitions by year',

@@ -81,14 +81,8 @@ export const getDailyAttendance = async (req, res) => {
 };
 
 
-<<<<<<< HEAD
-=======
-// <<<<<<< HEAD
-// =======
 export const getDailyAttendances = async (req, res) => {
     const data = await DailyAttendance.find().populate('attendances') // Utiliza populate para obtener la información completa de las asistencias
     .exec();
     res.status(200).json({ msg: data })
 }
-// >>>>>>> 9d32fae3d490dccb1d8f6ee49dc79936e2bcf895
->>>>>>> 6d5aefa6384c7b7ecb0cae66e0f8491521211009
