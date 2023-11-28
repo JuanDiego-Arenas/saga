@@ -3,6 +3,54 @@ import { attends } from '../api/auth';
 import axios from 'axios';
 import NavBar from '../components/navbar/NavBar';
 import DataTableComponent from '../components/dataTable/dataTable';
+import Chart from 'chart.js/auto';
+
+
+const ChartComponent = () => {
+    useEffect(() => {
+        const data = [
+            { year: 2023, count: 10 },
+            { year: 2011, count: 20 },
+            { year: 2012, count: 55 },
+            { year: 2013, count: 25 },
+            { year: 2014, count: 70 },
+            { year: 2015, count: 30 },
+            { year: 2016, count: 28 },
+        ];
+
+        const ctx = document.getElementById('acquisitions');
+
+        // Destruir el gráfico existente si hay uno
+        const existingChart = Chart.getChart(ctx);
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            ctx,
+            {
+                type: 'bar',
+                data: {
+                    labels: data.map(row => row.year),
+                    datasets: [
+                        {
+                            label: 'Acquisitions by year',
+                            data: data.map(row => row.count),
+                            backgroundColor: '#bff0a7'
+                        },
+                    ],
+                },
+            }
+        );
+    }, []);// El array vacío asegura que el efecto se ejecute solo una vez, equivalente a componentDidMount
+
+    return (
+        <div className='mt-20'>
+            <h2>Acquisitions Chart</h2>
+            <canvas id="acquisitions" width="300" height="50px"></canvas>
+        </div>
+    );
+};
 
 const DashboardAdmin = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -58,6 +106,7 @@ const DashboardAdmin = () => {
     return (
         <>
             <NavBar />
+            <ChartComponent />
             <section className='mt-20'>
                 <h1>Dashboard de Asistencias</h1>
                 <label>Seleccionar Fecha: </label>
