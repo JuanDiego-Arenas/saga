@@ -54,7 +54,7 @@ const HomePage = () => {
         <section className="features">
         <section className='flex lg:flex-row gap-10 lg:gap-12'>
           <div className='flex midmd:flex-row gap-10 lg:gap-12 mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5'>
-            <div className='max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
+            <div id='logoSena' className='max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
               <div className='w-full h-80 sm:h-96 midmd:h-full relative'>
 
                 <img src={LogoSena} alt='Logo SENA' style={{ width: '900px', marginTop: '200px' }} id='logos' className='logo w-auto left-1/2 -translate-x-1/2 absolute top-0 max-h-full' />
@@ -227,7 +227,7 @@ const HomePage = () => {
                     </p>
                 </div>
 
-                <div style={{display: 'flex', width: '100px', position: 'absolute', left: '65vw'}}>
+                <div style={{display: 'flex', width: '100px', position: 'absolute', left: '85%'}}>
                   <ul>
                   <h1 style={{fontWeight: '600', fontSize: '25px'}}>Equipo</h1>
                     <li><a href='https://github.com/JuanferGG' target='_blank'>JuanferGG</a></li>
