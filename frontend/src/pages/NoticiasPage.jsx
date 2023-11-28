@@ -35,7 +35,6 @@
             image: null, // Este valor se llenará cuando el usuario seleccione una imagen
         });
 
-        
 
         const [selectedFileName, setSelectedFileName] = useState('Selecciona un archivo')
 

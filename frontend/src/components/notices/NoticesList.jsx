@@ -5,7 +5,7 @@ const NoticesList = ({ noticias }) => {
     return (
 
         <div>
-            <h1 className="text-6xl font-bold mb-5" style={{ color: '#84df57', textAlign: 'center' }}>Noticias</h1>
+            <h1 className="text-6xl font-bold mb-5">Noticias</h1>
             <ul className='containerNotices flex flex-col gap-8'>
                 {
                     noticias.map((noticia) =>
