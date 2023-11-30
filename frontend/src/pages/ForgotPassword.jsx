@@ -72,13 +72,24 @@ const ForgotPassword = () => {
 						<h1>Recuperar Contraseña</h1>
 						<div className='divInput'>
 							<h2>Correo electrónico:</h2>
-							<input
-								type='email'
-								className='inputForm'
-								name='email'
-								placeholder='Email'
-								required
-							/>
+							{isLoading ? (
+								<input
+									type='email'
+									className='inputForm'
+									name='email'
+									placeholder='Email'
+									required
+									disabled='true'
+								/>
+							) : (
+								<input
+									type='email'
+									className='inputForm'
+									name='email'
+									placeholder='Email'
+									required
+								/>
+							)}
 						</div>
 						<p className='flex gap-x-2 justify-between text-black'>
 							<Link

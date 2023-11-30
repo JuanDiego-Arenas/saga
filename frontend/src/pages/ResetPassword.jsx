@@ -83,7 +83,7 @@ const ResetPassword = () => {
 				Swal.fire({
 					showCancelButton: true,
 					icon: 'error',
-					text: 'Error al actualizar (╯°□°）╯︵ ┻━┻',
+					text: `Error al actualizar (╯°□°）╯︵ ┻━┻: ${error}`,
 				});
 			});
 	};
@@ -138,28 +138,59 @@ const ResetPassword = () => {
 						<h1>Nueva Contraseña</h1>
 						<div className='divInput'>
 							<h2>Contraseña:</h2>
-							<input
-								type={showPassword ? 'text' : 'password'}
-								value={password}
-								onChange={e => setPassword(e.target.value)}
-								name='password'
-								className='inputForm'
-								placeholder='Nueva contraseña'
-								required
-							/>
-							<button onClick={switchShowPassword}>{showPassword ? 'Ocultar' : 'Mostrar'}</button>
+							{isLoading ? (
+								<input
+									type={showPassword ? 'text' : 'password'}
+									value={password}
+									onChange={e => setPassword(e.target.value)}
+									name='password'
+									className='inputForm'
+									placeholder='Nueva contraseña'
+									required
+									disabled='true'
+								/>
+							) : (
+								<input
+									type={showPassword ? 'text' : 'password'}
+									value={password}
+									onChange={e => setPassword(e.target.value)}
+									name='password'
+									className='inputForm'
+									placeholder='Nueva contraseña'
+									required
+								/>
+							)}
+							<a
+								style={{ cursor: 'pointer' }}
+								onClick={switchShowPassword}
+							>
+								{showPassword ? 'Ocultar' : 'Mostrar'}
+							</a>
 						</div>
 						<div className='divInput'>
 							<h2>Confirmar contraseña:</h2>
-							<input
-								type='password'
-								value={confirmPassword}
-								onChange={e => checkValidation(e)}
-								name='confirmPassword'
-								className='inputForm'
-								placeholder='Confirmar contraseña'
-								required
-							/>
+							{isLoading ? (
+								<input
+									type={showPassword ? 'text' : 'password'}
+									value={confirmPassword}
+									onChange={e => checkValidation(e)}
+									name='confirmPassword'
+									className='inputForm'
+									placeholder='Confirmar contraseña'
+									required
+									disabled='true'
+								/>
+							) : (
+								<input
+									type={showPassword ? 'text' : 'password'}
+									value={confirmPassword}
+									onChange={e => checkValidation(e)}
+									name='confirmPassword'
+									className='inputForm'
+									placeholder='Confirmar contraseña'
+									required
+								/>
+							)}
 						</div>
 						<div className='confirmPassword'>{isError}</div>
 						<div className='divButton'>
