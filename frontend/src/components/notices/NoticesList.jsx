@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 
-const NoticesList = ({ noticias }) => {
+const NoticesList = ({ noticias, handleEditarNoticia }) => {
 
     return (
 
@@ -23,6 +23,9 @@ const NoticesList = ({ noticias }) => {
                                 <p>Creado por: <b>{noticia.createby}</b></p>
                                 <p>Rol: <b>{noticia.rol}</b></p>
                                 <p>Fecha de Creacion: <b>{DateTime.fromISO(noticia.updatedAt).toLocaleString(DateTime.DATE_FULL)}</b></p>
+
+                                {/* <button onClick={() => handleEditarNoticia(noticia)}>Editar</button> */}
+
                             </div>
                         </li>
                     )

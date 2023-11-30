@@ -37,6 +37,7 @@
 
 
         const [selectedFileName, setSelectedFileName] = useState('Selecciona un archivo')
+        const [noticiaAEditar, setNoticiaAEditar] = useState(null); // Nuevo estado
 
         const handleInputChange = (e) => {
             const { name, value } = e.target;
@@ -92,6 +93,36 @@
             }
         };
 
+        // const handleEditarNoticia = async (e) => {
+        //     e.preventDefault();
+        
+        //     try {
+        //       const formData = new FormData();
+        //       formData.append('title', nuevaNoticia.title);
+        //       formData.append('description', nuevaNoticia.description);
+        //       formData.append('createby', nuevaNoticia.createby);
+        //       formData.append('image', nuevaNoticia.image);
+        //       formData.append('rol', user.rol);
+
+        //       const response = await axios.put(`http://localhost:3000/api/updateNoticia/${noticiaAEditar._id}`, formData, {
+        //         headers: {
+        //             'Content-Type': 'multipart/form-data',
+        //         },
+        //         });
+
+        //         setNoticiaAEditar({
+        //         title: '',
+        //         description: '',
+        //         createby: '',
+        //         image: null,
+        //     });
+        //     setModalIsOpen(false);
+        // } catch (error) {
+        //     // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
+        //     console.error('Error al editar la noticia:', error);
+        // }
+        // };
+
         useEffect(() => {
             const fetchData = async () => {
                 try{
@@ -129,10 +160,25 @@
                         </label>
                         <button className='btnSubmit' type="submit">Crear Noticia</button>
                     </form>
+                    
+                    {/* <form onSubmit={handleEditarNoticia} className='flex flex-col'>
+                        
+                        <input type="text" name="title" placeholder="Título" required value={noticiaAEditar ? noticiaAEditar.title : ''} onChange={handleInputChange}/>
+                        <textarea name="description" placeholder="Descripción" required value={noticiaAEditar ? noticiaAEditar.description : ''} onChange={handleInputChange}/>
+                        <button className='btnSubmit' type="submit">Guardar Cambios</button>
+                    </form> */}
+
                 </Modal>
+
+                {/* <section className='mt-15'> 
+                
+                <NoticesList noticias={noticias} handleEditarNoticia={handleEditarNoticia} />
+                </section> */}
+
                 <section className='mt-20'>
                     <NoticesList noticias={noticias}/>
                 </section>
+                
             </>
         );
     };
