@@ -3,6 +3,8 @@ import { AuthProvider } from './context/AuthContext'
 
 //TODO Pages
 import RegisterPage from './pages/RegisterPage'
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import CardPage from './pages/CardPage'
@@ -21,6 +23,8 @@ function App() {
           <Routes>
             <Route path='/' element={ <LoginPage />} />
             <Route path='/register' element={ <RegisterPage />} />
+            <Route path='/forgot_password' element={ <ForgotPassword />} />
+            <Route path='/password_reset/:tokenresetpassword' element={ <ResetPassword />} />
             
             {/* // TODO Rutas Protegidas */}
             <Route element={<ProtectedRoute/>}>

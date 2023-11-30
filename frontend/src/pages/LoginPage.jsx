@@ -76,6 +76,9 @@ function LoginPage() {
                         </button>
 
                         <p className='flex gap-x-2 justify-between text-black'>
+                            <Link to='/forgot_password' className='text-sky-300'>¿Olvidaste tu contraseña?</Link>
+                        </p>
+                        <p className='flex gap-x-2 justify-between text-black'>
                             No tienes cuenta? <Link to='/register' className='text-sky-300'>Sign up</Link>
                         </p>
 
