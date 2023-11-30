@@ -27,7 +27,7 @@ const HomePage = () => {
             <h1
               className='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight mt-5
                         font-bold'
-              style={{ textAlign: 'left !important' }}
+              style={{ textAlign: 'left !important', fontSize: '32px !important' }}
             >
               Bienvenidos a <span style={{ color: '#39a900', width: 'fit-content' }}>SAGA</span>
               <br />

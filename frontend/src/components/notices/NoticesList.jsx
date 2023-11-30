@@ -24,7 +24,7 @@ const NoticesList = ({ noticias, handleEditarNoticia }) => {
                                 <p>Rol: <b>{noticia.rol}</b></p>
                                 <p>Fecha de Creacion: <b>{DateTime.fromISO(noticia.updatedAt).toLocaleString(DateTime.DATE_FULL)}</b></p>
 
-                                {/* <button onClick={() => handleEditarNoticia(noticia)}>Editar</button> */}
+                                <button onClick={() => handleEditarNoticia(noticia)}>Editar</button>
 
                             </div>
                         </li>
