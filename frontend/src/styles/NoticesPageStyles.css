@@ -4,6 +4,15 @@
     font-size: 1.5em;
 }
 
+h1 {
+    text-align: center;
+    font-size: 72px;  
+    background: -webkit-linear-gradient(left top, #84df57, #67ec25);
+    background: linear-gradient(to bottom right, #84df57, #67ec25);
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -155,7 +164,7 @@ form .btnSubmit:hover {
     display: flex;
     width: 30% !important;
     gap: 10px; /* Espaciado entre la imagen y el contenido de la noticia */
-    background-color: #bff0a7;
+    background: linear-gradient(to bottom right, #bff0a7, #4CAF50);
     border-radius: 20px 0 0 0;
     padding: 2em 0;
     justify-content: center;
@@ -181,7 +190,7 @@ form .btnSubmit:hover {
     margin-top: 3em;
     margin: 2.5em 3em;
     padding: 1em 2em;
-    background-color: #f1ffe1;
+    background:  linear-gradient(to bottom right, #f1ffe1, #bff0a7);
     border-radius: 10px;
     box-shadow: 0 0 7px rgb(133, 136, 133);
 }

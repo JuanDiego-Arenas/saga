@@ -1,13 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { attends } from '../api/auth';
-import DataTableComponent from '../components/dataTable/DataTable';
+import DataTableComponent from '../components/dataTable/dataTable';
 import NavBar from '../components/navbar/NavBar';
 import Modal from 'react-modal';
 import { useAuth } from '../context/AuthContext';
 import '../styles/AttendsStyles.css';
 import axios from 'axios';
 
-import { BsFillFileImageFill } from 'react-icons/bs'; // Importa FontAwesomeIcon desde react-icons/fa
 import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
 
 function AttendsPage() {
@@ -100,8 +99,6 @@ function AttendsPage() {
             console.log(error)
         }
     }
-
-
 
     return (
         <>

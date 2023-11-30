@@ -13,6 +13,7 @@ import ProfilePage from './pages/ProfilePage'
 import ProtectedRoute from './ProtectedRoute'
 import NoticiasPage from './pages/NoticiasPage'
 import AttendsPage from './pages/AttendsPage'
+import DashboardAdmin from './pages/DashboardAdmin'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             
             {/* // TODO Rutas Protegidas */}
             <Route element={<ProtectedRoute/>}>
+              <Route path='/dashboarAdmin' element= {<DashboardAdmin/>} />
               <Route path='/home' element={ <HomePage/> } />
               <Route path='/cardsPage' element={ <CardPage />} />
               <Route path='/Profile' element={ <ProfilePage />} />

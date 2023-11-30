@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../../context/AuthContext'
 import { logout } from '../../../api/auth'
 import SAGA from '../../../assets/svg/SAGA.svg'
 import '../stylesNav.css'
