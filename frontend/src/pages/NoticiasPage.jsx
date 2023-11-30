@@ -39,6 +39,15 @@
         const [selectedFileName, setSelectedFileName] = useState('Selecciona un archivo')
         const [noticiaAEditar, setNoticiaAEditar] = useState(null); // Nuevo estado
 
+        const fetchData = async () => {
+            try{
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/getNotices`)
+                setNoticias(response.data.reverse())
+            } catch(error){
+                console.log(error)
+            }
+        }
+
         const handleInputChange = (e) => {
             const { name, value } = e.target;
             setNuevaNoticia({ ...nuevaNoticia, [name]: value });
@@ -93,45 +102,48 @@
             }
         };
 
-        const handleEditarNoticia = async (e) => {
-            e.preventDefault();
-        
+
+        const handleEliminarNoticia = async (noticiaId) => {
             try {
-              const formData = new FormData();
-              formData.append('title', nuevaNoticia.title);
-              formData.append('description', nuevaNoticia.description);
-              formData.append('createby', nuevaNoticia.createby);
-              formData.append('image', nuevaNoticia.image);
-              formData.append('rol', user.rol);
+              await axios.delete(`${import.meta.env.VITE_API_URL}/news/${noticiaId}`);
+              fetchData()
+            } catch (error) {
+              console.error('Error al eliminar la noticia:', error);
+            }
+          };
 
-              const response = await axios.put(`http://localhost:3000/api/updateNoticia/${noticiaAEditar._id}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-                });
+        // const handleEditarNoticia = async (e, noticia) => {
+        //     e.preventDefault();
+        //     console.log(noticia)
+        
+        //     try {
+        //       const formData = new FormData();
+        //       formData.append('title', nuevaNoticia.title);
+        //       formData.append('description', nuevaNoticia.description);
+        //       formData.append('createby', nuevaNoticia.createby);
+        //       formData.append('image', nuevaNoticia.image);
+        //       formData.append('rol', user.rol);
 
-                setNoticiaAEditar({
-                title: '',
-                description: '',
-                createby: '',
-                image: null,
-            });
-            setModalIsOpen(false);
-        } catch (error) {
-            // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
-            console.error('Error al editar la noticia:', error);
-        }
-        };
+        //       const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
+        //         headers: {
+        //             'Content-Type': 'multipart/form-data',
+        //         },
+        //         });
+
+        //         setNoticiaAEditar({
+        //         title: '',
+        //         description: '',
+        //         createby: '',
+        //         image: null,
+        //     });
+        //     setModalIsOpen(false);
+        // } catch (error) {
+        //     // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
+        //     console.error('Error al editar la noticia:', error);
+        // }
+        // };
 
         useEffect(() => {
-            const fetchData = async () => {
-                try{
-                    const response = await axios.get('http://localhost:3000/api/getNotices')
-                    setNoticias(response.data.reverse())
-                } catch(error){
-                    console.log(error)
-                }
-            }
 
             fetchData()
         }, [modalIsOpen])
@@ -161,22 +173,24 @@
                         <button className='btnSubmit' type="submit">Crear Noticia</button>
                     </form>
                     
-                    <form onSubmit={handleEditarNoticia} className='flex flex-col'>
-                        
-                        <input type="text" name="title" placeholder="Título" required value={noticiaAEditar ? noticiaAEditar.title : ''} onChange={handleInputChange}/>
-                        <textarea name="description" placeholder="Descripción" required value={noticiaAEditar ? noticiaAEditar.description : ''} onChange={handleInputChange}/>
-                        <button className='btnSubmit' type="submit">Guardar Cambios</button>
-                    </form>
+                    {/* <form onSubmit={handleEditarNoticia} className='flex flex-col'>
+                        <input type="text" name="title" placeholder="Título" required value={nuevaNoticia.title} onChange={handleInputChange} />
+                        <textarea name="description" placeholder="Descripción" required value={nuevaNoticia.description} onChange={handleInputChange} />
+                        // Input de archivo personalizado 
+                        <label className="custom-file-input flex items-center ml-8 gap-3">
+                            <input type="file" className="input-file" onChange={handleImageChange} required />
+                            <div className="file-icon">
+                                <BsFillFileImageFill /> 
+                            </div>
+                            <div className="file-name">{selectedFileName}</div>
+                        </label>
+                        <button className='btnSubmit' type="submit">Editar Noticia</button>
+                    </form> */}
 
                 </Modal>
 
-                <section className='mt-20'> 
-                
-                <NoticesList noticias={noticias} handleEditarNoticia={handleEditarNoticia} />
-                </section>
-
                 <section className='mt-20'>
-                    <NoticesList noticias={noticias}/>
+                    <NoticesList noticias={noticias} handleEditarNoticia={setNoticiaAEditar} handleEliminarNoticia={handleEliminarNoticia}/>
                 </section>
                 
             </>
