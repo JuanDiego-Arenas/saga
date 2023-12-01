@@ -27,11 +27,11 @@ const HomePage = () => {
             <h1
               className='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight mt-5
                         font-bold'
-              style={{ textAlign: 'left !important', fontSize: '32px !important' }}
+              style={{ textAlign: 'left', fontSize: '32px' }}
             >
               Bienvenidos a <span style={{ color: '#39a900', width: 'fit-content' }}>SAGA</span>
               <br />
-              <span className='text-transparent bg-clip-text bg-gradient-to-br ' style={{ color: '#39a900' }}></span>{' '}
+              <span className='text-transparent bg-clip-text bg-gradient-to-br' style={{ color: '#39a900' }}></span>
               El Futuro del SENA
             </h1>
             <p className='mt-8 max-w-screen-sm p-3 text-xl'>

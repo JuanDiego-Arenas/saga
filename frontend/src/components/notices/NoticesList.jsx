@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon'
+import '../../styles/NoticesPageStyles.css'
 
 const NoticesList = ({ noticias, handleEliminarNoticia }) => {
 
@@ -24,8 +25,8 @@ const NoticesList = ({ noticias, handleEliminarNoticia }) => {
                                 <p>Rol: <b>{noticia.rol}</b></p>
                                 <p>Fecha de Creacion: <b>{DateTime.fromISO(noticia.updatedAt).toLocaleString(DateTime.DATE_FULL)}</b></p>
 
-                                {/* <button onClick={(e) => handleEditarNoticia(e, noticia)}>Editar</button> */}
-                                <button onClick={() => handleEliminarNoticia(noticia._id)}>Eliminar</button>
+                                {/* <button id='edit' onClick={() => handleEditarNoticia(noticia)}>Editar</button> */}
+                                <button id='delete' onClick={() => handleEliminarNoticia(noticia._id)}>Eliminar</button>
 
                             </div>
                         </li>

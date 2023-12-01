@@ -112,36 +112,36 @@
             }
           };
 
-        // const handleEditarNoticia = async (e, noticia) => {
-        //     e.preventDefault();
-        //     console.log(noticia)
-        
+        //   const handleEditarNoticia = async (noticia) => {
         //     try {
-        //       const formData = new FormData();
-        //       formData.append('title', nuevaNoticia.title);
-        //       formData.append('description', nuevaNoticia.description);
-        //       formData.append('createby', nuevaNoticia.createby);
-        //       formData.append('image', nuevaNoticia.image);
-        //       formData.append('rol', user.rol);
-
-        //       const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
-        //         headers: {
-        //             'Content-Type': 'multipart/form-data',
-        //         },
+        //         const formData = new FormData();
+        //         formData.append('title', noticiaAEditar.title);
+        //         formData.append('description', noticiaAEditar.description);
+        //         formData.append('image', noticiaAEditar.image);
+        
+        //         const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
+        //             headers: {
+        //                 'Content-Type': 'multipart/form-data',
+        //             },
         //         });
-
+        
+        //         // Actualiza el estado de noticias con la nueva información
+        //         const nuevasNoticias = noticias.map(n => (n.id === noticia.id ? response.data : n));
+        //         setNoticias(nuevasNoticias);
+        
+        //         // Limpia los campos y cierra el modal
         //         setNoticiaAEditar({
-        //         title: '',
-        //         description: '',
-        //         createby: '',
-        //         image: null,
-        //     });
-        //     setModalIsOpen(false);
-        // } catch (error) {
-        //     // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
-        //     console.error('Error al editar la noticia:', error);
-        // }
+        //             title: '',
+        //             description: '',
+        //             image: null,
+        //         });
+        //         setModalIsOpen(false);
+        //     } catch (error) {
+        //         // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
+        //         console.error('Error al editar la noticia:', error);
+        //     }
         // };
+        
 
         useEffect(() => {
 
@@ -157,6 +157,7 @@
                 }
                 {/* Modal para el formulario de crear noticias */}
                 <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
+                
                     <h2 className='titleModal w-full text-4xl'>Nueva Noticia</h2>
                     <button className='closeBtn font-bold text-xl' onClick={() => setModalIsOpen(false)}><AiFillCloseCircle style={{ fontSize: '1.4em' }} /></button>
                     <form onSubmit={handleCrearNoticia} className='flex flex-col'>
@@ -172,25 +173,18 @@
                         </label>
                         <button className='btnSubmit' type="submit">Crear Noticia</button>
                     </form>
-                    
+
                     {/* <form onSubmit={handleEditarNoticia} className='flex flex-col'>
-                        <input type="text" name="title" placeholder="Título" required value={nuevaNoticia.title} onChange={handleInputChange} />
-                        <textarea name="description" placeholder="Descripción" required value={nuevaNoticia.description} onChange={handleInputChange} />
-                        // Input de archivo personalizado 
-                        <label className="custom-file-input flex items-center ml-8 gap-3">
-                            <input type="file" className="input-file" onChange={handleImageChange} required />
-                            <div className="file-icon">
-                                <BsFillFileImageFill /> 
-                            </div>
-                            <div className="file-name">{selectedFileName}</div>
-                        </label>
-                        <button className='btnSubmit' type="submit">Editar Noticia</button>
+                        <input disabled='true' type="text" name="title" placeholder="Título" required value={noticiaAEditar.title} onChange={handleInputChange} />
+                        <textarea name="description" placeholder="Descripción" required value={noticiaAEditar.description} onChange={handleInputChange} />
+                        
+                        <button className='btnSubmit' type="submit">Editar</button>
                     </form> */}
 
                 </Modal>
 
                 <section className='mt-20'>
-                    <NoticesList noticias={noticias} handleEditarNoticia={setNoticiaAEditar} handleEliminarNoticia={handleEliminarNoticia}/>
+                    <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia}/>
                 </section>
                 
             </>
