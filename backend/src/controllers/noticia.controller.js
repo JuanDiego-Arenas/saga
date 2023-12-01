@@ -103,14 +103,19 @@ export const updateNews = async (req, res) => {
 };
 
 export const deleteNews = async (req, res) => {
+	const __filename = fileURLToPath(import.meta.url);
+	const __dirname = path.dirname(__filename);
 	const { id } = req.params;
 
 	try {
 		const deletedNews = await Noticia.findOneAndDelete({ _id: id });
 
 		if (!deletedNews) {
-			res.status(404).send({ msg: 'News not fount. (╯°□°）╯︵ ┻━┻' });
+			return res.status(404).send({ msg: 'News not fount. (╯°□°）╯︵ ┻━┻' });
 		} else {
+			const oldImageFullPath = path.resolve(__dirname, '..', 'uploads', 'notices', deletedNews.title);
+			fs.rmSync(oldImageFullPath, {recursive: true, force: true});
+
 			res.status(200).send({ msg: 'Deleted news. (●^◡^●)' });
 		}
 	} catch (error) {
