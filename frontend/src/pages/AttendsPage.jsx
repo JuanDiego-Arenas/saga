@@ -4,10 +4,11 @@ import DataTableComponent from '../components/dataTable/dataTable';
 import NavBar from '../components/navbar/NavBar';
 import Modal from 'react-modal';
 import { useAuth } from '../context/AuthContext';
-import '../styles/AttendsStyles.css';
 import axios from 'axios';
-
+import { notyf } from '../components/Notfy/Notfy';
 import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
+import '../styles/AttendsStyles.css';
+
 
 function AttendsPage() {
     const { user } = useAuth()
@@ -64,8 +65,23 @@ function AttendsPage() {
                 setSuccess(true);
                 // Obtener las asistencias actualizadas después de enviar una nueva asistencia
                 obtenerAsistencias();
+
+
+
+                notyf.success({
+                    message: 'Asistencia Correcta',
+                    className: 'success',
+                    duration: 3000,
+                    icon: false
+                })
             } else {
-                console.error('Error en la solicitud a la API');
+                // console.error('Error en la solicitud a la API');
+                notyf.error({
+                    message: 'Asistencia Incorrecta',
+                    className: 'warning',
+                    duration: 3000,
+                    icon: false
+                })
             }
         } catch (error) {
             console.error('Error en la solicitud a la API:', error);
@@ -95,6 +111,12 @@ function AttendsPage() {
             console.log(response.data);
             setModalIsOpen(false)
             setAsistencias([])
+            notyf.success({
+                message: 'Reporte Generado Correctamente',
+                className: 'success',
+                duration: 3000,
+                icon: false
+            })
         } catch (error) {
             console.log(error)
         }
@@ -133,7 +155,7 @@ function AttendsPage() {
             <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                 <h2 className='titleModal w-full text-4xl'>Generar Reporte</h2>
                 <button className='closeBtn font-bold text-xl' onClick={() => setModalIsOpen(false)}><AiFillCloseCircle style={{ fontSize: '1.4em' }} /></button>
-                <form  className='flex flex-col'>
+                <form className='flex flex-col'>
 
                     <div className='flex gap-8 w-full' style={{ justifyContent: 'center' }}>
                         <button className='text-white text-xl font-bold' onClick={sendRequest} style={{ background: '#84df57', borderRadius: '5px', padding: '7px 12px' }}>Si</button>

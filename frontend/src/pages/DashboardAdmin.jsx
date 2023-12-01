@@ -17,7 +17,7 @@ const ChartComponent = ({ asistencias }) => {
 
     useEffect(() => {
         if (dataReady) {
-            const data = asistencias.slice(0, 3).map(report => ({
+            const data = asistencias.slice(0, 4).map(report => ({
                 day: new Date(report.date).toLocaleDateString(),
                 count: report.attendances.length,
             }));
@@ -48,7 +48,7 @@ const ChartComponent = ({ asistencias }) => {
 
     return (
         <div className='mt-4'>
-            <h2>Adquisitions Chart</h2>
+            <h2>Grafico Lineal Asistencias:</h2>
             <canvas id='acquisitions' width='300' height='50px'></canvas>
         </div>
     );
@@ -113,6 +113,8 @@ const DashboardAdmin = () => {
         // Se ejecutará cuando se actualice asistencias2
         fetchData();
     }, []); // Dependencia de asistencias2
+
+    console.log(dailyAttendances)
 
     return (
         <>
