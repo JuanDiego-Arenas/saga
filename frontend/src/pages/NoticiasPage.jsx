@@ -26,6 +26,7 @@
     const NoticiasPage = () => {
         const { user } = useAuth();
         const [modalIsOpen, setModalIsOpen] = useState(false);
+        const [editModal, setEditModal] = useState(false)
         const [noticias, setNoticias] = useState([])
         const [nuevaNoticia, setNuevaNoticia] = useState({
             title: '',
@@ -112,35 +113,36 @@
             }
           };
 
-        //   const handleEditarNoticia = async (noticia) => {
-        //     try {
-        //         const formData = new FormData();
-        //         formData.append('title', noticiaAEditar.title);
-        //         formData.append('description', noticiaAEditar.description);
-        //         formData.append('image', noticiaAEditar.image);
+          const handleEditarNoticia = async (noticia) => {
+            setEditModal(true)
+            try {
+                const formData = new FormData();
+                formData.append('title', noticia.title);
+                formData.append('description', noticia.description);
+                formData.append('image', noticia.image);
         
-        //         const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
-        //             headers: {
-        //                 'Content-Type': 'multipart/form-data',
-        //             },
-        //         });
+                const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
         
-        //         // Actualiza el estado de noticias con la nueva información
-        //         const nuevasNoticias = noticias.map(n => (n.id === noticia.id ? response.data : n));
-        //         setNoticias(nuevasNoticias);
+                // Actualiza el estado de noticias con la nueva información
+                const nuevasNoticias = noticias.map(n => (n.id === noticia.id ? response.data : n));
+                setNoticias(nuevasNoticias);
         
-        //         // Limpia los campos y cierra el modal
-        //         setNoticiaAEditar({
-        //             title: '',
-        //             description: '',
-        //             image: null,
-        //         });
-        //         setModalIsOpen(false);
-        //     } catch (error) {
-        //         // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
-        //         console.error('Error al editar la noticia:', error);
-        //     }
-        // };
+                // Limpia los campos y cierra el modal
+                setNoticiaAEditar({
+                    title: '',
+                    description: '',
+                    image: null,
+                });
+                setModalIsOpen(false);
+            } catch (error) {
+                // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
+                console.error('Error al editar la noticia:', error);
+            }
+        };
         
 
         useEffect(() => {
@@ -174,17 +176,19 @@
                         <button className='btnSubmit' type="submit">Crear Noticia</button>
                     </form>
 
-                    {/* <form onSubmit={handleEditarNoticia} className='flex flex-col'>
-                        <input disabled='true' type="text" name="title" placeholder="Título" required value={noticiaAEditar.title} onChange={handleInputChange} />
-                        <textarea name="description" placeholder="Descripción" required value={noticiaAEditar.description} onChange={handleInputChange} />
+                </Modal>
+
+                <Modal>
+                <form onSubmit={handleEditarNoticia} className='flex flex-col'>
+                        <input disabled='true' type="text" name="title" placeholder="Título" required  onChange={handleInputChange} />
+                        <textarea name="description" placeholder="Descripción" required  onChange={handleInputChange} />
                         
                         <button className='btnSubmit' type="submit">Editar</button>
-                    </form> */}
-
+                    </form>
                 </Modal>
 
                 <section className='mt-20'>
-                    <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia}/>
+                    <NoticesList noticias={noticias} handleEditarNoticia={handleEditarNoticia} handleEliminarNoticia={handleEliminarNoticia}/>
                 </section>
                 
             </>
