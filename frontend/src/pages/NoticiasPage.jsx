@@ -25,9 +25,9 @@
 
     const NoticiasPage = () => {
         const { user } = useAuth();
-        const [modalIsOpen, setModalIsOpen] = useState(false);
-        const [editModal, setEditModal] = useState(false)
-        const [noticias, setNoticias] = useState([])
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [editModalIsOpen, setEditModalIsOpen] = useState(false); // Nuevo estado para el segundo modal
+    const [noticias, setNoticias] = useState([]);
         const [nuevaNoticia, setNuevaNoticia] = useState({
             title: '',
             description: '',
@@ -178,7 +178,7 @@
 
                 </Modal>
 
-                <Modal>
+                <Modal isOpen={editModalIsOpen} style={customStyles} onRequestClose={() => setEditModalIsOpen(false)}>
                 <form onSubmit={handleEditarNoticia} className='flex flex-col'>
                         <input disabled='true' type="text" name="title" placeholder="Título" required  onChange={handleInputChange} />
                         <textarea name="description" placeholder="Descripción" required  onChange={handleInputChange} />
@@ -188,7 +188,7 @@
                 </Modal>
 
                 <section className='mt-20'>
-                    <NoticesList noticias={noticias} handleEditarNoticia={handleEditarNoticia} handleEliminarNoticia={handleEliminarNoticia}/>
+                    <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia} handleEditarNoticia={handleEditarNoticia}/>
                 </section>
                 
             </>
