@@ -4,11 +4,11 @@
     font-size: 1.5em;
 }
 
-h1 {
+#Noth1 {
     text-align: center;
-    font-size: 72px;  
-    background: -webkit-linear-gradient(left top, #84df57, #67ec25);
-    background: linear-gradient(to bottom right, #84df57, #67ec25);
+    font-size: 62px !important;  
+    background: -webkit-linear-gradient(left top, #a9ff7e, #76ff31);
+    background: linear-gradient(to bottom right, #55ff00, #2d8202);
     -webkit-background-clip: text;  
     -webkit-text-fill-color: transparent;
 }
@@ -157,14 +157,13 @@ form .btnSubmit:hover {
 .containerNoticeList{
     background: rgba(232, 227, 227, 0.778);
     border-radius: 20px;
-    box-shadow: 0 0 7px rgb(81, 81, 81);
 }
 
 .infroNotice {
     display: flex;
     width: 30% !important;
     gap: 10px; /* Espaciado entre la imagen y el contenido de la noticia */
-    background: linear-gradient(to bottom right, #bff0a7, #4CAF50);
+    background: linear-gradient(to bottom right, #9ff972, #3ca13f);
     border-radius: 20px 0 0 0;
     padding: 2em 0;
     justify-content: center;
@@ -176,11 +175,10 @@ form .btnSubmit:hover {
     text-transform: capitalize;
 }
 .infroNotice img{
-    box-shadow: 0 0 8px rgb(68, 68, 68);
     border-radius: 10px;
 }
 .cImgDes{
-    background-color: white !important;
+    background-color: rgba(0, 255, 55, 0.12) !important;
     border-radius: 20px 20px 0 0;
 }
 .description {
@@ -190,7 +188,7 @@ form .btnSubmit:hover {
     margin-top: 3em;
     margin: 2.5em 3em;
     padding: 1em 2em;
-    background:  linear-gradient(to bottom right, #f1ffe1, #bff0a7);
+    background:  linear-gradient(to bottom right, #bcfd70, #bff0a7);
     border-radius: 10px;
 }
 .description pre{

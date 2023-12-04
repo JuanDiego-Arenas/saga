@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/HomePage.css';
 import NavBar from '../components/navbar/NavBar';
 import HeroImage from '../../public/images/grupo.jpg';
 import LogoSena from '../assets/svg/LogoSena.svg';
@@ -9,6 +8,7 @@ import facebook from '../assets/svg/facebook.svg'
 import youtube from '../assets/svg/youtube.svg'
 import twitter from '../assets/svg/twitter.svg'
 import instagram from '../assets/svg/instagram.svg'
+import '../styles/HomePage.css';
 
 const HomePage = () => {
   return (
@@ -24,16 +24,16 @@ const HomePage = () => {
                                     lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2'
             style={{ alignItems: 'center'}}
           >
-            <h1
+            <h2
               className='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight mt-5
                         font-bold'
-              style={{ textAlign: 'left', fontSize: '32px' }}
+              style={{ textAlign: 'left', fontSize: '60px', marginLeft: '6vw' }}
             >
               Bienvenidos a <span style={{ color: '#39a900', width: 'fit-content' }}>SAGA</span>
               <br />
               <span className='text-transparent bg-clip-text bg-gradient-to-br' style={{ color: '#39a900' }}></span>
               El Futuro del SENA
-            </h1>
+            </h2>
             <p className='mt-8 max-w-screen-sm p-3 text-xl'>
               SAGA es un proyecto formativo, con el objetivo de lograr una mejor gestión en la toma de asistencias, también cuenta con un apartado de noticias.
             </p>
