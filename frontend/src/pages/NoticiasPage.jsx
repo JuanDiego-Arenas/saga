@@ -25,9 +25,13 @@
 
     const NoticiasPage = () => {
         const { user } = useAuth();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [editModalIsOpen, setEditModalIsOpen] = useState(false); // Nuevo estado para el segundo modal
-    const [noticias, setNoticias] = useState([]);
+        const [modalIsOpen, setModalIsOpen] = useState(false);
+        const [noticias, setNoticias] = useState([]);
+        const [editModalIsOpen, setEditModalIsOpen] = useState(false); // Nuevo estado para el segundo modal
+        const [noticiaAEditar, setNoticiaAEditar] = useState({
+            title: '',
+            description: ''
+        });
         const [nuevaNoticia, setNuevaNoticia] = useState({
             title: '',
             description: '',
@@ -35,10 +39,9 @@
             rol: user.rol,
             image: null, // Este valor se llenará cuando el usuario seleccione una imagen
         });
-
-
         const [selectedFileName, setSelectedFileName] = useState('Selecciona un archivo')
-        const [noticiaAEditar, setNoticiaAEditar] = useState(null); // Nuevo estado
+
+
 
         const fetchData = async () => {
             try{
@@ -75,7 +78,7 @@
                 const formData = new FormData();
                 formData.append('title', nuevaNoticia.title);
                 formData.append('description', nuevaNoticia.description);
-                formData.append('createby', nuevaNoticia.createby);
+                formData.append('createby', user.username);
                 formData.append('image', nuevaNoticia.image);
                 formData.append('rol', user.rol);
 
@@ -111,38 +114,37 @@
             } catch (error) {
               console.error('Error al eliminar la noticia:', error);
             }
-          };
+        };
 
-          const handleEditarNoticia = async (noticia) => {
-            setEditModal(true)
+        const handleEditarNoticia = (noticia) => {
+            setNoticiaAEditar(noticia);
+            setEditModalIsOpen(true);
+          };
+        
+          const handleUpdateNoticia = async (e) => {
+            e.preventDefault();
+        
             try {
-                const formData = new FormData();
-                formData.append('title', noticia.title);
-                formData.append('description', noticia.description);
-                formData.append('image', noticia.image);
+                const noticeData = {
+                    description: noticiaAEditar.description,
+                    image:  nuevaNoticia.image
+                }
+                // const formData = new FormData();
+                // formData.append('description', nuevaNoticia.description);
+                // formData.append('image', nuevaNoticia.image);
         
-                const response = await axios.patch(`${import.meta.env.VITE_API_URL}/news`, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
+                await axios.patch(`${import.meta.env.VITE_API_URL}/news/${noticiaAEditar._id}`, noticeData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
                 });
         
-                // Actualiza el estado de noticias con la nueva información
-                const nuevasNoticias = noticias.map(n => (n.id === noticia.id ? response.data : n));
-                setNoticias(nuevasNoticias);
-        
-                // Limpia los campos y cierra el modal
-                setNoticiaAEditar({
-                    title: '',
-                    description: '',
-                    image: null,
-                });
-                setModalIsOpen(false);
+                fetchData();
+                setEditModalIsOpen(false);
             } catch (error) {
-                // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
                 console.error('Error al editar la noticia:', error);
             }
-        };
+          };
         
 
         useEffect(() => {
@@ -179,13 +181,33 @@
                 </Modal>
 
                 <Modal isOpen={editModalIsOpen} style={customStyles} onRequestClose={() => setEditModalIsOpen(false)}>
-                <form onSubmit={handleEditarNoticia} className='flex flex-col'>
-                        <input disabled='true' type="text" name="title" placeholder="Título" required  onChange={handleInputChange} />
-                        <textarea name="description" placeholder="Descripción" required  onChange={handleInputChange} />
-                        
-                        <button className='btnSubmit' type="submit">Editar</button>
+                    <h2 className='titleModal w-full text-4xl'>Editar Noticia</h2>
+                    <button className='closeBtn font-bold text-xl' onClick={() => setEditModalIsOpen(false)}>
+                        <AiFillCloseCircle style={{ fontSize: '1.4em' }} />
+                    </button>
+                    <form onSubmit={handleUpdateNoticia} className='flex flex-col'>
+                        <input type='text' name='title' placeholder='Título' value={noticiaAEditar?.title || ''} readOnly />
+                        <textarea
+                        name='description'
+                        placeholder='Descripción'
+                        value={noticiaAEditar?.description || ''}
+                        onChange={(e) => setNoticiaAEditar({ ...noticiaAEditar, description: e.target.value })}
+                        />
+                        <label className='custom-file-input flex items-center ml-8 gap-3'>
+                        <input type='file' className='input-file' onChange={handleImageChange} />
+                        <div className='file-icon'>
+                            <BsFillFileImageFill />
+                        </div>
+                        <div className='file-name'>{selectedFileName || 'Selecciona un archivo'}</div>
+                        </label>
+                        <button className='btnSubmit' type='submit'>
+                        Editar
+                        </button>
                     </form>
                 </Modal>
+
+
+
 
                 <section className='mt-20'>
                     <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia} handleEditarNoticia={handleEditarNoticia}/>

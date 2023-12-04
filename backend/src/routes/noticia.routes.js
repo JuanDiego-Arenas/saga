@@ -14,7 +14,7 @@ const router = Router();
 
 router.post('/createNoticia', createNoticia);
 router.get('/getNotices', getNotices);
-router.patch('/news/:id', [authRequired, accessRol], updateNews);
+router.patch('/news/:id', updateNews);
 router.delete('/news/:id', deleteNews);
 
 export default router;
