@@ -4,4 +4,4 @@ import { PORT } from './config.js'
 
 connectDB()
 app.listen(PORT)
-console.log('Listening on http://localhost:'+PORT)
+console.log('Listening on: '+PORT)
