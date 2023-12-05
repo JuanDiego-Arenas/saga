@@ -3,8 +3,12 @@
     font-weight: bold;
     font-size: 1.5em;
 }
+<<<<<<< HEAD
+h1 {
+=======
 
 #Noth1 {
+>>>>>>> 57937a3920c0e1cb7a10a8f6bacf89f20ef10538
     text-align: center;
     font-size: 62px !important;  
     background: -webkit-linear-gradient(left top, #a9ff7e, #76ff31);
@@ -44,9 +48,6 @@ form textarea {
     border-radius: 7px;
     font-weight: bold;
     transition: all .7s;
-    position: fixed;
-    right: 1em;
-    bottom: 1em;
 }
 
 .btnModal:hover {
