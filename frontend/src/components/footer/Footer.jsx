@@ -1,10 +1,10 @@
 import React from 'react';
-import LogoSena from '../assets/svg/LogoSena.svg';
-import facebook from '../assets/svg/facebook.svg'
-import youtube from '../assets/svg/youtube.svg'
-import twitter from '../assets/svg/twitter.svg'
-import instagram from '../assets/svg/instagram.svg'
-import '../styles/HomePage.css';
+import LogoSena from '../../assets/svg/LogoSena.svg';
+import facebook from '../../assets/svg/facebook.svg'
+import youtube from '../../assets/svg/youtube.svg'
+import twitter from '../../assets/svg/twitter.svg'
+import instagram from '../../assets/svg/instagram.svg'
+import '../../styles/HomePage.css';
 
 function Footer () {
     return (
