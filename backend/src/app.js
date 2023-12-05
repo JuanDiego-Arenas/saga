@@ -5,7 +5,7 @@ import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { FRONTEND_URL } from './config.js';
+import { FRONTEND_URL, FRONTEND_URL_2, FRONTEND_URL_3 } from './config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(fileUpload());
 app.use(
 	cors({
-		origin: FRONTEND_URL,
+		origin: [FRONTEND_URL, FRONTEND_URL_2, FRONTEND_URL_3],
 		credentials: true,
 	})
 );

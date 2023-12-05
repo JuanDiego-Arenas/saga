@@ -66,6 +66,8 @@ function AttendsPage() {
                 // Obtener las asistencias actualizadas después de enviar una nueva asistencia
                 obtenerAsistencias();
 
+
+
                 notyf.success({
                     message: 'Asistencia Correcta',
                     className: 'success',
