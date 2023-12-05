@@ -5,7 +5,7 @@ import LogoSena from '../assets/svg/LogoSena.svg';
 import Saga from '../assets/svg/SAGA.svg'
 import Check from '../assets/svg/check.svg';
 import '../styles/HomePage.css';
-import Footer from '../components/footer/footer';
+import Footer from '../components/footer/Footer';
 
 const HomePage = () => {
   return (
