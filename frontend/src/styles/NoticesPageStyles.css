@@ -3,17 +3,13 @@
     font-weight: bold;
     font-size: 1.5em;
 }
-<<<<<<< HEAD
-h1 {
-=======
 
 #Noth1 {
->>>>>>> 57937a3920c0e1cb7a10a8f6bacf89f20ef10538
     text-align: center;
     font-size: 62px !important;  
     background: -webkit-linear-gradient(left top, #a9ff7e, #76ff31);
     background: linear-gradient(to bottom right, #55ff00, #2d8202);
-    -webkit-background-clip: text;  
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

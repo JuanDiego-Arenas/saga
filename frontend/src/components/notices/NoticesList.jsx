@@ -6,10 +6,7 @@ const NoticesList = ({ noticias, handleEliminarNoticia, handleEditarNoticia }) =
     return (
 
         <div>
-<<<<<<< HEAD
-=======
             <h1 id='Noth1' className="font-bold mb-5">Noticias</h1>
->>>>>>> 57937a3920c0e1cb7a10a8f6bacf89f20ef10538
             <ul className='containerNotices flex flex-col gap-8'>
                 {
                     noticias.map((noticia) =>
