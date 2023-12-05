@@ -6,7 +6,6 @@ import twitter from '../assets/svg/twitter.svg'
 import instagram from '../assets/svg/instagram.svg'
 import '../styles/HomePage.css';
 
-
 function Footer () {
     return (
         <section className="mt-16" style={{width: '100vw'}}>
