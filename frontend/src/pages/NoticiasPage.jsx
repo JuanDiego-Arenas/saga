@@ -217,4 +217,4 @@
         );
     };
 
-    export default NoticiasPage;
+export default NoticiasPage;
