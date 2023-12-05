@@ -83,7 +83,7 @@
                 formData.append('rol', user.rol);
 
                 // Realizar la solicitud POST al servidor para crear la noticia
-                const response = await axios.post('http://localhost:3000/api/createNoticia', formData, {
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/createNoticia`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },

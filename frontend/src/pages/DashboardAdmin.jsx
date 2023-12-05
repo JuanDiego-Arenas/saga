@@ -69,7 +69,7 @@ const DashboardAdmin = () => {
             if (formattedDate === dateNow) {
                 return setDailyAttendances(asistencias2);
             } else {
-                const response = await axios.get(`http://localhost:3000/api/getDailyAttendaces/${formattedDate}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/getDailyAttendaces/${formattedDate}`);
                 setDailyAttendances(response.data.msg[0].attendances.reverse());
             }
         } catch (error) {
@@ -79,7 +79,7 @@ const DashboardAdmin = () => {
     };
 
     const fetchDataChart = async () => {
-        const response = await axios.get('http://localhost:3000/api/getDailyAttendace')
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/getDailyAttendace`);
         setDataChart(response.data.msg)
     }
 

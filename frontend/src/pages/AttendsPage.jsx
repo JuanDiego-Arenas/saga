@@ -52,7 +52,7 @@ function AttendsPage() {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:3000/api/asistencia', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/asistencia`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ function AttendsPage() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/api/moveAttendancesToDailyCollection')
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/moveAttendancesToDailyCollection`)
             console.log(response.data);
             setModalIsOpen(false)
             setAsistencias([])

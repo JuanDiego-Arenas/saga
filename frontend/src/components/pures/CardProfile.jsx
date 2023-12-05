@@ -10,7 +10,7 @@ const CardProfile = ({ user }) => {
     return (
         <div className='cardProfile'>
             <div style={ {display: 'flex', } }>
-                <img src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? user.avatar : `http://localhost:3000/${user.avatar}`} width={'150px'} />
+                <img src={user.avatar == `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` ? user.avatar : `${import.meta.env.VITE_BASE_URL}/${user.avatar}`} width={'150px'} />
             <div>
             </div>
             <div className='info'>

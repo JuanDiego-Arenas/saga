@@ -14,7 +14,7 @@ const NoticesList = ({ noticias, handleEliminarNoticia, handleEditarNoticia }) =
                             <div className="cImgDes flex">
                                 <div className="infroNotice flex flex-col items-center">
                                     <h2>{noticia.title}</h2>
-                                    <img src={`http://localhost:3000/${noticia.image}`} alt={noticia.title} width={'80%'} />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/${noticia.image}`} alt={noticia.title} width={'80%'} />
                                 </div>
                                 <div className="description" style={{ with: '50%' }}>
                                     <pre className="descriptionPre">{noticia.description}</pre>
