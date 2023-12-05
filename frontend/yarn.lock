@@ -1914,6 +1914,7 @@ __metadata:
     js-cookie: "npm:^3.0.5"
     jsbarcode: "npm:^3.11.5"
     luxon: "npm:^3.4.4"
+    notyf: "npm:^3.10.0"
     postcss: "npm:^8.4.31"
     primereact: "npm:^10.0.9"
     react: "npm:^18.2.0"
@@ -3066,6 +3067,13 @@ __metadata:
   version: 0.1.2
   resolution: "normalize-range@npm:0.1.2"
   checksum: bf39b73a63e0a42ad1a48c2bd1bda5a07ede64a7e2567307a407674e595bcff0fa0d57e8e5f1e7fa5e91000797c7615e13613227aaaa4d6d6e87f5bd5cc95de6
+  languageName: node
+  linkType: hard
+
+"notyf@npm:^3.10.0":
+  version: 3.10.0
+  resolution: "notyf@npm:3.10.0"
+  checksum: 949e767f84f409f6b6e00026a82268afebf29385bcbd711491ca9a11a30e8545cf186253740ece9b89ce066bcb4ac79ab7b5170a7d56c0013f1ed7501788c313
   languageName: node
   linkType: hard
 

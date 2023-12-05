@@ -83,6 +83,7 @@ const DataTableComponent = ({ data }) => {
                 <BiSearchAlt style={{ color: 'green', fontSize: '1.6em' }} />
                 <span className="p-input-icon-left">
                     <InputText style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }} value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Busqueda Global" />
+                    <span className='ml-5'>Asistencias Totales: { data.length }</span>
                 </span>
             </div>
 

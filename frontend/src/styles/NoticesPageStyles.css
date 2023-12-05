@@ -9,7 +9,7 @@
     font-size: 62px !important;  
     background: -webkit-linear-gradient(left top, #a9ff7e, #76ff31);
     background: linear-gradient(to bottom right, #55ff00, #2d8202);
-    -webkit-background-clip: text;  
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -44,9 +44,6 @@ form textarea {
     border-radius: 7px;
     font-weight: bold;
     transition: all .7s;
-    position: fixed;
-    right: 1em;
-    bottom: 1em;
 }
 
 .btnModal:hover {
