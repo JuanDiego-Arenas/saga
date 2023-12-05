@@ -1,11 +1,15 @@
 import { DateTime } from 'luxon'
 import '../../styles/NoticesPageStyles.css'
 
-const NoticesList = ({ noticias, handleEliminarNoticia }) => {
+const NoticesList = ({ noticias, handleEliminarNoticia, handleEditarNoticia }) => {
 
     return (
 
         <div>
+<<<<<<< HEAD
+=======
+            <h1 id='Noth1' className="font-bold mb-5">Noticias</h1>
+>>>>>>> 57937a3920c0e1cb7a10a8f6bacf89f20ef10538
             <ul className='containerNotices flex flex-col gap-8'>
                 {
                     noticias.map((noticia) =>
@@ -13,7 +17,7 @@ const NoticesList = ({ noticias, handleEliminarNoticia }) => {
                             <div className="cImgDes flex">
                                 <div className="infroNotice flex flex-col items-center">
                                     <h2>{noticia.title}</h2>
-                                    <img src={`http://localhost:3000/${noticia.image}`} alt={noticia.title} width={'80%'} />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/${noticia.image}`} alt={noticia.title} width={'80%'} />
                                 </div>
                                 <div className="description" style={{ with: '50%' }}>
                                     <pre className="descriptionPre">{noticia.description}</pre>
@@ -24,7 +28,7 @@ const NoticesList = ({ noticias, handleEliminarNoticia }) => {
                                 <p>Rol: <b>{noticia.rol}</b></p>
                                 <p>Fecha de Creacion: <b>{DateTime.fromISO(noticia.updatedAt).toLocaleString(DateTime.DATE_FULL)}</b></p>
 
-                                {/* <button id='edit' onClick={() => handleEditarNoticia(noticia)}>Editar</button> */}
+                                <button id='edit' onClick={() => handleEditarNoticia(noticia)}>Editar</button>
                                 <button id='delete' onClick={() => handleEliminarNoticia(noticia._id)}>Eliminar</button>
 
                             </div>

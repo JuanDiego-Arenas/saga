@@ -11,14 +11,14 @@
 }
 
 h1 {
-    font-size: 1.4em !important;
+    font-size: 1.4em ;
     width: 80;
     margin: auto;
     font-weight: bold !important;
 }
 
 h2 {
-    font-size: 1.1em !important;
+    font-size: 1.1em;
     width: 80%;
     margin: 0;
     font-weight: bold !important;

@@ -51,6 +51,7 @@ export const createNoticia = async (req, res) => {
 
 		res.status(200).json(noticeSave);
 	} catch (error) {
+		console.log(error)
 		return res.status(500).json({ msg: error.message });
 	}
 };

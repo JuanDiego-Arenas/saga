@@ -17,7 +17,7 @@ const ForgotPassword = () => {
 
 		setIsLoading(true);
 		await axios
-			.post(import.meta.env.VITE_API_URL + '/forgot_password', userEmail)
+			.post(`${import.meta.env.VITE_API_URL}/forgot_password`, userEmail)
 			.then(res => {
 				setIsLoading(false);
 				Swal.fire({
