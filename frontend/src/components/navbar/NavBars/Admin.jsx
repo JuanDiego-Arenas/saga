@@ -22,13 +22,10 @@ function Admin( { user } ) {
                     <Link to='/attendsPage'>Asistencias</Link>
                 </li>
                 <li>
-                    <Link to='/cardsPage'>Cards</Link>
+                    <Link to='/cardsPage'>Carnets</Link>
                 </li>
                 <li>
                     <Link to='/noticias'>Noticias</Link>
-                </li>
-                <li>
-                    <Link to='#'>Comunidad SENA</Link>
                 </li>
             </ul>
             <div className='flex h-full gap-3' style={{ alignItems: 'center' }}>

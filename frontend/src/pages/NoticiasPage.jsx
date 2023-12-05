@@ -140,9 +140,12 @@ const NoticiasPage = () => {
         <>
             <NavBar />
             {/* Botón para abrir el modal */}
-            {user.rol === 'admin' && (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>) ||
-                user.rol === 'bienestar' && (<button className='btnModal mt-20' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>)
+            <h4 className='mt-20 mb-10 text-5xl font-bold' style={{ textAlign: 'center', color: '#84df57' }}>Noticias</h4>
+            <div className='flex justify-around w-full'>
+            {user.rol === 'admin' && (<button className='btnModal' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>) ||
+                user.rol === 'bienestar' && (<button className='btnModal' onClick={() => setModalIsOpen(true)}>Nueva Noticia</button>)
             }
+            </div>
             {/* Modal para el formulario de crear noticias */}
             <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                 <h2 className='titleModal w-full text-4xl'>Nueva Noticia</h2>
@@ -161,17 +164,16 @@ const NoticiasPage = () => {
                     <button className='btnSubmit' type="submit">Crear Noticia</button>
                 </form>
 
-                <form onSubmit={handleEditarNoticia} className='flex flex-col'>
+                {/* <form onSubmit={handleEditarNoticia} className='flex flex-col'>
 
                     <input type="text" name="title" placeholder="Título" required value={noticiaAEditar ? noticiaAEditar.title : ''} onChange={handleInputChange} />
                     <textarea name="description" placeholder="Descripción" required value={noticiaAEditar ? noticiaAEditar.description : ''} onChange={handleInputChange} />
                     <button className='btnSubmit' type="submit">Guardar Cambios</button>
-                </form>
+                </form> */}
 
             </Modal>
 
             <section className='mt-20'>
-
                 <NoticesList noticias={noticias} handleEditarNoticia={handleEditarNoticia} />
             </section>
 

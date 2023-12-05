@@ -6,7 +6,6 @@ const NoticesList = ({ noticias, handleEliminarNoticia }) => {
     return (
 
         <div>
-            <h1 className="text-6xl font-bold mb-5">Noticias</h1>
             <ul className='containerNotices flex flex-col gap-8'>
                 {
                     noticias.map((noticia) =>

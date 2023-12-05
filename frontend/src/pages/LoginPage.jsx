@@ -12,6 +12,7 @@ function LoginPage() {
         errors
     } } = useForm()
     const { signin, isAuthenticate, errors: signinErrors } = useAuth()
+    const { user } = useAuth()
 
     const onSubmit = handleSubmit(data => {
         signin(data)
@@ -21,6 +22,7 @@ function LoginPage() {
         if (isAuthenticate) navigate('/home')
     }, [isAuthenticate])
 
+// console.log(user.rol === null ? '' : user.rol)
 
     return (
         <section style={{ display: 'flex', width: '100vw', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
