@@ -21,9 +21,17 @@ app.use(
 		credentials: true,
 	})
 );
+app.use(cookieParser());
+app.use(
+	session({
+		cookie: {
+			sameSite: 'none', // Asegúrate de usar 'none' aquí
+			secure: true, // Asegúrate de que 'secure' esté configurado correctamente según tu entorno (generalmente true para HTTPS)
+		},
+	})
+);
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cookieParser());
 
 // TODO >>>>>>>> Here all Routes
 import authRoutes from './routes/auth.routes.js';
