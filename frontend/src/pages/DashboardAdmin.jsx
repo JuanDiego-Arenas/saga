@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from '../components/navbar/NavBar';
 import DataTableComponent from '../components/dataTable/dataTable';
 import Chart from 'chart.js/auto';
+import Footer from '../components/footer/Footer';
 
 const ChartComponent = ({ asistencias }) => {
     const [dataReady, setDataReady] = useState(false);
@@ -129,7 +130,7 @@ const DashboardAdmin = () => {
                 <DataTableComponent data={dailyAttendances} />
             </section>
 
-        
+        <Footer/>
 
         </>
     );
