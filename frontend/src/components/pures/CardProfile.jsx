@@ -9,7 +9,7 @@ const CardProfile = ({ user }) => {
 
     return (
         <div className='cardProfile'>
-            <div style={ {display: 'flex', } }>
+            <div>
                 <img src={user.avatar == `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` ? user.avatar : `${import.meta.env.VITE_BASE_URL}/${user.avatar}`} width={'150px'} />
             <div>
             </div>
@@ -32,10 +32,12 @@ const CardProfile = ({ user }) => {
             }} renderer="svg" />
             </div>
             </div>
-            <footer className='inst'>
+            
             <h4>{ user.fichaNombre === undefined ? '' : `Nombre De Formacion: ${user.fichaNombre}` }</h4>
-            </footer>
+            
         </div>
+
+        
 
     );
 }

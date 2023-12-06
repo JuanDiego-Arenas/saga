@@ -4,6 +4,8 @@ import JsBarcode from 'jsbarcode';
 import '../styles/CardPageStyles.css';
 import NavBar from '../components/navbar/NavBar';
 import { AiFillFileAdd } from 'react-icons/ai';
+import Footer from '../components/footer/Footer';
+
 
 //* Logo SENA
 import logoSENA from '../../public/logoSena.svg'
@@ -119,6 +121,7 @@ const CardPage = () => {
                     ))}
                 </ul>
             </div>
+            <Footer/>
         </div>
     );
 };

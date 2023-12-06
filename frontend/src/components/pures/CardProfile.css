@@ -1,15 +1,15 @@
 .cardProfile{
-    gap: 40px;
-    display: flex;
+    gap: 10px;
+    display: block;
     flex-direction: column;
     justify-content: center;
-    height: 350px;
+    height: 685px;
     background-color: rgb(255, 255, 255);
     border: solid #39A900 2px ;
     padding: 1rem 0rem 0 0rem;
-    margin: 2rem;
+    margin: 2rem 0 0 20rem;
     font-family: system-ui;
-    width: 600px;
+    width: 420px;
     border-radius: 1.8rem;
     box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, .2);
 }
@@ -30,21 +30,12 @@
 }
 
 .barcode {
-    margin-top: 6rem;
     height: 5vh;
-    transform: rotate(-90deg);
-}
-
-.cardProfile footer {
-    height: 100px;
-    background-color: #39A900;
-    bottom: 0;
-    border-radius: 0 0 1.5rem 1.5rem ;
-    width: 100%;
+    margin: 20px;
 }
 
 .cardProfile footer h4 {
-    margin: 20px;
+    margin: 40px;
     color: white;
     font-weight: 600;
     text-align: center;

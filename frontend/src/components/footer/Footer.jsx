@@ -81,7 +81,7 @@ function Footer () {
                         <span className="sr-only">social link</span>
                     </a>
 
-                    <a href="https://www.facebook.com/diegofernando.polohome/" target="_blank" className="transition hover:text-heading-1 hover:scale-105">
+                    <a href="https://www.instagram.com/senacomunica/?hl=es-la" target="_blank" className="transition hover:text-heading-1 hover:scale-105">
                         <img src={instagram}/>
                         <span className="sr-only">social link</span>
                     </a>
@@ -89,23 +89,7 @@ function Footer () {
             </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 h-max">
-        <slot/>
-        <nav className="space-y-6">
-    <h2 className="capitalize font-semibold text-heading-1 text-xl">
-        Equipo
-    </h2>
-    <ul class="space-y-3 font-medium md:text-lg text-heading-3">
         
-            <li>
-                <a className="transition hover:text-primary" target="_blank">
-                    JuanferGG
-                </a>
-            </li>
-        
-    </ul>
-    </nav>
-        </div> 
 
     </div>
     <div className=" bg-gradient-to-tl from-box-bg py-2 relative">
