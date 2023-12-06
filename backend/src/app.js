@@ -1,11 +1,12 @@
 import express from 'express';
+import session from 'express-session';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { FRONTEND_URL } from './config.js';
+import { FRONTEND_URL, SECRET } from './config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,9 +22,20 @@ app.use(
 		credentials: true,
 	})
 );
+app.use(cookieParser());
+app.use(
+	session({
+		secret: SECRET, // Aquí proporcionas tu secreto de sesión
+		resave: false,
+		saveUninitialized: true,
+		cookie: {
+			sameSite: 'none',
+			secure: true, // Asegúrate de configurar esto correctamente en tu entorno
+		},
+	})
+);
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cookieParser());
 
 // TODO >>>>>>>> Here all Routes
 import authRoutes from './routes/auth.routes.js';
