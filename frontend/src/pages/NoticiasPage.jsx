@@ -6,8 +6,9 @@
     import { BsFillFileImageFill } from 'react-icons/bs'; // Importa FontAwesomeIcon desde react-icons/fa
     import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
     import NoticesList from '../components/notices/NoticesList';
-    import '../styles/NoticesPageStyles.css';
     import Footer from '../components/footer/Footer';
+
+    import '../styles/NoticesPageStyles.css';
 
     const customStyles = {
         content: {
@@ -210,7 +211,7 @@
 
 
 
-                <section className='mt-20'>
+                <section className='mt-20 flex flex-col items-center'>
                     <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia} handleEditarNoticia={handleEditarNoticia}/>
                 </section>
                 <Footer/>
