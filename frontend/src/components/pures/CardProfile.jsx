@@ -5,8 +5,6 @@ const CardProfile = ({ user }) => {
 
     // console.log(user)
 
-    const randomId = Math.floor(Math.random() * 1000).toString()
-
     return (
         <div className='cardProfile'>
             <div>
