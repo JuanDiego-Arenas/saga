@@ -1,5 +1,4 @@
 import express from 'express';
-import session from 'express-session'
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -22,17 +21,9 @@ app.use(
 		credentials: true,
 	})
 );
-app.use(cookieParser());
-app.use(
-	session({
-		cookie: {
-			sameSite: 'none', // Asegúrate de usar 'none' aquí
-			secure: true, // Asegúrate de que 'secure' esté configurado correctamente según tu entorno (generalmente true para HTTPS)
-		},
-	})
-);
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cookieParser());
 
 // TODO >>>>>>>> Here all Routes
 import authRoutes from './routes/auth.routes.js';
