@@ -148,7 +148,9 @@ form .btnSubmit:hover {
 .containerNoticeList {
     display: flex;
     flex-direction: column; /* Establece la dirección del flujo principal a columna */
-    max-width: 80vw; /* Limita el ancho del contenedor para evitar que se extienda demasiado */
+    max-width: 100vw; /* Limita el ancho del contenedor para evitar que se extienda demasiado */
+    justify-content: center;
+    align-items: center;
 }
 
 .containerNoticeList{
