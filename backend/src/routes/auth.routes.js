@@ -21,7 +21,7 @@ router.post('/login', validateSchema(loginSchema), login);
 router.post('/logout', [logout, accessRol]);
 router.get('/getUser', getUserCc);
 
-router.get('/verify', [verifyToken, accessRol]);
+router.get('/verify', accessRol);
 
 router.get('/profile', [authRequired, accessRol], profile);
 
