@@ -8,6 +8,8 @@ import axios from 'axios';
 import { notyf } from '../components/Notfy/Notfy';
 import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
 import '../styles/AttendsStyles.css';
+import Footer from '../components/footer/Footer';
+
 
 
 function AttendsPage() {
@@ -163,7 +165,7 @@ function AttendsPage() {
                     </div>
                 </form>
             </Modal>
-
+            <Footer/>
         </>
     );
 }

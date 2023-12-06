@@ -128,6 +128,9 @@ const DashboardAdmin = () => {
                 {/* Pasa el array plano al componente DataTableComponent */}
                 <DataTableComponent data={dailyAttendances} />
             </section>
+
+        
+
         </>
     );
 };

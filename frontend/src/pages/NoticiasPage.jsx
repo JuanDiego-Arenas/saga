@@ -7,6 +7,7 @@
     import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
     import NoticesList from '../components/notices/NoticesList';
     import '../styles/NoticesPageStyles.css';
+    import Footer from '../components/footer/Footer';
 
     const customStyles = {
         content: {
@@ -212,6 +213,7 @@
                 <section className='mt-20'>
                     <NoticesList noticias={noticias} handleEliminarNoticia={handleEliminarNoticia} handleEditarNoticia={handleEditarNoticia}/>
                 </section>
+                <Footer/>
                 
             </>
         );
