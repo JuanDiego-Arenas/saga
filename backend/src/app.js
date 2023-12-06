@@ -25,12 +25,12 @@ app.use(
 app.use(cookieParser());
 app.use(
 	session({
-		secret: SECRET, // Aquí proporcionas tu secreto de sesión
+		secret: SECRET,
 		resave: false,
 		saveUninitialized: true,
 		cookie: {
 			sameSite: 'none',
-			secure: true, // Asegúrate de configurar esto correctamente en tu entorno
+			secure: true,
 		},
 	})
 );

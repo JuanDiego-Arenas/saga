@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import JsBarcode from 'jsbarcode';
 import '../styles/CardPageStyles.css';
 import NavBar from '../components/navbar/NavBar';
