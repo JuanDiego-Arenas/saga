@@ -1,5 +1,4 @@
 import express from 'express';
-import session from 'express-session';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -16,24 +15,13 @@ const app = express();
 // TODO >>>>>>>> Use's
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(fileUpload());
+app.use(cookieParser());
 app.use(
 	cors({
 		origin: FRONTEND_URL,
 		credentials: true,
 	})
 );
-app.use(cookieParser());
-// app.use(
-// 	session({
-// 		secret: SECRET,
-// 		resave: false,
-// 		saveUninitialized: true,
-// 		cookie: {
-// 			sameSite: 'none',
-// 			secure: true,
-// 		},
-// 	})
-// );
 app.use(morgan('dev'));
 app.use(express.json());
 
