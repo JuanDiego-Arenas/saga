@@ -120,16 +120,16 @@ export const login = async (req, res) => {
 
 		const token = await createAccessToken({ id: userFound._id });
 
-		// res.cookie('token', token);
+		res.cookie('token', token);
 
 		//Send HTTP-only Cookie
-		res.cookie('token', token, {
-			path: '/',
-			httpOnly: true,
-			expires: new Date(Date.now() + 1000 * 10800), //expires 3 horas
-			sameSite: 'none',
-			secure: true,
-		});
+		// res.cookie('token', token, {
+		// 	path: '/',
+		// 	httpOnly: true,
+		// 	expires: new Date(Date.now() + 1000 * 10800), //expires 3 horas
+		// 	sameSite: 'none',
+		// 	secure: true,
+		// });
 
 		res.json({
 			id: userFound._id,
