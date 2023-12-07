@@ -120,13 +120,13 @@ export const login = async (req, res) => {
 
 		const token = await createAccessToken({ id: userFound._id });
 
-		// res.cookie('token', token)
+		// res.cookie('token', token);
 
 		//Send HTTP-only Cookie
 		res.cookie('token', token, {
 			path: '/',
-			httpOnly: true,
-			expires: new Date(Date.now() + 1000 * 86400), //expires 1 day
+			httpOnly: false,
+			expires: new Date(Date.now() + 1000 * 10800), //expires 3 horas
 			sameSite: 'none',
 			secure: true,
 		});
@@ -149,7 +149,11 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
 	res.cookie('token', '', {
-		expires: new Date(0),
+		path: '/',
+		httpOnly: true,
+		expires: new Date(0), //expires 1 day
+		sameSite: 'none',
+		secure: true,
 	});
 	return res.status(200).json({ msg: 'Logout' });
 };
@@ -172,23 +176,29 @@ export const verifyToken = async (req, res) => {
 
 	if (!token) return res.status(401).json({ msg: 'No Autorizado' });
 
-	jwt.verify(token, TOKEN_SECRET, async (err, user) => {
-		if (err) return res.status(401).json({ msg: 'Usuario no autorizado' });
+	try {
+		jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+			if (err) return res.status(401).json({ msg: 'Usuario no autorizado' });
 
-		const userFound = await User.findById(user.id);
-		if (!userFound) return res.status(404).json({ msg: 'Usuario no autorizado' });
+			const userFound = await User.findById(user.id);
+			if (!userFound) return res.status(404).json({ msg: 'Usuario no autorizado' });
 
-		return res.status(200).json({
-			id: userFound._id,
-			cc: userFound.cc,
-			username: userFound.username,
-			email: userFound.email,
-			rol: userFound.rol,
-			avatar: userFound.avatar,
-			fichaNumero: userFound.fichaNumero,
-			fichaNombre: userFound.fichaNombre,
+			return res.status(200).json({
+				id: userFound._id,
+				cc: userFound.cc,
+				username: userFound.username,
+				email: userFound.email,
+				rol: userFound.rol,
+				avatar: userFound.avatar,
+				fichaNumero: userFound.fichaNumero,
+				fichaNombre: userFound.fichaNombre,
+			});
 		});
-	});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ msg: 'error interno del servidor' })
+	}
+	
 };
 
 export const getUserCc = async (req, res) => {
