@@ -18,6 +18,13 @@ nav ul{
     display: flex;
     align-items: center;
     font-weight: 500;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 15px;
 }
 
 .imgAvatar{
@@ -25,10 +32,51 @@ nav ul{
     height: 50px;
     border-radius: 100%;
     box-shadow: 0 0 5px gray;
+    margin-left: 15px;
 }
 
 .navForm{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 4em;
+        left: 0;
+        width: 100%;
+        background-color: rgba(223, 252, 223, 0.815);
+        box-shadow: 0 0 7px rgb(162, 162, 162);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-right: 15px;
+    }
 }

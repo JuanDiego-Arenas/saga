@@ -56,7 +56,7 @@ function Footer () {
                     </p>
                 </div>
 
-                <div style={{display: 'flex', width: '100px', position: 'absolute', left: '85%'}}>
+                <div style={{display: 'flex', width: '100px', position: 'absolute', left: '75%'}}>
                   <ul>
                   <h1 style={{fontWeight: '600', fontSize: '25px'}}>Equipo</h1>
                     <li><a href='https://github.com/JuanferGG' target='_blank'>JuanferGG</a></li>

@@ -1,4 +1,5 @@
 .titleModal {
+    display: flex;
     color: #84df57;
     font-weight: bold;
     font-size: 1.5em;
@@ -35,6 +36,9 @@ form textarea {
 }
 
 .btnModal {
+    bottom: 40px;
+    right: 20px;
+    position: fixed;
     color: white;
     background: #84df57;
     padding: .2em 1em;
@@ -44,6 +48,7 @@ form textarea {
     border-radius: 7px;
     font-weight: bold;
     transition: all .7s;
+    z-index: 1;
 }
 
 .btnModal:hover {
