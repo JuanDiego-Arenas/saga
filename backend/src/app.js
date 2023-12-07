@@ -23,17 +23,17 @@ app.use(
 	})
 );
 app.use(cookieParser());
-app.use(
-	session({
-		secret: SECRET,
-		resave: false,
-		saveUninitialized: true,
-		cookie: {
-			sameSite: 'none',
-			secure: true,
-		},
-	})
-);
+// app.use(
+// 	session({
+// 		secret: SECRET,
+// 		resave: false,
+// 		saveUninitialized: true,
+// 		cookie: {
+// 			sameSite: 'none',
+// 			secure: true,
+// 		},
+// 	})
+// );
 app.use(morgan('dev'));
 app.use(express.json());
 
