@@ -9,7 +9,7 @@ import { authRequired } from '../middlewares/validateToken.js';
 const router = Router();
 
 router.post('/asistencia', attCtrl.createAtt);
-router.get('/getAsistencias', attCtrl.getAttendances);
+router.get('/getAsistencias', authRequired, attCtrl.getAttendances);
 router.post('/moveAttendancesToDailyCollection', moveAttendancesToDailyCollection);
 router.get('/getDailyAttendace', getDailyAttendances);
 router.get('/getDailyAttendaces/:date?', getDailyAttendance);

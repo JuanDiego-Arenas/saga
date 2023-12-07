@@ -31,37 +31,61 @@ const ProfilePage = () => {
     }, []);
 
     return (
-        <>
-            <NavBar/>
-            <ul>
-                    {arrayUser.map((item, index) => (
-                        <li key={index} className='Card mt-24'>
-                            <div style={{ display: 'flex', height: '4cm', justifyContent: 'space-around' }}>
-                                <img src={logoSENA} width={'60px'} style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '.4em' }}></img>
-                                <img src='https://saga-7nrf.onrender.com/avatars/userdefault.jpg' width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
-                                <h4 style={{ transform: 'rotate(270deg)', height: 'fit-content', position: 'relative', left: '1.5em', bottom: '-65%', textTransform: 'uppercase', fontWeight: 'bold' }}>{item.rol}</h4>
-                            </div>
+			<>
+				<NavBar />
+				<ul>
+					{arrayUser.map((item, index) => (
+						<li
+							key={index}
+							className='Card mt-24'
+						>
+							<div style={{ display: 'flex', height: '4cm', justifyContent: 'space-around' }}>
+								<img
+									src={logoSENA}
+									width={'60px'}
+									style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '.4em' }}
+								></img>
+								<img
+									src={`${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`}
+									width={'120px'}
+									style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}
+								></img>
+								<h4
+									style={{
+										transform: 'rotate(270deg)',
+										height: 'fit-content',
+										position: 'relative',
+										left: '1.5em',
+										bottom: '-65%',
+										textTransform: 'uppercase',
+										fontWeight: 'bold',
+									}}
+								>
+									{item.rol}
+								</h4>
+							</div>
 
-                            <div className='line'></div>
+							<div className='line'></div>
 
-                            <h3 style={{ color: '#39A900' }}>{item.username}</h3>
-                            <h3>{'CC' + ' ' + item.cc}</h3>
-                            <h3>RH O+</h3>
+							<h3 style={{ color: '#39A900' }}>{item.username}</h3>
+							<h3>{'CC' + ' ' + item.cc}</h3>
+							<h3>RH O+</h3>
 
-                            <svg id={`barcode-${index}`}></svg>
-                            <div>
-                                <h6 style={{ color: 'grey', fontWeight: 'bold' }}>Regional Huila</h6>
-                                <p style={{ color: '#39A900', fontSize: '.8em' }}>Centro Agro Empresarial y Desarrollo Pecuario Del Huila</p>
-                            </div>
-                            {/* Mostrar otros datos según tu estructura */}
-                        </li>
-                    ))}
-                </ul>
+							<svg id={`barcode-${index}`}></svg>
+							<div>
+								<h6 style={{ color: 'grey', fontWeight: 'bold' }}>Regional Huila</h6>
+								<p style={{ color: '#39A900', fontSize: '.8em' }}>
+									Centro Agro Empresarial y Desarrollo Pecuario Del Huila
+								</p>
+							</div>
+							{/* Mostrar otros datos según tu estructura */}
+						</li>
+					))}
+				</ul>
 
-            <Footer/>
-
-        </>
-    );
+				<Footer />
+			</>
+		);
 }
 
 export default ProfilePage;

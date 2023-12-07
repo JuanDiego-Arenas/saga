@@ -101,7 +101,7 @@ const CardPage = () => {
                         <li key={index} className='Card'>
                             <div style={{ display: 'flex', height: '4cm', justifyContent: 'space-around' }}>
                                 <img src={logoSENA} width={'60px'} style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '.4em' }}></img>
-                                <img src='https://saga-7nrf.onrender.com/avatars/userdefault.jpg' width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
+                                <img src={`${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`} width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
                                 <h4 style={{ transform: 'rotate(270deg)', height: 'fit-content', position: 'relative', left: '1em', bottom: '-65%', textTransform: 'uppercase', fontWeight: 'bold' }}>{item.rol}</h4>
                             </div>
 
