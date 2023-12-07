@@ -4,7 +4,7 @@ import DataTableComponent from '../components/dataTable/dataTable';
 import NavBar from '../components/navbar/NavBar';
 import Modal from 'react-modal';
 import { useAuth } from '../context/AuthContext';
-import axios from '../api/axios';
+import axios from 'axios';
 import { notyf } from '../components/Notfy/Notfy';
 import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa
 import '../styles/AttendsStyles.css';

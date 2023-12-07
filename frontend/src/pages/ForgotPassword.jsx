@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../api/axios';
+import axios from 'axios';
 import LogoSena from '../assets/svg/LogoSena.svg';
 import loading from '../assets/svg/loading.svg';
 import Swal from 'sweetalert2';

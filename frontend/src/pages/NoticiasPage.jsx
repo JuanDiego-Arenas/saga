@@ -1,7 +1,7 @@
     import React, { useState, useEffect } from 'react';
     import { useAuth } from '../context/AuthContext';
     import NavBar from '../components/navbar/NavBar';
-    import axios from '../api/axios';
+    import axios from 'axios';
     import Modal from 'react-modal';
     import { BsFillFileImageFill } from 'react-icons/bs'; // Importa FontAwesomeIcon desde react-icons/fa
     import { AiFillCloseCircle } from 'react-icons/ai'; // Importa FontAwesomeIcon desde react-icons/fa

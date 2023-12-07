@@ -3,12 +3,12 @@ import './CardProfile.css'
 
 const CardProfile = ({ user }) => {
 
-    // console.log(user)
+    console.log(user)
 
     return (
         <div className='cardProfile'>
             <div>
-                <img src={user.avatar == `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` ? user.avatar : `${import.meta.env.VITE_BASE_URL}/${user.avatar}`} width={'150px'} />
+                <img src={user.avatar == `avatars/userdefault.jpg` ? `${import.meta.env.VITE_BASE_URL}/${user.avatar}` : `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`} width={'150px'} />
             <div>
             </div>
             <div className='info'>

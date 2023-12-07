@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { attends } from '../api/auth';
-import axios from '../api/axios';
+import axios from 'axios';
 import NavBar from '../components/navbar/NavBar';
 import DataTableComponent from '../components/dataTable/dataTable';
 import Chart from 'chart.js/auto';

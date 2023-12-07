@@ -1,15 +1,15 @@
-import instance from './axios';
+import axios from './axios';
 
-export const RegisterRequest = user => instance.post(`/register`, user)
+export const RegisterRequest = user => axios.post(`/register`, user)
 
-export const loginRequest = user => instance.post(`/login`, user)
+export const loginRequest = user => axios.post(`/login`, user)
 
-export const verifyTokenrequest = () => instance.get(`/verify`)
+export const verifyTokenrequest = () => axios.get(`/verify`)
 
-export const logout = () => instance.post(`/logout`)
+export const logout = () => axios.post(`/logout`)
 
 export const attends = async () => {
-    return instance.get('/getAsistencias')
+    return axios.get('/getAsistencias')
         .then(response => response.data)
         .catch(error => {
             console.error('Error en la solicitud a la API:', error);
@@ -18,7 +18,7 @@ export const attends = async () => {
 };
 
 export const registerAttendance = attendanceData => {
-    return instance.post('/registerAttendance', attendanceData)
+    return axios.post('/registerAttendance', attendanceData)
         .then(response => response.data)
         .catch(error => {
             console.error('Error en la solicitud a la API:', error);

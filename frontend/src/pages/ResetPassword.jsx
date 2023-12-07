@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../api/axios';
+import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import LogoSena from '../assets/svg/LogoSena.svg';
 import loading from '../assets/svg/loading.svg';

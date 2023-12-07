@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../api/axios';
+import axios from 'axios';
 import JsBarcode from 'jsbarcode';
 import '../styles/CardPageStyles.css';
 import NavBar from '../components/navbar/NavBar';
@@ -101,15 +101,14 @@ const CardPage = () => {
                         <li key={index} className='Card'>
                             <div style={{ display: 'flex', height: '4cm', justifyContent: 'space-around' }}>
                                 <img src={logoSENA} width={'60px'} style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '.4em' }}></img>
-                                <img src={`${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`} width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
+                                <img src={item.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` : `${import.meta.env.VITE_BASE_URL}/${item.avatar}`} width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
                                 <h4 style={{ transform: 'rotate(270deg)', height: 'fit-content', position: 'relative', left: '1em', bottom: '-65%', textTransform: 'uppercase', fontWeight: 'bold' }}>{item.rol}</h4>
                             </div>
-
                             <div className='line'></div>
 
                             <h3 style={{ color: '#39A900' }}>{item.username}</h3>
                             <h3>{item.tipo + ' ' + item.cc}</h3>
-                            <h3>RH O+</h3>
+                            <h3>RH A+</h3>
 
                             <svg id={`barcode-${index}`}></svg>
                             <div>

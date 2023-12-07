@@ -12,8 +12,6 @@ const ProfilePage = () => {
 
     const { user } = useAuth()
 
-    const arrayUser = Array(user)
-
     console.log(arrayUser)
 
     useEffect(() => {
@@ -46,7 +44,11 @@ const ProfilePage = () => {
 									style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '.4em' }}
 								></img>
 								<img
-									src={`${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`}
+									src={
+										item.avatar == 'http://localhost:3000/avatars/userdefault.jpg'
+											? `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg`
+											: `${import.meta.env.VITE_BASE_URL}/${item.avatar}`
+									}
 									width={'120px'}
 									style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}
 								></img>
@@ -69,7 +71,7 @@ const ProfilePage = () => {
 
 							<h3 style={{ color: '#39A900' }}>{item.username}</h3>
 							<h3>{'CC' + ' ' + item.cc}</h3>
-							<h3>RH O+</h3>
+							<h3>RH A+</h3>
 
 							<svg id={`barcode-${index}`}></svg>
 							<div>
