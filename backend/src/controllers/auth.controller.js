@@ -196,9 +196,8 @@ export const verifyToken = async (req, res) => {
 		});
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({ msg: 'error interno del servidor' })
+		res.status(500).json({ msg: 'error interno del servidor' });
 	}
-	
 };
 
 export const getUserCc = async (req, res) => {

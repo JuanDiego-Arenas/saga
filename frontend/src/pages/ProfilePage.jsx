@@ -12,7 +12,7 @@ const ProfilePage = () => {
 
     const { user } = useAuth()
 
-    console.log(arrayUser)
+    const arrayUser = Array(user)
 
     useEffect(() => {
         // Generar códigos de barras después de que 'data' se actualice

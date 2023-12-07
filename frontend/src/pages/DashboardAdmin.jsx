@@ -115,7 +115,6 @@ const DashboardAdmin = () => {
         fetchData();
     }, []); // Dependencia de asistencias2
 
-    console.log(dailyAttendances)
 
     return (
         <>
