@@ -6,6 +6,10 @@ import '../stylesNav.css'
 import { CiLogout } from 'react-icons/ci';
 
 function Porteria({ user }) {
+    const toggleMenu = () => {
+        const navUl = document.querySelector('.navbar ul');
+        navUl.classList.toggle('active');
+    };
     return (
         <nav className='navbar'>
             <ul>
@@ -24,6 +28,9 @@ function Porteria({ user }) {
                 <form className='navForm'>
                     <button type='submit' onClick={logout} style={{ fontSize: '2em', color: '#39A900' }}><CiLogout /></button>
                 </form>
+            </div>
+            <div className="menu-btn" onClick={toggleMenu}>
+                &#9776;
             </div>
         </nav>
     )
