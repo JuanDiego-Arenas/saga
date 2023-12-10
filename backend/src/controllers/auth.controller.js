@@ -109,10 +109,10 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-	const { email, password } = req.body;
+	const { cc, password } = req.body;
 
 	try {
-		const userFound = await User.findOne({ email });
+		const userFound = await User.findOne({ cc });
 		if (!userFound) return res.status(404).json(['usuario o contraseña incorrectos']);
 
 		const isMatch = await bcrypt.compare(password, userFound.password);
