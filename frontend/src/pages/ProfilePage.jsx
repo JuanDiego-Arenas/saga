@@ -58,7 +58,7 @@ const ProfilePage = () => {
 										: `${import.meta.env.VITE_BASE_URL}/${item.avatar}`
 								}
 								width={'120px'}
-								style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}
+								style={{ margin: '0', position: 'relative', left: '1.5em', height: '105%' }}
 							></img>
 
 						</div>

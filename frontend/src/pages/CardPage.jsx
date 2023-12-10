@@ -102,7 +102,7 @@ const CardPage = () => {
                             <div style={{ display: 'flex', height: '4cm', justifyContent: 'space-around' }}>
                                 <h4 style={{ position: 'absolute', left: '1em', zIndex: '200', top: '9em', textTransform: 'capitalize', fontWeight: 'bold' }}>{item.rol}</h4>
                                 <img src={logoSENA} width={'70px'} style={{ position: 'relative', height: 'fit-content', top: '.2em', left: '-1em' }}></img>
-                                <img src={item.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` : `${import.meta.env.VITE_BASE_URL}/${item.avatar}`} width={'120px'} style={{ margin: '0', position: 'relative', left: '2.3em', height: '105%' }}></img>
+                                <img src={item.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` : `${import.meta.env.VITE_BASE_URL}/${item.avatar}`} width={'120px'} style={{ margin: '0', position: 'relative', left: '1.5em', height: '105%' }}></img>
                             </div>
                             <div className='line'></div>
 
