@@ -125,7 +125,7 @@ export const login = async (req, res) => {
 		//Send HTTP-only Cookie
 		res.cookie('token', token, {
 			path: '/',
-			httpOnly: true,
+			httpOnly: false,
 			expires: new Date(Date.now() + 1000 * 10800), //expires 3 horas
 			sameSite: 'none',
 			secure: true,
@@ -151,7 +151,7 @@ export const logout = (req, res) => {
 	// res.cookie('token', '');
 	res.cookie('token', '', {
 		path: '/',
-		httpOnly: true,
+		httpOnly: false,
 		expires: new Date(0), //expires 1 day
 		sameSite: 'none',
 		secure: true,

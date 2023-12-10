@@ -1,6 +1,7 @@
 import xml2js from 'xml2js';
 import path from 'path';
 import User from '../models/user.model.js'; 
+import bcrypt from 'bcryptjs';
 
 
 const parseXmlToJson = async (xmlString) => {
@@ -21,11 +22,11 @@ const parseXmlToJson = async (xmlString) => {
                             const nombre = cells[2].Data._;
                             const apellido = cells[3].Data._;
                             let telefono = cells[4].Data;
-                            const password = 'XXvRR6RFEv4qzGx4eaVtAObejgkn6WCQHpXXscu3DdooQqgbm0JPC'
+                            const password = await bcrypt.hash(cells[1].Data._, 10);
                             const email = cells[5].Data._;
                             const estado = cells[6].Data._;
                             const rol = 'aprendiz'
-                            const avatar = 'http://localhost:3000/avatars/userdefault.jpg'
+                            const avatar = 'avatars/userdefault.jpg'
                             
 
                             telefono = telefono ? telefono._ : 0;
@@ -60,11 +61,11 @@ const parseXmlToJson = async (xmlString) => {
                             const nombre = cells[2].Data._;
                             const apellido = cells[3].Data._;
                             let telefono = cells[4].Data._;
-                            const password = '$2a$10$XXvRR6RFEv4qzGx4eaVtAObejgkn6WCQHpXXscu3DdooQqgbm0JPC'
+                            const password = await bcrypt.hash(cells[1].Data._, 10);
                             const email = cells[5].Data._;
                             const estado = cells[6].Data._;
                             const rol = 'aprendiz'
-                            const avatar = 'http://localhost:3000/avatars/userdefault.jpg'
+                            const avatar = 'avatars/userdefault.jpg'
 
                         jsonData.push({
                             tipo,
