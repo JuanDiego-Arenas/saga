@@ -120,7 +120,15 @@ function AttendsPage() {
                 icon: false
             })
         } catch (error) {
-            console.log(error)
+            if (error.message === 'Request failed with status code 401') {
+                notyf.error({
+                    message: 'El reporte del día ya fue cargado',
+                    className: 'warning',
+                    duration: 3000,
+                    icon: false,
+                });
+            }
+            console.log(error.message)
         }
     }
 
