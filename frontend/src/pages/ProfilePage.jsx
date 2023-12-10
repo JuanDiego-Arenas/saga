@@ -66,17 +66,16 @@ const ProfilePage = () => {
 						<div className='line'></div>
 
 						<h3 style={{ color: '#39A900' }}>{item.username}</h3>
-						<h3>{'CC' + ' ' + item.cc}</h3>
-						<h3>RH A+</h3>
+						<h3>{item.tipo + ' ' + item.cc}    RH O+</h3>
 
 						<svg id={`barcode-${index}`}></svg>
 						<div>
 							<h6 style={{ color: 'grey', fontWeight: 'bold' }}>Regional Huila</h6>
-							<p style={{ color: '#39A900', fontSize: '.8em' }}>
+							<p style={{ color: '#39A900', fontSize: '.6em' }}>
 								Centro Agro Empresarial y Desarrollo Pecuario Del Huila
 							</p>
-							<p style={{ color: '#39A900', fontSize: '.8em' }}>{fichaNombre}</p>
-							<p style={{ color: '#39A900', fontSize: '.8em' }}>Grupo No.{fichaNumero}</p>
+							<p style={{ color: '#39A900', fontSize: '.6em' }}>{fichaNombre}</p>
+							<p style={{ color: '#39A900', fontSize: '.6em' }}>Grupo No.{fichaNumero}</p>
 						</div>
 						{/* Mostrar otros datos según tu estructura */}
 					</li>
