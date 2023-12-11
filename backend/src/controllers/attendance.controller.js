@@ -15,9 +15,9 @@ export const createAtt = async (req, res) => {
 			{ _id: 0, username: 1, fichaNumero: 1, tipo: 1, rol: 1 }
 		);
 
-		const now = new Date(
-			new Date().getTime() - new Date().getTimezoneOffset() * 60000
-		);
+
+		const now = DateTime.local();
+		now.setZone("America/Bogota");
 
 		if (!usuario) {
 			res.status(404).send({ message: 'Usuario no encontrado.' });
