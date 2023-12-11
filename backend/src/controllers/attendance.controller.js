@@ -56,18 +56,18 @@ export const getAttendances = async (req, res) => {
 			'tipo cedula user_name ficha entrada salida ultimaAccion'
 		).sort({ ultimaAccion: -1 });
 
-		const formattedAttendances = attendances.map(attendance => {
+		const formattedAttendances = attendances.map((attendance) => {
 			return {
 				...attendance._doc,
 				entrada: attendance.entrada
-					? DateTime.fromJSDate(attendance.entrada).toLocaleString(
-						DateTime.DATETIME_SHORT
-					)
+					? DateTime.fromJSDate(attendance.entrada)
+						.setZone('America/Bogota')
+						.toLocaleString(DateTime.DATETIME_SHORT)
 					: null,
 				salida: attendance.salida
-					? DateTime.fromJSDate(attendance.salida).toLocaleString(
-						DateTime.DATETIME_SHORT
-					)
+					? DateTime.fromJSDate(attendance.salida)
+						.setZone('America/Bogota')
+						.toLocaleString(DateTime.DATETIME_SHORT)
 					: null,
 			};
 		});
