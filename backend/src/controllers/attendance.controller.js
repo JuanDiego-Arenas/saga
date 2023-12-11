@@ -15,7 +15,9 @@ export const createAtt = async (req, res) => {
 			{ _id: 0, username: 1, fichaNumero: 1, tipo: 1, rol: 1 }
 		);
 
-		const now = new Date();
+		const now = new Date(
+			new Date().getTime() - new Date().getTimezoneOffset() * 60000
+		);
 
 		if (!usuario) {
 			res.status(404).send({ message: 'Usuario no encontrado.' });
@@ -59,13 +61,13 @@ export const getAttendances = async (req, res) => {
 				...attendance._doc,
 				entrada: attendance.entrada
 					? DateTime.fromJSDate(attendance.entrada).toLocaleString(
-							DateTime.DATETIME_SHORT
-					  )
+						DateTime.DATETIME_SHORT
+					)
 					: null,
 				salida: attendance.salida
 					? DateTime.fromJSDate(attendance.salida).toLocaleString(
-							DateTime.DATETIME_SHORT
-					  )
+						DateTime.DATETIME_SHORT
+					)
 					: null,
 			};
 		});
