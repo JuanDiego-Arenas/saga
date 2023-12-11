@@ -7,6 +7,11 @@ import '../stylesNav.css'
 import { CiLogout } from 'react-icons/ci';
 
 function Aprendiz( { user } ) {
+    const toggleMenu = () => {
+        const navUl = document.querySelector('.navbar ul');
+        navUl.classList.toggle('active');
+    };
+
     return (
         <nav className='navbar'>
             <ul>
@@ -19,15 +24,15 @@ function Aprendiz( { user } ) {
                 <li>
                     <Link to='/noticias'>Noticias</Link>
                 </li>
-                <li>
-                    <Link to='#'>Comunidad SENA</Link>
-                </li>
             </ul>
             <div className='flex h-full gap-3' style={{ alignItems: 'center' }}>
                 <Link to='/profile' ><img className='imgAvatar' src={user.avatar == 'http://localhost:3000/avatars/userdefault.jpg' ? `${import.meta.env.VITE_BASE_URL}/avatars/userdefault.jpg` : `${import.meta.env.VITE_BASE_URL}/${user.avatar}`}></img></Link>
                 <form className='navForm'>
                     <button type='submit' onClick={logout} style={{ fontSize: '2em', color: '#39A900' }}><CiLogout /></button>
                 </form>
+            </div>
+            <div className="menu-btn" onClick={toggleMenu}>
+                &#9776;
             </div>
         </nav>
     )

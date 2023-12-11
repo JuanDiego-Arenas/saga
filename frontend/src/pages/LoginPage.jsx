@@ -51,14 +51,14 @@ function LoginPage() {
                         onSubmit={onSubmit}
                     >
                         <img src={LogoSena} alt='Logo SENA' width={'160px'}></img>
-                        <h3>Email:</h3>
+                        <h3>Usuario:</h3>
                         <input
-                            type="email"
-                            {...register('email', { required: true })}
+                            type="text"
+                            {...register('cc', { required: true })}
                             className="inputForm"
-                            placeholder="Email"
+                            placeholder="Usuario"
                         />
-                        {errors.email && (<p className="text-red-500">Email es necesario</p>)}
+                        {errors.cc && (<p className="text-red-500">Usuario es necesario</p>)}
                         <h3>Contraseña:</h3>
                         <input
                             type="password"

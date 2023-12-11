@@ -17,14 +17,12 @@ export const registerSchema = z.object({
 })
 
 export const loginSchema = z.object({
-    email: z.string({
-        required_error: 'Correo es necesario'
-    }).email({
-        message: 'Correo Invalido'
+    cc: z.string({
+        required_error: 'El usuario es necesario'
     }),
     password: z.string({
         required_error: 'Contraseña es requerida'
     }).min(6, {
-        message: 'La contraseña minimo 8 Caracteres'
+        message: 'La contraseña mínimo 8 Caracteres'
     })
 })

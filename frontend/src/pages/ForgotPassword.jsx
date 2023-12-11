@@ -11,19 +11,19 @@ const ForgotPassword = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		const userEmail = {
-			email: e.target.email.value,
+		const userCc = {
+			cc: e.target.cc.value,
 		};
 
 		setIsLoading(true);
 		await axios
-			.post(`${import.meta.env.VITE_API_URL}/forgot_password`, userEmail)
+			.post(`${import.meta.env.VITE_API_URL}/forgot_password`, userCc)
 			.then(res => {
 				setIsLoading(false);
 				Swal.fire({
 					showConfirmButton: true,
 					icon: 'success',
-					text: 'Revise su email, se le ha enviado un enlace para crear una nueva contraseña',
+					text: `Revise su email, se le ha enviado un enlace para crear una nueva contraseña`,
 				});
 			})
 			.catch(err => {
@@ -74,19 +74,19 @@ const ForgotPassword = () => {
 							<h2>Correo electrónico:</h2>
 							{isLoading ? (
 								<input
-									type='email'
+									type='text'
 									className='inputForm'
-									name='email'
-									placeholder='Email'
+									name='cc'
+									placeholder='Usuario'
 									required
 									disabled='true'
 								/>
 							) : (
 								<input
-									type='email'
+									type='text'
 									className='inputForm'
-									name='email'
-									placeholder='Email'
+									name='cc'
+									placeholder='Usuario'
 									required
 								/>
 							)}

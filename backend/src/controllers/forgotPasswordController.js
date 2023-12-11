@@ -5,17 +5,17 @@ import nodemailer from 'nodemailer';
 import crypto from 'crypto';
 
 export const forgotPassword = async (req, res) => {
-	const { email } = req.body;
+	const { cc } = req.body;
 
-	if (email == '') {
-		return res.status(400).json({ msg: 'El email es requerido' });
+	if (cc == '') {
+		return res.status(400).json({ msg: 'La cedula es requerido' });
 	}
 
 	try {
-		const userFound = await User.findOne({ email });
+		const userFound = await User.findOne({ cc });
 
 		if (!userFound) {
-			return res.status(404).json({ msg: 'Email no encontrado' });
+			return res.status(404).json({ msg: 'Usuario no encontrado' });
 		}
 
 		// Elimina el token, si  este ya existe
