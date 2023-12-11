@@ -59,9 +59,9 @@ function Footer () {
                 <div style={{display: 'flex', width: '100px', position: 'absolute', left: '75%'}}>
                   <ul>
                   <h1 style={{fontWeight: '600', fontSize: '25px'}}>Equipo</h1>
-                    <li><a href='https://github.com/JuanferGG' target='_blank'>JuanferGG</a></li>
-                    <li><a href='https://github.com/JuanDiego-Arenas' target='_blank'>Juan Diego</a></li>
-                    <li><a href='https://github.com/XH0PE' target='_blank'>Diego Polo</a></li>
+                    <li><a href='https://github.com/JuanferGG' target='_blank'>@JuanferGG</a></li>
+                    <li><a href='https://github.com/JuanDiego-Arenas' target='_blank'>@Juan Diego</a></li>
+                    <li><a href='https://github.com/XH0PE' target='_blank'>@Diego Polo</a></li>
                   </ul>
                 </div>
 
@@ -96,7 +96,7 @@ function Footer () {
         <div className='mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5'>
             <div className="flex justify-between items-center gap-6 md:text-lg text-heading-3">
                 <div>
-                    <span id="year"></span> SAGA. Todos los derechos reservados
+                    <span id="year"></span> SAGA. Echo con ❤
                 </div>
                 <div>
                     Instructor lider <a href="https://github.com/hdtoledo" target="_blank" className="font-semibold">hdtoledo</a>
